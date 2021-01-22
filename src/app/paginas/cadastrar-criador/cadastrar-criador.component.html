@@ -81,7 +81,7 @@
                             <mat-form-field appearance="outline">
                                 <mat-label>CPF</mat-label>
                                 <input matInput placeholder="Ex: 000.000.000-00" formControlName="cpfFormControl"
-                                    maxlength="11" minlength="11" pattern="[0-9]{3}[0-9]{3}[0-9]{3}[0-9]{2}"
+                                    maxlength="15" minlength="11" pattern="[0-9]{3}[0-9]{3}[0-9]{3}[0-9]{2}"
                                     mask="000.000.000-00" required>
                                 <mat-hint>Preencher sem pontuação</mat-hint>
                                 <mat-error *ngIf="formCadastro.controls.cpfFormControl.errors?.required">Campo
@@ -165,7 +165,8 @@
                             <mat-form-field appearance="outline">
                                 <mat-label>Rua</mat-label>
                                 <input matInput placeholder="" formControlName="ruaFormControl" required>
-                                <mat-error></mat-error>
+                                <mat-error *ngIf="formCadastro.controls.ruaFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
                             </mat-form-field>
                         </p>
                     </div>
@@ -174,8 +175,9 @@
                         <p>
                             <mat-form-field appearance="outline">
                                 <mat-label>Número</mat-label>
-                                <input matInput placeholder="" formControlName="numeroFormControl">
-                                <mat-error></mat-error>
+                                <input matInput placeholder="" formControlName="numeroFormControl" required>
+                                <mat-error *ngIf="formCadastro.controls.numeroFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
                             </mat-form-field>
                         </p>
                     </div>
@@ -186,8 +188,9 @@
                         <p>
                             <mat-form-field appearance="outline">
                                 <mat-label>Bairro</mat-label>
-                                <input matInput placeholder="" formControlName="bairroFormControl">
-                                <mat-error></mat-error>
+                                <input matInput placeholder="" formControlName="bairroFormControl" required>
+                                <mat-error *ngIf="formCadastro.controls.bairroFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
                             </mat-form-field>
                         </p>
                     </div>
@@ -196,8 +199,9 @@
                         <p>
                             <mat-form-field appearance="outline">
                                 <mat-label>CEP</mat-label>
-                                <input matInput placeholder="" formControlName="cepFormControl">
-                                <mat-error></mat-error>
+                                <input matInput placeholder="" formControlName="cepFormControl" required>
+                                <mat-error *ngIf="formCadastro.controls.cepFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
                             </mat-form-field>
                         </p>
                     </div>
@@ -208,8 +212,9 @@
                         <p>
                             <mat-form-field appearance="outline">
                                 <mat-label>Cidade</mat-label>
-                                <input matInput placeholder="" formControlName="cidadeFormControl">
-                                <mat-error></mat-error>
+                                <input matInput placeholder="" formControlName="cidadeFormControl" required>
+                                <mat-error *ngIf="formCadastro.controls.cidadeFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
                             </mat-form-field>
                         </p>
                     </div>
@@ -239,27 +244,37 @@
                         <p>
                             <mat-form-field appearance="outline">
                                 <mat-label>Senha</mat-label>
-                                <input matInput [type]="hide ? 'password' : 'text'" formControlName="senhaFormControl">
+                                <input matInput [type]="hide ? 'password' : 'text'" formControlName="senhaFormControl"
+                                    required>
                                 <mat-error></mat-error>
                                 <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
                                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </button>
+                                <mat-error *ngIf="formCadastro.controls.senhaFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
                             </mat-form-field>
                         </p>
                     </div>
                     <div class="box4">
-                        <label>Confirmar senha</label>
+                        <div class="box3">
+                            <label>Confirmar senha</label>
+                            <mat-error
+                                *ngIf="formCadastro.errors?.identityRevealed && (formCadastro.touched || formCadastro.dirty)">
+                                As senhas informadas devem ser iguais</mat-error>
+                        </div>
                         <p>
                             <mat-form-field appearance="outline">
                                 <mat-label>Confirnar senha</mat-label>
                                 <input matInput [type]="hide ? 'password' : 'text'"
-                                    formControlName="confirmarSenhaFormControl">
-                                <mat-error></mat-error>
+                                    formControlName="confirmarSenhaFormControl" required>
                                 <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
                                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </button>
+                                <mat-error *ngIf="formCadastro.controls.confirmarSenhaFormControl.errors?.required">
+                                    Campo
+                                    obrigatório</mat-error>
                             </mat-form-field>
                         </p>
                     </div>
@@ -269,13 +284,17 @@
 
                 <div class="box2">
                     <section>
-                        <mat-checkbox class="example-margin" formControlName="aceiteTermosFormControl">Li e concordo com
+                        <mat-checkbox class="example-margin" formControlName="aceiteTermosFormControl" required>Li e
+                            concordo com
                             a Declaração
                             de
                             Responsabilidade.
                         </mat-checkbox>
+                        <mat-error *ngIf="formCadastro.controls.aceiteTermosFormControl.errors?.required">
+                            É necessário aceitar os termos para concluir o cadastro</mat-error>
                     </section>
-                    <button mat-raised-button class="botaoCadastrar" type="submit" >Concluir
+                    <button mat-raised-button class="botaoCadastrar" type="submit"
+                        [disabled]="formCadastro.status === 'INVALID'">Concluir
                         cadastro</button>
                 </div>
             </form>

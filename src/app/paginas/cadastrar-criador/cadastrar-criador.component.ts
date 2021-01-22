@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, ControlContainer, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Associacao } from './../../_models/associacao';
@@ -30,26 +30,41 @@ export class CadastrarCriadorComponent implements OnInit {
     private _snackBar: MatSnackBar) {
   }
 
+  
+  identityRevealedValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    const senha = control.get('senhaFormControl');
+    const confirmarSenha = control.get('confirmarSenhaFormControl');
+  
+    return senha.value !== confirmarSenha.value ? { identityRevealed: true } : null;
+  };
+  
+  // forbiddenNameValidator(nameRe: string): ValidatorFn {
+  //   return (control: AbstractControl): {[key: string]: any} | null => {  
+  //     const forbidden = nameRe;
+  //     return forbidden !== control.value ? {forbiddenName: {value: control.value}} : null;
+  //   };
+  // }
+
   formCadastro = new FormGroup({
-    nomeFormControl: new FormControl('André'),
-    sobrenomeFormControl: new FormControl('Felipe'),
-    celularFormControl: new FormControl('43999899918'),
-    emailFormControl: new FormControl('andre@gmail.com', [Validators.email]),
-    cpfFormControl: new FormControl('07013395943'),
-    rgFormControl: new FormControl('103341752'),
-    ctfFormControl: new FormControl('1234567890'),
-    ufClubeFormControl: new FormControl('RJ'),
+    nomeFormControl: new FormControl(''),
+    sobrenomeFormControl: new FormControl(''),
+    celularFormControl: new FormControl(''),
+    emailFormControl: new FormControl('', [Validators.email]),
+    cpfFormControl: new FormControl(''),
+    rgFormControl: new FormControl(''),
+    ctfFormControl: new FormControl(''),
+    ufClubeFormControl: new FormControl(''),
     clubeFormControl: new FormControl(''),
-    ruaFormControl: new FormControl('Rua'),
-    numeroFormControl: new FormControl('99'),
-    bairroFormControl: new FormControl('Bairro'),
-    cepFormControl: new FormControl('86455000'),
-    cidadeFormControl: new FormControl('Joaquim Távora'),
-    ufEnderecoFormControl: new FormControl('PR'),
-    senhaFormControl: new FormControl('admin'),
-    confirmarSenhaFormControl: new FormControl('admin'),
-    aceiteTermosFormControl: new FormControl(true)
-  });
+    ruaFormControl: new FormControl(''),
+    numeroFormControl: new FormControl(''),
+    bairroFormControl: new FormControl(''),
+    cepFormControl: new FormControl(''),
+    cidadeFormControl: new FormControl(''),
+    ufEnderecoFormControl: new FormControl(''),
+    senhaFormControl: new FormControl(''),
+    confirmarSenhaFormControl: new FormControl(''),
+    aceiteTermosFormControl: new FormControl()
+  }, { validators: this.identityRevealedValidator });
 
   ngOnInit(): void {
   }
@@ -100,15 +115,13 @@ export class CadastrarCriadorComponent implements OnInit {
     this.criador.email = emailFormControl.value;
 
     this.enderecoService.postEndereco(this.endereco).subscribe((res) => {
-      console.log('End')
-      console.log(res.id);
-      // this.enderecoService.endereco = res;
+
       this.criador.endereco = new Endereco();
+      this.enderecoService.endereco = res;
       this.criador.endereco.id = res.id;
 
       this.criadorService.postCriador(this.criador).subscribe((res) => {
-        console.log('Criador');
-        console.log(res.nome);
+
         this.criadorService.criador = res;
         this.goToPage('criador/comprovante-cadastro');
       });
@@ -124,7 +137,7 @@ export class CadastrarCriadorComponent implements OnInit {
     this._snackBar.open(message, action, {
       duration: 8000,
     });
-  }
+  } 
 
   isValid() {
     return this.formCadastro.invalid || this.formCadastro.controls.senhaFormControl.value !== this.formCadastro.controls.confirmarSenhaFormControl.value
