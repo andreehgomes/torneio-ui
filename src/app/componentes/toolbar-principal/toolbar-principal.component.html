@@ -1,0 +1,22 @@
+<div class="container">
+    <p>
+        <mat-toolbar>
+            <div class="div-container">
+                <div>
+                    <img src="../../assets/toolbar/logotoolbarescritamarrom.png" alt="Pardal Torneios" class="logoescrita"
+                        (click)="goToPage('home')" title="Página inicial">
+                    <img src="../../assets/toolbar/logotoolbarpardalmarrom.png" alt="Pardal Torneios" class="logopardal"
+                        (click)="goToPage('home')" title="Página inicial">
+                    <button mat-flat-button>Torneios</button>
+                    <button mat-flat-button>Etapas</button>
+                    <button mat-flat-button>Últimos Resultados</button>
+                </div>
+                <div>
+                    <button mat-flat-button (click)="goToPage('criador/cadastro')">Cadastre-se</button>
+                    <button mat-flat-button (click)="goToPage('login')">Entrar</button>
+                </div>
+            </div>
+        </mat-toolbar>
+    </p>
+
+</div>

@@ -1,0 +1,66 @@
+.container {
+  width: 100%;
+  height: max-content;
+  background: #e8eaeb;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2px;
+}
+
+.logopardal {
+  height: 66px;
+  padding: 5px;
+}
+
+.logoescrita {
+  width: 241px;
+}
+
+div {  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.div-container {
+    width: 100%;
+}
+
+p {
+  margin: 0 auto;
+  width: 100%;
+}
+
+mat-toolbar {
+  height: max-content;
+  height: 13vh;
+  background-color: #ffffff;
+  // background-color: #AED581;
+}
+
+mat-toolbar div {
+  padding-left: 15px;
+}
+
+button {
+  padding: 15px;
+  font-size: 16px;
+  height: 13vh;
+  background-color: #ffffff;
+  color: #795548;
+}
+
+button:hover {
+  border-bottom: 20px;
+  background-color: #795548;
+  color: #AED581;
+  height: 14vh;
+}
+
+img:hover {
+  cursor: pointer; 
+}

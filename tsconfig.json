@@ -16,5 +16,12 @@
     {
       "path": "./e2e/tsconfig.json"
     }
-]
+],
+
+  // "compilerOptions": {
+  //   "outDir": "./dist",
+  //   "rootDir": "./src",
+  //   "experimentalDecorators": true
+
+  // }
 }
