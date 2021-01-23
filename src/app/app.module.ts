@@ -13,6 +13,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { NgxMaskModule } from 'ngx-mask'
 
@@ -25,6 +26,7 @@ import { ToolbarPrincipalComponent } from './componentes/toolbar-principal/toolb
 import { CadastrarCriadorComponent } from './paginas/cadastrar-criador/cadastrar-criador.component';
 import { RodapeComponent } from './componentes/rodape/rodape.component';
 import { ComprovanteCadastroCriadorComponent } from './paginas/comprovante-cadastro-criador/comprovante-cadastro-criador.component';
+import { TermoDeResponsabilidadeComponent } from './modals/termo-de-responsabilidade/termo-de-responsabilidade.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { ComprovanteCadastroCriadorComponent } from './paginas/comprovante-cadas
     ToolbarPrincipalComponent,
     CadastrarCriadorComponent,
     RodapeComponent,
-    ComprovanteCadastroCriadorComponent
+    ComprovanteCadastroCriadorComponent,
+    TermoDeResponsabilidadeComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { ComprovanteCadastroCriadorComponent } from './paginas/comprovante-cadas
     MatCheckboxModule,
     NgxMaskModule.forRoot(),
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

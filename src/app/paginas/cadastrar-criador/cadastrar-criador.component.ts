@@ -8,6 +8,8 @@ import { Endereco } from './../../_models/endereco';
 import { AssociacaoService } from './../../_services/associacao.service';
 import { CriadorService } from './../../_services/criador.service';
 import { EnderecoService } from './../../_services/endereco.service';
+import { MatDialog } from '@angular/material/dialog';
+import { TermoDeResponsabilidadeComponent } from 'src/app/modals/termo-de-responsabilidade/termo-de-responsabilidade.component';
 
 
 @Component({
@@ -27,17 +29,30 @@ export class CadastrarCriadorComponent implements OnInit {
     private criadorService: CriadorService,
     private enderecoService: EnderecoService,
     private router: Router,
-    private _snackBar: MatSnackBar) {
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog) {
   }
 
-  
+
   identityRevealedValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
     const senha = control.get('senhaFormControl');
     const confirmarSenha = control.get('confirmarSenhaFormControl');
-  
-    return senha.value !== confirmarSenha.value ? { identityRevealed: true } : null;
+
+    if (senha.value !== confirmarSenha.value) {
+      confirmarSenha.setErrors({ identityRevealed: true });
+      return { identityRevealed: true };
+    }
+    confirmarSenha.setErrors(null);
+    return null;
   };
-  
+
+  // identityRevealedValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  //   const senha = control.get('senhaFormControl');
+  //   const confirmarSenha = control.get('confirmarSenhaFormControl');
+
+  //   return senha.value !== confirmarSenha.value ? { identityRevealed: true } : null;
+  // };
+
   // forbiddenNameValidator(nameRe: string): ValidatorFn {
   //   return (control: AbstractControl): {[key: string]: any} | null => {  
   //     const forbidden = nameRe;
@@ -104,7 +119,7 @@ export class CadastrarCriadorComponent implements OnInit {
     this.endereco.logradouro = ruaFormControl.value;
     this.endereco.numero = numeroFormControl.value;
     this.endereco.uf = ufEnderecoFormControl.value;
-    
+
     this.criador.nome = nomeFormControl.value;
     this.criador.sobrenome = sobrenomeFormControl.value;
     this.criador.senha = senhaFormControl.value;
@@ -137,9 +152,14 @@ export class CadastrarCriadorComponent implements OnInit {
     this._snackBar.open(message, action, {
       duration: 8000,
     });
-  } 
+  }
 
   isValid() {
     return this.formCadastro.invalid || this.formCadastro.controls.senhaFormControl.value !== this.formCadastro.controls.confirmarSenhaFormControl.value
   }
+
+  openDialog() {
+    this.dialog.open(TermoDeResponsabilidadeComponent);
+  }
+
 }

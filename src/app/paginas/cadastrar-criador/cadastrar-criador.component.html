@@ -259,9 +259,6 @@
                     <div class="box4">
                         <div class="box3">
                             <label>Confirmar senha</label>
-                            <mat-error
-                                *ngIf="formCadastro.errors?.identityRevealed && (formCadastro.touched || formCadastro.dirty)">
-                                As senhas informadas devem ser iguais</mat-error>
                         </div>
                         <p>
                             <mat-form-field appearance="outline">
@@ -275,6 +272,9 @@
                                 <mat-error *ngIf="formCadastro.controls.confirmarSenhaFormControl.errors?.required">
                                     Campo
                                     obrigatório</mat-error>
+                                <mat-error
+                                    *ngIf="formCadastro.controls.confirmarSenhaFormControl.errors?.identityRevealed">
+                                    As senhas informadas devem ser iguais</mat-error>
                             </mat-form-field>
                         </p>
                     </div>
@@ -283,10 +283,11 @@
                 <mat-divider></mat-divider>
 
                 <div class="box2">
+                    <a (click)="openDialog()"><strong>Ler termo</strong></a>
                     <section>
                         <mat-checkbox class="example-margin" formControlName="aceiteTermosFormControl" required>Li e
                             concordo com
-                            a Declaração
+                            a Termo
                             de
                             Responsabilidade.
                         </mat-checkbox>
