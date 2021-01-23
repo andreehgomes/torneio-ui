@@ -1,9 +1,10 @@
-.container {
-  width: 100%;
-  height: 20vh;
-  background: #e8eaeb;
+.footer {
+  position: absolute;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-content: center;
+  text-align: center;
+  min-height: 20vh;
+  flex-direction: column;
+  width: 100%;
 }
