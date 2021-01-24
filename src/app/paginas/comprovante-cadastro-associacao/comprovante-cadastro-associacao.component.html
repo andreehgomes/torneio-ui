@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="box">
+        <div class="box2">
+            <h3>Cadastro efetuado com sucesso!!!</h3>
+
+            <p>Código: <strong>{{this.associacao.id}}</strong></p>
+            <p>Nome: <strong>{{this.associacao.nome}}</strong></p>
+            <p>Sigla: <strong>{{this.associacao.sigla}}</strong></p>
+            <p>CNPJ: <strong>{{this.associacao.cnpj}}</strong></p>
+            <p>Cidade: <strong>{{this.associacao.cidade}}</strong></p>
+            <p>UF: <strong>{{this.associacao.uf}}</strong></p>
+            <p>Data e hora: <strong>{{this.associacao.dataCadastro}}</strong></p>
+
+            <div class="box3">
+                <button mat-raised-button (click)="goToPage('home')" class="botaoPaginaInicial">Página Inicial</button>
+            </div>
+        </div>
+    </div>
+</div>

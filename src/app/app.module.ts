@@ -28,6 +28,8 @@ import { CadastrarCriadorComponent } from './paginas/cadastrar-criador/cadastrar
 import { RodapeComponent } from './componentes/rodape/rodape.component';
 import { ComprovanteCadastroCriadorComponent } from './paginas/comprovante-cadastro-criador/comprovante-cadastro-criador.component';
 import { TermoDeResponsabilidadeComponent } from './modals/termo-de-responsabilidade/termo-de-responsabilidade.component';
+import { CadastrarAssociacaoComponent } from './paginas/cadastrar-associacao/cadastrar-associacao.component';
+import { ComprovanteCadastroAssociacaoComponent } from './paginas/comprovante-cadastro-associacao/comprovante-cadastro-associacao.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { TermoDeResponsabilidadeComponent } from './modals/termo-de-responsabili
     CadastrarCriadorComponent,
     RodapeComponent,
     ComprovanteCadastroCriadorComponent,
-    TermoDeResponsabilidadeComponent
+    TermoDeResponsabilidadeComponent,
+    CadastrarAssociacaoComponent,
+    ComprovanteCadastroAssociacaoComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './paginas/login/login.component';
 import { HomeComponent } from './paginas/home/home.component';
 import { CadastrarCriadorComponent } from './paginas/cadastrar-criador/cadastrar-criador.component';
-import { ComprovanteCadastroCriadorComponent } from './paginas/comprovante-cadastro-criador/comprovante-cadastro-criador.component'
+import { ComprovanteCadastroCriadorComponent } from './paginas/comprovante-cadastro-criador/comprovante-cadastro-criador.component';
+import { CadastrarAssociacaoComponent } from './paginas/cadastrar-associacao/cadastrar-associacao.component';
+import { ComprovanteCadastroAssociacaoComponent } from './paginas/comprovante-cadastro-associacao/comprovante-cadastro-associacao.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -11,6 +13,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'criador/cadastro', component: CadastrarCriadorComponent },
   { path: 'criador/comprovante-cadastro', component: ComprovanteCadastroCriadorComponent },
+  { path: 'associacao/cadastro', component: CadastrarAssociacaoComponent },
+  { path: 'associacao/comprovante-cadastro', component: ComprovanteCadastroAssociacaoComponent },
 ];
 
 @NgModule({
