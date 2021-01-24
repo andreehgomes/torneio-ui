@@ -1,5 +1,5 @@
 export class Associacao {
-    id: number;
+    id?: string;
     cnpj: string;
     sigla: string;
     nome: string;
