@@ -11,7 +11,7 @@
                         <p>
                             <mat-form-field appearance="outline">
                                 <mat-label>Nome</mat-label>
-                                <input matInput placeholder="" formControlName="nomeFormControl" minlength="2" required>
+                                <input matInput formControlName="nomeFormControl" minlength="2" required>
                                 <mat-error *ngIf="formCadastro.controls.nomeFormControl.errors?.minlength">Tem que
                                     ter no mínimo 2 caracteres</mat-error>
                                 <mat-error *ngIf="formCadastro.controls.nomeFormControl.errors?.required">Campo
@@ -24,8 +24,7 @@
                         <p>
                             <mat-form-field appearance="outline">
                                 <mat-label>Sigla</mat-label>
-                                <input matInput placeholder="" formControlName="siglaFormControl" minlength="2"
-                                    required>
+                                <input matInput formControlName="siglaFormControl" minlength="2" required>
                                 <mat-error *ngIf="formCadastro.controls.siglaFormControl.errors?.minlength">Tem que
                                     ter no mínimo 2 caracteres</mat-error>
                                 <mat-error *ngIf="formCadastro.controls.siglaFormControl.errors?.required">Campo
@@ -60,8 +59,8 @@
                         <p>
                             <mat-form-field appearance="outline">
                                 <mat-label>Cidade</mat-label>
-                                <input matInput placeholder="" formControlName="cidadeFormControl" minlength="3"
-                                    maxlength="100" required>
+                                <input matInput formControlName="cidadeFormControl" minlength="3" maxlength="100"
+                                    required>
                                 <mat-error *ngIf="formCadastro.controls.cidadeFormControl.errors?.required">Campo
                                     obrigatório</mat-error>
                                 <mat-error *ngIf="formCadastro.controls.cidadeFormControl.errors?.minlength">Tem que
@@ -92,10 +91,12 @@
 
                 <mat-divider></mat-divider>
 
-                <div class="box2">
+                <div class="box5">
                     <button mat-raised-button class="botaoCadastrar" type="submit"
                         [disabled]="formCadastro.invalid">Concluir
                         cadastro</button>
+                    <button mat-raised-button class="botaoCadastrar"
+                        (click)="goToPage('associacao/listar')">Cancelar</button>
                 </div>
             </form>
         </div>

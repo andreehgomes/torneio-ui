@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.torneioService.getTorneios().subscribe(res => {
-      console.log(res);
     });
   }
 

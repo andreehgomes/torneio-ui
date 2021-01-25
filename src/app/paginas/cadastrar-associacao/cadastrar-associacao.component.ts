@@ -34,21 +34,22 @@ export class CadastrarAssociacaoComponent implements OnInit {
 
   forbiddenNameValidator(nameRe: Associacao): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
-      console.log('forbiddenNameValidator', nameRe)
       const forbidden = nameRe;
       return forbidden.cnpj === control.value ? { forbiddenName: { value: control.value } } : null;
     };
   }
 
   formCadastro = new FormGroup({
-    cnpjFormControl: new FormControl('01332547000101'),
-    siglaFormControl: new FormControl('ABC'),
-    nomeFormControl: new FormControl('Pardal Torneios'),
-    cidadeFormControl: new FormControl('Joaquim Távora'),
-    ufFormControl: new FormControl('PR')
+    cnpjFormControl: new FormControl(this.associacaoService.associacao.cnpj ? this.associacaoService.associacao.cnpj : ''),
+    siglaFormControl: new FormControl(this.associacaoService.associacao.sigla ? this.associacaoService.associacao.sigla : ''),
+    nomeFormControl: new FormControl(this.associacaoService.associacao.nome ? this.associacaoService.associacao.nome : ''),
+    cidadeFormControl: new FormControl(this.associacaoService.associacao.cidade ? this.associacaoService.associacao.cidade : ''),
+    ufFormControl: new FormControl(this.associacaoService.associacao.uf ? this.associacaoService.associacao.uf : ''),
+    idFormControl: new FormControl(this.associacaoService.associacao.id ? this.associacaoService.associacao.id : '')
   });
 
   ngOnInit(): void {
+    
   }
 
   onSubmit() {
@@ -57,7 +58,8 @@ export class CadastrarAssociacaoComponent implements OnInit {
       nomeFormControl,
       siglaFormControl,
       cidadeFormControl,
-      ufFormControl
+      ufFormControl,
+      idFormControl
     } = this.formCadastro.controls
 
     this.associacao.cnpj = cnpjFormControl.value;
@@ -65,6 +67,7 @@ export class CadastrarAssociacaoComponent implements OnInit {
     this.associacao.sigla = siglaFormControl.value;
     this.associacao.cidade = cidadeFormControl.value;
     this.associacao.uf = ufFormControl.value;
+    this.associacao.id = idFormControl.value;
 
     if (this.consultaCnpj === this.associacao.cnpj) {
       this.openSnackBar('Este CNPJ já está sendo usando', 'OK');

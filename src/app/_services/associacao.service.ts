@@ -10,6 +10,7 @@ import { Observable, throwError } from 'rxjs';
 export class AssociacaoService {
 
   associacao: Associacao = new Associacao();
+  associacoes: Array<Associacao> = []
 
   constructor(private httpClient: HttpClient) { }
 
@@ -23,6 +24,14 @@ export class AssociacaoService {
 
   getAssociacaoPorCnpj(cnpj: string): Observable<any> {
     return this.httpClient.get<any>('http://localhost:8080/associacao/cnpj/' + cnpj);
+  }
+
+  listarAssociacao(): Observable<any>{
+    return this.httpClient.get<Associacao[]>('http://localhost:8080/associacao');
+  }
+
+  zerarAssociacao(){
+    this.associacao = new Associacao();
   }
 
 }

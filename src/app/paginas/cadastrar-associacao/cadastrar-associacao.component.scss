@@ -38,6 +38,17 @@
   .box4 {
       width: 49%;
   }
+
+  .box5 {
+    width: 100%;
+    height: max-content;
+    margin: 15px 0 15px 0;
+    background: #fff;
+    flex-direction: row;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
   
   h1 {
     color: #795548;
@@ -82,6 +93,7 @@
   
   .botaoCadastrar {
     background-color: #8BC34A;
+    margin-right: 15px;
   }
   
   form {

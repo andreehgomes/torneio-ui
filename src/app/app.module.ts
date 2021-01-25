@@ -13,8 +13,10 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatCardModule} from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { NgxMaskModule } from 'ngx-mask'
 
@@ -30,6 +32,8 @@ import { ComprovanteCadastroCriadorComponent } from './paginas/comprovante-cadas
 import { TermoDeResponsabilidadeComponent } from './modals/termo-de-responsabilidade/termo-de-responsabilidade.component';
 import { CadastrarAssociacaoComponent } from './paginas/cadastrar-associacao/cadastrar-associacao.component';
 import { ComprovanteCadastroAssociacaoComponent } from './paginas/comprovante-cadastro-associacao/comprovante-cadastro-associacao.component';
+import { ListarAssociacaoComponent } from './paginas/listar-associacao/listar-associacao.component';
+import { CpfcnpjPipe } from './_pipes/cpfcnpj.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,10 @@ import { ComprovanteCadastroAssociacaoComponent } from './paginas/comprovante-ca
     ComprovanteCadastroCriadorComponent,
     TermoDeResponsabilidadeComponent,
     CadastrarAssociacaoComponent,
-    ComprovanteCadastroAssociacaoComponent
+    ComprovanteCadastroAssociacaoComponent,
+    ListarAssociacaoComponent,
+    CpfcnpjPipe
+    
   ],
   imports: [
     BrowserModule,
@@ -63,6 +70,8 @@ import { ComprovanteCadastroAssociacaoComponent } from './paginas/comprovante-ca
     MatSnackBarModule,
     MatDialogModule,
     MatCardModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
