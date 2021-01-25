@@ -34,6 +34,9 @@ import { CadastrarAssociacaoComponent } from './paginas/cadastrar-associacao/cad
 import { ComprovanteCadastroAssociacaoComponent } from './paginas/comprovante-cadastro-associacao/comprovante-cadastro-associacao.component';
 import { ListarAssociacaoComponent } from './paginas/listar-associacao/listar-associacao.component';
 import { CpfcnpjPipe } from './_pipes/cpfcnpj.pipe';
+import { CadastrarEspecieComponent } from './paginas/cadastrar-especie/cadastrar-especie.component';
+import { ListarEspeciesComponent } from './paginas/listar-especies/listar-especies.component';
+import { ComprovanteCadastroEspecieComponent } from './paginas/comprovante-cadastro-especie/comprovante-cadastro-especie.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { CpfcnpjPipe } from './_pipes/cpfcnpj.pipe';
     CadastrarAssociacaoComponent,
     ComprovanteCadastroAssociacaoComponent,
     ListarAssociacaoComponent,
-    CpfcnpjPipe
+    CpfcnpjPipe,
+    CadastrarEspecieComponent,
+    ListarEspeciesComponent,
+    ComprovanteCadastroEspecieComponent
     
   ],
   imports: [
