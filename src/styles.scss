@@ -1,5 +1,138 @@
-@import 'app/_shared/styles/colors';
-/* You can add global styles to this file, and also import other style files */
+@import "app/_shared/styles/colors";
+@import "app/_shared/styles/component-colors";
+@import "~@angular/material/theming";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@include mat-core();
+
+$md-primary: (
+  50: #edebea,
+  100: #d2cdcb,
+  200: #b4aca9,
+  300: #968a87,
+  400: #80716d,
+  500: #695853,
+  600: #61504c,
+  700: #564742,
+  800: #4c3d39,
+  900: #3b2d29,
+  A100: #ff9e88,
+  A200: #ff7555,
+  A400: #ff4b22,
+  A700: #ff3708,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$md-secondary: (
+  50: #e4ede8,
+  100: #bbd2c6,
+  200: #8db4a1,
+  300: #5f967b,
+  400: #3d805e,
+  500: #1b6942,
+  600: #18613c,
+  700: #145633,
+  800: #104c2b,
+  900: #083b1d,
+  A100: #73ffa6,
+  A200: #40ff86,
+  A400: #0dff65,
+  A700: #00f259,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  ),
+);
+
+$torneio-front-primary: mat-palette($md-primary);
+$torneio-front-accent: mat-palette($md-secondary, 500, 400, 700);
+
+$torneio-front-warn: mat-palette($mat-red);
+
+$torneio-front-theme: mat-light-theme(
+  (
+    color: (
+      primary: $torneio-front-primary,
+      accent: $torneio-front-accent,
+      warn: $torneio-front-warn,
+    ),
+  )
+);
+
+@include angular-material-theme($torneio-front-theme);
+
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+//   background-color: $c-secondary-light;
+// }
+// .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+//   background-color: $c-secondary;
+// }
+// .mat-slide-toggle.mat-checked .mat-ripple-element {
+//   background-color: $c-secondary;
+//   // #bacfa1
+// }
+
+button.mat-flat-button {
+  background-color: $c-white;
+  color: $c-primary;
+  width: 15%;
+  margin-right: 15px;
+  &:hover {
+    background-color: $c-primary;
+    color: $c-white;
+  }
+}

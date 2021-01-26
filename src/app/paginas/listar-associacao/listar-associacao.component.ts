@@ -50,6 +50,6 @@ export class ListarAssociacaoComponent implements OnInit {
 
   editarAssociacao(associacao: Associacao){
     this.associacaoService.associacao = associacao;  
-    this.goToPage('associacao/cadastro');
+    this.goToPage('associacao/cadastrar');
   }
 }

@@ -7,13 +7,13 @@
                         (click)="goToPage('home')" title="Página inicial">
                     <img src="../../assets/toolbar/logotoolbarpardalmarrom.png" alt="Pardal Torneios" class="logopardal"
                         (click)="goToPage('home')" title="Página inicial">
-                    <button mat-flat-button>Torneios</button>
-                    <button mat-flat-button>Etapas</button>
-                    <button mat-flat-button>Últimos Resultados</button>
+                    <button class="nav-toolbar" mat-flat-button>Torneios</button>
+                    <button class="nav-toolbar" mat-flat-button>Etapas</button>
+                    <button class="nav-toolbar" mat-flat-button>Últimos Resultados</button>
                 </div>
                 <div>
-                    <button mat-flat-button (click)="goToPage('criador/cadastro')">Cadastre-se</button>
-                    <button mat-flat-button (click)="goToPage('login')">Entrar</button>
+                    <button class="nav-toolbar" mat-flat-button (click)="goToPage('criador/cadastrar')">Cadastre-se</button>
+                    <button class="nav-toolbar" mat-flat-button (click)="goToPage('login')">Entrar</button>
                 </div>
             </div>
         </mat-toolbar>

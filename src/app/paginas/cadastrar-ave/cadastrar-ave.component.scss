@@ -8,12 +8,12 @@
   
   .box {
     width: 95%;
+    min-height: 70vh;
     height: 90%;
     background: #fff;
     flex-direction: column;
     display: flex;
     align-items: center;
-    margin-top: 1px;
   }
   
   .box2 {
@@ -90,12 +90,7 @@
   
   section {
     margin-bottom: 5px;
-  }
-  
-  .botaoCadastrar {
-    background-color: #8BC34A;
-    margin-right: 15px;
-  }
+  }  
   
   form {
     width: 100%;
@@ -103,6 +98,10 @@
   
   a:hover {
     cursor: pointer;
+  }
+
+  .botaoFormulario {
+    margin-right: 15px;
   }
   
   

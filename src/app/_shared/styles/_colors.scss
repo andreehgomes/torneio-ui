@@ -1,10 +1,17 @@
-$c-primary: #795548;
-$c-secondary: #8bc34a;
+$c-primary: #695853;
+$c-primary-light: #706662;
+// $c-secondary: #8bc34a;
+$c-secondary: #1B6942;
+$c-secondary-light: #50886c;
 $c-background: #ebe9e8;
 $c-white: #fff;
 
 .c-primary {
   background-color: $c-primary;
+}
+
+.c-primary-light {
+  background-color: $c-primary-light;
 }
 
 .c-secondary {

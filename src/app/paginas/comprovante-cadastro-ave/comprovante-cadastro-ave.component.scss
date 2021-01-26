@@ -1,6 +1,8 @@
 .container {
     width: 100%;
+    min-height: 70vh;
     height: max-content;
+    background: #e8eaeb;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -8,12 +10,11 @@
   
   .box {
     width: 95%;
-    height: 90%;
+    min-height: 60vh;
     background: #fff;
     flex-direction: column;
     display: flex;
     align-items: center;
-    margin-top: 1px;
   }
   
   .box2 {
@@ -27,33 +28,22 @@
   }
   
   .box3 {
+    padding-top: 10px;
     width: 100%;
     height: max-content;
     background: #fff;
     flex-direction: row;
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
   }
   
   .box4 {
-      width: 49%;
-  }
-
-  .box5 {
-    width: 100%;
+    width: 40%;
     height: max-content;
-    margin: 15px 0 15px 0;
-    background: #fff;
-    flex-direction: row;
+    flex-direction: column;
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
-  }
-  
-  h1 {
-    color: #795548;
-    font-size: 36px;
   }
   
   p {
@@ -62,47 +52,18 @@
   }
   
   h3 {
-    color: #8BC34A;
+    color: #8bc34a;
     font-size: 30px;
     margin: 20px 0 10px;
     font-weight: 400;
   }
   
-  label {
-    display: inline-block;
-    max-width: 100%;
-    margin-bottom: 5px;
-    font-weight: 450;
-    font-size: 16px;
+  button {
+    background-color: #8bc34a;
+    width: 150px;
   }
   
-  p {
-    width: 100%;
+  .botaoPaginaInicial {
+    margin-left: 10px;
   }
-  
-  mat-form-field {
-    width: 100%;
-  }
-  
-  mat-divider {
-      width: 100%;
-  }
-  
-  section {
-    margin-bottom: 5px;
-  }
-  
-  .botaoCadastrar {
-    background-color: #8BC34A;
-    margin-right: 15px;
-  }
-  
-  form {
-    width: 100%;
-  }
-  
-  a:hover {
-    cursor: pointer;
-  }
-  
   

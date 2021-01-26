@@ -1,4 +1,5 @@
 import { Endereco } from './endereco'
+import { Ave } from './ave'
 
 export class Criador {
     cpf: string;
@@ -11,4 +12,5 @@ export class Criador {
     data_cadastro: string;
     senha: string;
     endereco?: Endereco;
+    ave?: Ave[];
 }
