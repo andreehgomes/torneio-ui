@@ -10,19 +10,25 @@ import { ListarAssociacaoComponent } from './paginas/listar-associacao/listar-as
 import { CadastrarEspecieComponent } from './paginas/cadastrar-especie/cadastrar-especie.component';
 import { ListarEspeciesComponent } from './paginas/listar-especies/listar-especies.component';
 import { ComprovanteCadastroEspecieComponent } from './paginas/comprovante-cadastro-especie/comprovante-cadastro-especie.component';
+import { ListarAvesComponent } from './paginas/listar-aves/listar-aves.component';
+import { CadastrarAveComponent } from './paginas/cadastrar-ave/cadastrar-ave.component';
+import { ComprovanteCadastroAveComponent } from './paginas/comprovante-cadastro-ave/comprovante-cadastro-ave.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'criador/cadastro', component: CadastrarCriadorComponent },
+  { path: 'criador/cadastrar', component: CadastrarCriadorComponent },
   { path: 'criador/comprovante-cadastro', component: ComprovanteCadastroCriadorComponent },
-  { path: 'associacao/cadastro', component: CadastrarAssociacaoComponent },
+  { path: 'associacao/cadastrar', component: CadastrarAssociacaoComponent },
   { path: 'associacao/comprovante-cadastro', component: ComprovanteCadastroAssociacaoComponent },
   { path: 'associacao/listar', component: ListarAssociacaoComponent },
-  { path: 'especie/cadastro', component: CadastrarEspecieComponent },
+  { path: 'especie/cadastrar', component: CadastrarEspecieComponent },
   { path: 'especie/listar', component: ListarEspeciesComponent },
   { path: 'especie/comprovante-cadastro', component: ComprovanteCadastroEspecieComponent },
+  { path: 'ave/listar', component: ListarAvesComponent },
+  { path: 'ave/cadastrar', component: CadastrarAveComponent },
+  { path: 'ave/comprovante-cadastro', component: ComprovanteCadastroAveComponent },
 ];
 
 @NgModule({

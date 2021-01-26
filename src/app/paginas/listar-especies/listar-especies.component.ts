@@ -55,6 +55,6 @@ export class ListarEspeciesComponent implements OnInit {
 
   editarEspecie(especie: Especie){
     this.especieService.especie = especie;
-    this.goToPage('especie/cadastro');
+    this.goToPage('especie/cadastrar');
   }
 }

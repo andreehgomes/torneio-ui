@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { NgxMaskModule } from 'ngx-mask'
 
@@ -37,6 +38,9 @@ import { CpfcnpjPipe } from './_pipes/cpfcnpj.pipe';
 import { CadastrarEspecieComponent } from './paginas/cadastrar-especie/cadastrar-especie.component';
 import { ListarEspeciesComponent } from './paginas/listar-especies/listar-especies.component';
 import { ComprovanteCadastroEspecieComponent } from './paginas/comprovante-cadastro-especie/comprovante-cadastro-especie.component';
+import { ListarAvesComponent } from './paginas/listar-aves/listar-aves.component';
+import { CadastrarAveComponent } from './paginas/cadastrar-ave/cadastrar-ave.component';
+import { ComprovanteCadastroAveComponent } from './paginas/comprovante-cadastro-ave/comprovante-cadastro-ave.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,10 @@ import { ComprovanteCadastroEspecieComponent } from './paginas/comprovante-cadas
     CpfcnpjPipe,
     CadastrarEspecieComponent,
     ListarEspeciesComponent,
-    ComprovanteCadastroEspecieComponent
+    ComprovanteCadastroEspecieComponent,
+    ListarAvesComponent,
+    CadastrarAveComponent,
+    ComprovanteCadastroAveComponent
     
   ],
   imports: [
@@ -77,7 +84,8 @@ import { ComprovanteCadastroEspecieComponent } from './paginas/comprovante-cadas
     MatDialogModule,
     MatCardModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

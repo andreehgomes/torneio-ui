@@ -72,17 +72,3 @@ th.mat-header-cell:last-child {
 mat-icon {
   color: $c-secondary;
 }
-
-button.mat-raised-button {
-  background-color: $c-white;
-  color: $c-primary;
-  width: 150px;
-  margin-right: 15px;
-}
-
-button.mat-raised-button:hover{
-  background-color: $c-primary;
-  color: $c-secondary;
-  width: 150px;
-  margin-right: 15px;
-}

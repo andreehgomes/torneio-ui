@@ -1,7 +1,8 @@
+@import "../../_shared/styles/colors";
 .container {
   width: 100%;
   height: max-content;
-  background: #e8eaeb;
+  background: $c-white;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -18,7 +19,7 @@
   width: 241px;
 }
 
-div {  
+div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -27,7 +28,7 @@ div {
 }
 
 .div-container {
-    width: 100%;
+  width: 100%;
 }
 
 p {
@@ -38,7 +39,7 @@ p {
 mat-toolbar {
   height: max-content;
   height: 13vh;
-  background-color: #ffffff;
+  background-color: $c-white;
   // background-color: #AED581;
 }
 
@@ -46,21 +47,21 @@ mat-toolbar div {
   padding-left: 15px;
 }
 
-button {
+.nav-toolbar {
   padding: 15px;
   font-size: 16px;
   height: 13vh;
-  background-color: #ffffff;
-  color: #795548;
-}
-
-button:hover {
-  border-bottom: 20px;
-  background-color: #795548;
-  color: #AED581;
-  height: 14vh;
+  background-color: $c-white;
+  color: $c-primary;
+  width: max-content;
+  &:hover {
+    border-bottom: 20px;
+    background-color: $c-primary;
+    color: $c-white;
+    height: 14vh;
+  }
 }
 
 img:hover {
-  cursor: pointer; 
+  cursor: pointer;
 }
