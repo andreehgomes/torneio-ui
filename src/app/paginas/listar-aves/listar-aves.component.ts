@@ -59,7 +59,6 @@ export class ListarAvesComponent implements OnInit {
   }
 
   editarAve(ave: Ave) {
-    console.log(ave);
     this.aveService.ave = ave;
     this.goToPage('ave/cadastrar');
   }
