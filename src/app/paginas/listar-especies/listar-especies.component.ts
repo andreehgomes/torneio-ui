@@ -13,27 +13,24 @@ import { MatSort } from '@angular/material/sort';
 })
 export class ListarEspeciesComponent implements OnInit {
 
-  especie: Especie;
+  especie: Especie = new Especie();
   listaEspecie: Array<Especie> = [];
-  especieDataSource = [
-    {id: 1, nome: 'Pardal', nomecientifico: 'Pardals'},
-    {id: 2,nome: 'Canário terra', nomecientifico: 'Canárius'},
-    {id: 3,nome: 'Trinca Ferro', nomecientifico: 'Trinquis Ferrius'},
-    {id: 4,nome: 'Azulão', nomecientifico: 'Azulãozius'},
-    {id: 5,nome: 'Curió', nomecientifico: 'Curiózis'},    
-  ];
-  displayedColumns: string[] = ['id', 'nome', 'nomeCientifico', 'acoes'];
+  displayedColumns: string[] = ['codigo', 'nome', 'nomeCientifico', 'acoes'];
   dataSource: MatTableDataSource<Especie>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private router: Router, private especieService: EspecieService) { 
+  constructor(private router: Router, private especieService: EspecieService) {
     this.loadData();
   }
 
   private loadData(): void {
-    this.dataSource = new MatTableDataSource(this.especieDataSource);
+    this.especieService.listarEspecies().subscribe((res) => {
+      this.listaEspecie = res;
+      this.dataSource = new MatTableDataSource(this.listaEspecie);
+      this.dataSource.paginator = this.paginator;
+    })
   }
 
   ngOnInit(): void {
@@ -53,7 +50,7 @@ export class ListarEspeciesComponent implements OnInit {
     this.router.navigate([`${pageName}`]);
   }
 
-  editarEspecie(especie: Especie){
+  editarEspecie(especie: Especie) {
     this.especieService.especie = especie;
     this.goToPage('especie/cadastrar');
   }

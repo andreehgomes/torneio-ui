@@ -16,9 +16,9 @@
             <table mat-table [dataSource]="dataSource" matSort>
 
                 <!-- ID Column -->
-                <ng-container matColumnDef="id">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-                    <td mat-cell *matCellDef="let especie"> {{especie.id}} </td>
+                <ng-container matColumnDef="codigo">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Código </th>
+                    <td mat-cell *matCellDef="let especie"> {{especie.codigo}} </td>
                 </ng-container>
 
                 <!-- Progress Column -->
@@ -30,7 +30,7 @@
                 <!-- Name Column -->
                 <ng-container matColumnDef="nomeCientifico">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome Científico </th>
-                    <td mat-cell *matCellDef="let especie"> {{especie.nomecientifico}} </td>
+                    <td mat-cell *matCellDef="let especie"> {{especie.nomeCientifico}} </td>
                 </ng-container>                
 
                 <ng-container matColumnDef="acoes">

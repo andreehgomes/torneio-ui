@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router'
+import { empty } from 'rxjs';
 import { Especie } from '../../_models/especie';
 import { EspecieService } from '../../_services/especie.service'
 
@@ -14,9 +15,9 @@ export class CadastrarEspecieComponent implements OnInit {
   especie: Especie = new Especie();
 
   formCadastro = new FormGroup({
-    idFormControl: new FormControl(this.especieService.especie.id ? this.especieService.especie.id : ''),
+    codigoFormControl: new FormControl(this.especieService.especie.codigo ? this.especieService.especie.codigo : null),
     nomeFormControl: new FormControl(this.especieService.especie.nome ? this.especieService.especie.nome : ''),
-    nomeCientificoFormControl: new FormControl(this.especieService.especie.nomecientifico ? this.especieService.especie.nomecientifico : '')
+    nomeCientificoFormControl: new FormControl(this.especieService.especie.nomeCientifico ? this.especieService.especie.nomeCientifico : '')
   })
 
   constructor(private router: Router, private especieService: EspecieService) { }
@@ -24,18 +25,30 @@ export class CadastrarEspecieComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(){
+  onSubmit() {
     const {
-      idFormControl,
+      codigoFormControl,
       nomeFormControl,
       nomeCientificoFormControl
     } = this.formCadastro.controls
 
-    this.especie.id = idFormControl.value;
+    this.especie.codigo = codigoFormControl.value;
     this.especie.nome = nomeFormControl.value;
-    this.especie.nomecientifico = nomeCientificoFormControl.value;
-    this.especieService.especie = this.especie;
-    this.goToPage('especie/comprovante-cadastro');
+    this.especie.nomeCientifico = nomeCientificoFormControl.value;
+
+    console.log(this.especie.codigo);
+
+    if (this.especie.codigo !== null) {
+      this.especieService.atualizarEspecie(this.especie).subscribe((res) => {
+        this.especieService.especie = res;
+        this.goToPage('especie/comprovante-cadastro');
+      })
+    } else {
+      this.especieService.incluirEspecie(this.especie).subscribe((res) => {
+        this.especieService.especie = res;
+        this.goToPage('especie/comprovante-cadastro');
+      });
+    }
   }
 
   goToPage(pageName: string) {

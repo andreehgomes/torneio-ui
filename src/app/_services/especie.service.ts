@@ -9,18 +9,20 @@ import { Observable, throwError } from 'rxjs';
 export class EspecieService {
 
   especie: Especie = new Especie();
-  listaEspecie: Array<Especie> = [
-    {id: 1, nome: 'Pardal', nomecientifico: 'Pardals'},
-    {id: 2,nome: 'Canário terra', nomecientifico: 'Canárius'},
-    {id: 3,nome: 'Trinca Ferro', nomecientifico: 'Trinquis Ferrius'},
-    {id: 4,nome: 'Azulão', nomecientifico: 'Azulãozius'},
-    {id: 5,nome: 'Curió', nomecientifico: 'Curiózis'},    
-  ];
+  listaEspecie: Array<Especie> = [];
 
   constructor(private http: HttpClient) { }
 
   listarEspecies(): Observable<any>{
-    return this.http.get<Especie[]>('http://localhost:8080/especies');
+    return this.http.get<Especie[]>('http://localhost:8080/api/especie');
+  }
+
+  incluirEspecie(especie: Especie): Observable<any>{
+    return this.http.post<Especie>('http://localhost:8080/api/especie', especie);
+  }
+
+  atualizarEspecie(especie: Especie): Observable<any>{
+    return this.http.put<Especie>('http://localhost:8080/api/especie/' + especie.codigo, especie);
   }
 
   zerarEspecie(){

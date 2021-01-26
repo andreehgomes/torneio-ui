@@ -1,5 +1,5 @@
 export class Especie {
-    id?: number;
+    codigo?: number;
     nome?: string;
-    nomecientifico?: string;
+    nomeCientifico?: string;
 }
