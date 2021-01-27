@@ -1,9 +1,11 @@
+import { Endereco } from "./endereco";
+import { Usuario } from "./usuario";
+
 export class Associacao {
-    id?: string;
+    codigo?: number;
     cnpj: string;
     sigla: string;
     nome: string;
-    cidade: string;
-    uf: string;
-    dataCadastro: string;
+    enderecoHttp: Endereco = new Endereco();
+    usuarioHttp: Usuario = new Usuario();
 }

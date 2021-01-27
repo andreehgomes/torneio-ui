@@ -19,15 +19,19 @@ export class AssociacaoService {
   }
 
   postAssociacao(associacao: Associacao) {
-    return this.httpClient.post<Associacao>('http://localhost:8080/associacao', associacao);
+    return this.httpClient.post<Associacao>('http://localhost:8080/api/associacao', associacao);
   }
 
   getAssociacaoPorCnpj(cnpj: string): Observable<any> {
-    return this.httpClient.get<any>('http://localhost:8080/associacao/cnpj/' + cnpj);
+    return this.httpClient.get<any>('http://localhost:8080/api/associacao/cnpj/' + cnpj);
   }
 
   listarAssociacao(): Observable<any>{
-    return this.httpClient.get<Associacao[]>('http://localhost:8080/associacao');
+    return this.httpClient.get<Associacao[]>('http://localhost:8080/api/associacao');
+  }
+
+  putAssociacao(associacao: Associacao): Observable<any> {
+    return this.httpClient.put<Associacao>('http://localhost:8080/api/associacao/' + associacao.codigo, associacao);
   }
 
   zerarAssociacao(){

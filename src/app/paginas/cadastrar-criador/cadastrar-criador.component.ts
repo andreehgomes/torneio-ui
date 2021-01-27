@@ -118,29 +118,20 @@ export class CadastrarCriadorComponent implements OnInit {
     this.endereco.cidade = cidadeFormControl.value;
     this.endereco.logradouro = ruaFormControl.value;
     this.endereco.numero = numeroFormControl.value;
-    this.endereco.uf = ufEnderecoFormControl.value;
+    this.endereco.estado = ufEnderecoFormControl.value;
 
     this.criador.nome = nomeFormControl.value;
     this.criador.sobrenome = sobrenomeFormControl.value;
-    this.criador.senha = senhaFormControl.value;
-    this.criador.ibama = ctfFormControl.value;
+    this.criador.usuarioHttp.senha = senhaFormControl.value;
+    this.criador.ctf = ctfFormControl.value;
     this.criador.rg = rgFormControl.value;
     this.criador.telefone = celularFormControl.value;
     this.criador.cpf = cpfFormControl.value;
-    this.criador.email = emailFormControl.value;
+    this.criador.usuarioHttp.email = emailFormControl.value;
 
-    this.enderecoService.postEndereco(this.endereco).subscribe((res) => {
-
-      this.criador.endereco = new Endereco();
-      this.enderecoService.endereco = res;
-      this.criador.endereco.id = res.id;
-
-      this.criadorService.postCriador(this.criador).subscribe((res) => {
-
-        this.criadorService.criador = res;
-        this.goToPage('criador/comprovante-cadastro');
-      });
-
+    this.criadorService.postCriador(this.criador).subscribe((res) => {
+      this.criadorService.criador = res;
+      this.goToPage('criador/comprovante-cadastro');
     });
   }
 
@@ -152,11 +143,7 @@ export class CadastrarCriadorComponent implements OnInit {
     this._snackBar.open(message, action, {
       duration: 8000,
     });
-  }
-
-  isValid() {
-    return this.formCadastro.invalid || this.formCadastro.controls.senhaFormControl.value !== this.formCadastro.controls.confirmarSenhaFormControl.value
-  }
+  } 
 
   openDialog() {
     this.dialog.open(TermoDeResponsabilidadeComponent);
