@@ -12,7 +12,11 @@
                     <button class="nav-toolbar" mat-flat-button>Últimos Resultados</button>
                 </div>
                 <div>
-                    <button class="nav-toolbar" mat-flat-button (click)="goToPage('criador/cadastrar')">Cadastre-se</button>
+                    <button class="nav-toolbar" mat-flat-button [matMenuTriggerFor]="menu">Cadastre-se</button>
+                    <mat-menu #menu="matMenu">
+                        <button class="nav-toolbar-menu" mat-menu-item (click)="goToPage('criador/cadastrar')">Para o Criador</button>
+                        <button class="nav-toolbar-menu" mat-menu-item (click)="goToPage('associacao/cadastrar')">Para a Associação</button>
+                      </mat-menu>
                     <button class="nav-toolbar" mat-flat-button (click)="goToPage('login')">Entrar</button>
                 </div>
             </div>

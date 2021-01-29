@@ -13,6 +13,6 @@ export class CriadorService {
   constructor(private http: HttpClient) { }
 
   postCriador(criador: Criador){
-    return this.http.post<any>('http://localhost:8080/criadores', criador);
+    return this.http.post<any>('http://localhost:8080/api/criador', criador);
   }
 }

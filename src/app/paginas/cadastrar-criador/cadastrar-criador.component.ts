@@ -10,6 +10,7 @@ import { CriadorService } from './../../_services/criador.service';
 import { EnderecoService } from './../../_services/endereco.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TermoDeResponsabilidadeComponent } from 'src/app/modals/termo-de-responsabilidade/termo-de-responsabilidade.component';
+import { Usuario } from 'src/app/_models/usuario';
 
 
 @Component({
@@ -61,31 +62,37 @@ export class CadastrarCriadorComponent implements OnInit {
   // }
 
   formCadastro = new FormGroup({
-    nomeFormControl: new FormControl(''),
-    sobrenomeFormControl: new FormControl(''),
-    celularFormControl: new FormControl(''),
-    emailFormControl: new FormControl('', [Validators.email]),
-    cpfFormControl: new FormControl(''),
-    rgFormControl: new FormControl(''),
-    ctfFormControl: new FormControl(''),
-    ufClubeFormControl: new FormControl(''),
-    clubeFormControl: new FormControl(''),
-    ruaFormControl: new FormControl(''),
-    numeroFormControl: new FormControl(''),
-    bairroFormControl: new FormControl(''),
-    cepFormControl: new FormControl(''),
-    cidadeFormControl: new FormControl(''),
-    ufEnderecoFormControl: new FormControl(''),
-    senhaFormControl: new FormControl(''),
-    confirmarSenhaFormControl: new FormControl(''),
-    aceiteTermosFormControl: new FormControl()
+    nomeFormControl: new FormControl(),
+    sobrenomeFormControl: new FormControl(),
+    celularFormControl: new FormControl(),
+    emailFormControl: new FormControl('',[Validators.email]),
+    cpfFormControl: new FormControl(),
+    rgFormControl: new FormControl(),
+    ctfFormControl: new FormControl(),
+    ufClubeFormControl: new FormControl(),
+    clubeFormControl: new FormControl(),
+    ruaFormControl: new FormControl(),
+    numeroFormControl: new FormControl(),
+    bairroFormControl: new FormControl(),
+    cepFormControl: new FormControl(),
+    cidadeFormControl: new FormControl(),
+    ufEnderecoFormControl: new FormControl(),
+    complementoFormControl: new FormControl(),
+    senhaFormControl: new FormControl(),
+    confirmarSenhaFormControl: new FormControl(),
+    aceiteTermosFormControl: new FormControl(),
+    tipoUsuarioFormControl: new FormControl('TPUS02'),
+    ativoFormControl:new FormControl(true)
   }, { validators: this.identityRevealedValidator });
 
   ngOnInit(): void {
   }
 
   buscaAssociacaoPorUf(event: any) {
-    this.associacaoService.getAssociacaoPorUf(event.value).subscribe((res) => {
+    // this.associacaoService.getAssociacaoPorUf(event.value).subscribe((res) => {
+    //   this.associacao = res;
+    // })
+    this.associacaoService.listarAssociacao().subscribe((res) => {
       this.associacao = res;
     })
   }
@@ -107,27 +114,32 @@ export class CadastrarCriadorComponent implements OnInit {
       cepFormControl,
       cidadeFormControl,
       ufEnderecoFormControl,
+      complementoFormControl,
       senhaFormControl,
       confirmarSenhaFormControl,
       aceiteTermosFormControl,
+      tipoUsuarioFormControl,
+      ativoFormControl
 
     } = this.formCadastro.controls
-
-    this.endereco.bairro = bairroFormControl.value;
-    this.endereco.cep = cepFormControl.value;
-    this.endereco.cidade = cidadeFormControl.value;
-    this.endereco.logradouro = ruaFormControl.value;
-    this.endereco.numero = numeroFormControl.value;
-    this.endereco.estado = ufEnderecoFormControl.value;
-
     this.criador.nome = nomeFormControl.value;
     this.criador.sobrenome = sobrenomeFormControl.value;
-    this.criador.usuarioHttp.senha = senhaFormControl.value;
     this.criador.ctf = ctfFormControl.value;
     this.criador.rg = rgFormControl.value;
     this.criador.telefone = celularFormControl.value;
     this.criador.cpf = cpfFormControl.value;
+    this.criador.ativo = ativoFormControl.value;
+    this.criador.enderecoHttp.bairro = bairroFormControl.value;
+    this.criador.enderecoHttp.cep = cepFormControl.value;
+    this.criador.enderecoHttp.cidade = cidadeFormControl.value;
+    this.criador.enderecoHttp.logradouro = ruaFormControl.value;
+    this.criador.enderecoHttp.numero = numeroFormControl.value;
+    this.criador.enderecoHttp.estado = ufEnderecoFormControl.value;
+    this.criador.enderecoHttp.complemento = complementoFormControl.value;
     this.criador.usuarioHttp.email = emailFormControl.value;
+    this.criador.usuarioHttp.senha = senhaFormControl.value;
+    this.criador.usuarioHttp.tipo = tipoUsuarioFormControl.value;
+    this.criador.associacaoHttp = clubeFormControl.value;
 
     this.criadorService.postCriador(this.criador).subscribe((res) => {
       this.criadorService.criador = res;
@@ -143,7 +155,7 @@ export class CadastrarCriadorComponent implements OnInit {
     this._snackBar.open(message, action, {
       duration: 8000,
     });
-  } 
+  }
 
   openDialog() {
     this.dialog.open(TermoDeResponsabilidadeComponent);

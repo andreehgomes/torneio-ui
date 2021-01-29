@@ -11,7 +11,7 @@ export class Criador {
     rg: string;
     ctf: string;
     ativo: boolean;
-    AssociacaoHttp: Associacao;
-    enderecoHttp: Endereco;
-    usuarioHttp: Usuario;
+    associacaoHttp: Associacao = new Associacao();
+    enderecoHttp: Endereco = new Endereco();
+    usuarioHttp: Usuario = new Usuario();
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import { Criador } from 'src/app/_models/criador';
+import { CriadorService } from 'src/app/_services/criador.service';
 
 @Component({
   selector: 'app-comprovante-cadastro-criador',
@@ -8,9 +10,12 @@ import { Router } from '@angular/router'
 })
 export class ComprovanteCadastroCriadorComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  criador: Criador = new Criador();
+  
+  constructor(private router: Router, private criadorService: CriadorService) { }
 
   ngOnInit(): void {
+    this.criador = this.criadorService.criador;
   }
 
   goToPage(pageName: string) {
