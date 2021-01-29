@@ -16,8 +16,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatRippleModule } from '@angular/material/core';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { NgxMaskModule } from 'ngx-mask'
 
@@ -85,7 +87,9 @@ import { ComprovanteCadastroAveComponent } from './paginas/comprovante-cadastro-
     MatCardModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatRippleModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

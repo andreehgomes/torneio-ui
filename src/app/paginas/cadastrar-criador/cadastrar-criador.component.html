@@ -232,6 +232,21 @@
                         </p>
                     </div>
                 </div>
+                <div class="box3">
+                    <div class="box4">
+                        <label>Complemento</label>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Complemento</mat-label>
+                                <input matInput placeholder="" formControlName="complementoFormControl" required>
+                                <mat-error *ngIf="formCadastro.controls.complementoFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
+                            </mat-form-field>
+                        </p>
+                    </div>
+                    <div class="box4">                        
+                    </div>
+                </div>
 
                 <mat-divider></mat-divider>
 
@@ -292,7 +307,7 @@
                         <mat-error *ngIf="formCadastro.controls.aceiteTermosFormControl.errors?.required">
                             É necessário aceitar os termos para concluir o cadastro</mat-error>
                     </section>
-                    <button mat-raised-button class="botaoCadastrar" type="submit"
+                    <button mat-raised-button color="accent" class="botaoFormulario" type="submit"
                         [disabled]="formCadastro.invalid">Concluir
                         cadastro</button>
                 </div>

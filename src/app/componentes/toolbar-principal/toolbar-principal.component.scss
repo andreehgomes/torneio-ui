@@ -62,6 +62,25 @@ mat-toolbar div {
   }
 }
 
+.nav-toolbar-menu {
+  padding: 15px;
+  font-size: 16px;
+  height: 13vh;
+  background-color: $c-white;
+  color: $c-primary;
+  width: 100%;
+  &:hover {
+    border-bottom: 20px;
+    background-color: $c-primary;
+    color: $c-white;
+    height: 14vh;
+  }
+}
+
 img:hover {
   cursor: pointer;
+}
+
+.botaoFormulario {
+  margin-right: 15px;
 }

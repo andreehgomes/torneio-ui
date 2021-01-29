@@ -2,10 +2,29 @@
     <div class="box">
         <div class="box2">
             <h3>Cadastro efetuado com sucesso!!!</h3>
+
+            <p>Código: <strong>{{this.criador.codigo}}</strong></p>
+            <p>Nome: <strong>{{this.criador.nome}} {{this.criador.sobrenome}}</strong></p>
+            <p>Telefone: <strong pattern="[0-9]{2}[0-9]{5}[0-9]{4}"
+                    mask="(00) 00000-0000">{{this.criador.telefone}}</strong></p>
+            <p>CPF: <strong pattern="[0-9]{3}[0-9]{3}[0-9]{3}[0-9]{2}"
+                    mask="000.000.000-00">{{this.criador.cpf}}</strong></p>
+            <p>CTF: <strong>{{this.criador.ctf}}</strong></p>
+            <p>RG: <strong>{{this.criador.rg}}</strong></p>
+            <p>E-mail: <strong>{{this.criador.usuarioHttp.email}}</strong></p>
+            <p>Associação: <strong>{{this.criador.associacaoHttp.sigla}} - {{this.criador.associacaoHttp.nome}}</strong>
+            </p>
+            <p>Logradouro: <strong>{{this.criador.enderecoHttp.logradouro}}</strong></p>
+            <p>Nº: <strong>{{this.criador.enderecoHttp.numero}}</strong></p>
+            <p>Complemento: <strong>{{this.criador.enderecoHttp.complemento}}</strong></p>
+            <p>Cidade: <strong>{{this.criador.enderecoHttp.cidade}}</strong></p>
+            <p>Estado: <strong>{{this.criador.enderecoHttp.estado}}</strong></p>
+
+
             <div class="box3">
-                <button mat-raised-button (click)="goToPage('login')">Entrar</button>
-                <button mat-raised-button (click)="goToPage('home')" class="botaoPaginaInicial">Página Inicial</button>
-            </div>         
+                <button mat-raised-button (click)="goToPage('home')" color="accent">Página Inicial</button>
+
+            </div>
         </div>
     </div>
 </div>
