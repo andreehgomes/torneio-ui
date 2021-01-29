@@ -1,16 +1,17 @@
 import { Endereco } from './endereco'
-import { Ave } from './ave'
+import { Associacao } from './associacao';
+import { Usuario } from './usuario'
 
 export class Criador {
-    cpf: string;
-    rg: string;
-    ibama: string;
+    codigo?: number;
     nome: string;
     sobrenome: string;
     telefone: string;
-    email: string;
-    data_cadastro: string;
-    senha: string;
-    endereco?: Endereco;
-    ave?: Ave[];
+    cpf: string;
+    rg: string;
+    ctf: string;
+    ativo: boolean;
+    AssociacaoHttp: Associacao;
+    enderecoHttp: Endereco;
+    usuarioHttp: Usuario;
 }

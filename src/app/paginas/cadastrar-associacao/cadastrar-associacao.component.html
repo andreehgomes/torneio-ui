@@ -5,6 +5,8 @@
 
             <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
 
+                <mat-divider></mat-divider>
+                <h3>Dados de identificação</h3>
                 <div class="box3">
                     <div class="box4">
                         <label>Nome</label>
@@ -55,21 +57,40 @@
                         </p>
                     </div>
                     <div class="box4">
+                        <label>E-mail</label>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>E-mail</mat-label>
+                                <input matInput formControlName="emailUsuarioFormControl" minlength="3" maxlength="100"
+                                    required>
+                                <mat-error *ngIf="formCadastro.controls.emailUsuarioFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
+                                <mat-error *ngIf="formCadastro.controls.emailUsuarioFormControl.errors?.email">Este
+                                    e-mail não
+                                    é válido</mat-error>
+                            </mat-form-field>
+                        </p>
+                    </div>
+
+                </div>
+
+                <mat-divider></mat-divider>
+                <h3>Endereço</h3>
+                <div class="box3">
+                    <div class="box4">
                         <label>Cidade</label>
                         <p>
                             <mat-form-field appearance="outline">
                                 <mat-label>Cidade</mat-label>
-                                <input matInput formControlName="cidadeFormControl" minlength="3" maxlength="100"
+                                <input matInput formControlName="cidadeFormControl" minlength="2" maxlength="100"
                                     required>
                                 <mat-error *ngIf="formCadastro.controls.cidadeFormControl.errors?.required">Campo
                                     obrigatório</mat-error>
                                 <mat-error *ngIf="formCadastro.controls.cidadeFormControl.errors?.minlength">Tem que
-                                    ter no mínimo 9 caracteres</mat-error>
+                                    ter no mínimo 2 caracteres</mat-error>
                             </mat-form-field>
                         </p>
                     </div>
-                </div>
-                <div class="box3">
                     <div class="box4">
                         <label>Selecione o estado do seu clube</label>
                         <p>
@@ -85,7 +106,128 @@
                             </mat-form-field>
                         </p>
                     </div>
+                </div>
+                <div class="box3">
                     <div class="box4">
+                        <label>Logradouro</label>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Logradouro</mat-label>
+                                <input matInput formControlName="logradouroFormControl" minlength="2" maxlength="100"
+                                    required>
+                                <mat-error *ngIf="formCadastro.controls.logradouroFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
+                                <mat-error *ngIf="formCadastro.controls.logradouroFormControl.errors?.minlength">Tem que
+                                    ter no mínimo 9 caracteres</mat-error>
+                            </mat-form-field>
+                        </p>
+                    </div>
+                    <div class="box4">
+                        <label>Número</label>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Número</mat-label>
+                                <input matInput formControlName="numeroFormControl" minlength="1" maxlength="100"
+                                    required>
+                                <mat-error *ngIf="formCadastro.controls.numeroFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
+                                <mat-error *ngIf="formCadastro.controls.numeroFormControl.errors?.minlength">Tem que
+                                    ter no mínimo 1 caracter</mat-error>
+                            </mat-form-field>
+                        </p>
+                    </div>
+                </div>
+                <div class="box3">
+                    <div class="box4">
+                        <label>Bairro</label>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Bairro</mat-label>
+                                <input matInput formControlName="bairroFormControl" minlength="2" maxlength="100"
+                                    required>
+                                <mat-error *ngIf="formCadastro.controls.bairroFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
+                                <mat-error *ngIf="formCadastro.controls.bairroFormControl.errors?.minlength">Tem que
+                                    ter no mínimo  caracteres</mat-error>
+                            </mat-form-field>
+                        </p>
+                    </div>
+                    <div class="box4">
+                        <label>Complemento</label>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Complemento</mat-label>
+                                <input matInput formControlName="complementoFormControl" minlength="1" maxlength="100"
+                                    required>
+                                <mat-error *ngIf="formCadastro.controls.complementoFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
+                                <mat-error *ngIf="formCadastro.controls.complementoFormControl.errors?.minlength">Tem que
+                                    ter no mínimo 1 caracter</mat-error>
+                            </mat-form-field>
+                        </p>
+                    </div>
+                </div>
+                <div class="box3">
+                    <div class="box4">
+                        <label>CEP</label>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>CEP</mat-label>
+                                <input matInput formControlName="cepFormControl" minlength="3" maxlength="100"
+                                    required>
+                                <mat-error *ngIf="formCadastro.controls.cepFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
+                                <mat-error *ngIf="formCadastro.controls.cepFormControl.errors?.minlength">Tem que
+                                    ter no mínimo 9 caracteres</mat-error>
+                            </mat-form-field>
+                        </p>
+                    </div>
+                    <div class="box4">                        
+                    </div>
+                </div>
+
+                <mat-divider></mat-divider>
+                <h3 *ngIf="formCadastro.controls.idFormControl.value === null" >Senhas</h3>
+                <div *ngIf="formCadastro.controls.idFormControl.value === null"  class="box3">
+                    <div class="box4">
+                        <label>Senha</label>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Senha</mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'"
+                                    formControlName="senhaUsuarioFormControl" required>
+                                <mat-error></mat-error>
+                                <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="formCadastro.controls.senhaUsuarioFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
+                            </mat-form-field>
+                        </p>
+                    </div>
+                    <div class="box4">
+                        <div class="box3">
+                            <label>Confirmar senha</label>
+                        </div>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Confirnar senha</mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'"
+                                    formControlName="confirmarSenhaUsuarioFormControl" required>
+                                <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error
+                                    *ngIf="formCadastro.controls.confirmarSenhaUsuarioFormControl.errors?.required">
+                                    Campo
+                                    obrigatório</mat-error>
+                                <mat-error
+                                    *ngIf="formCadastro.controls.confirmarSenhaUsuarioFormControl.errors?.identityRevealed">
+                                    As senhas informadas devem ser iguais</mat-error>
+                            </mat-form-field>
+                        </p>
                     </div>
                 </div>
 
