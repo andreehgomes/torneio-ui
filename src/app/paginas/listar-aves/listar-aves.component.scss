@@ -65,12 +65,10 @@ th {
   width: 25%;
 }
 
-th.mat-header-cell:last-child {
-  text-align: center;
-}
-
-td.mat-cell:last-child {
-  text-align: center;
+th.mat-header-cell {
+  &:nth-child(n + 6) {
+    text-align: center;
+  }
 }
 
 mat-icon {

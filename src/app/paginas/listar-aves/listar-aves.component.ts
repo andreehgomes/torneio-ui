@@ -46,7 +46,8 @@ export class ListarAvesComponent implements OnInit {
     'anilha',
     'medida',
     'ativo',
-    'acoes',
+    'editar',
+    'transferir',
   ];
   dataSource: MatTableDataSource<Ave>;
 

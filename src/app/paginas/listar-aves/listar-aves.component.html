@@ -43,15 +43,12 @@
         <ng-container matColumnDef="ativo">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
           <td mat-cell *matCellDef="let ave">
-            <section class="example-section">
-              <mat-slide-toggle class="example-margin" [checked]="ave.ativo">
-              </mat-slide-toggle>
-            </section>
+            <mat-slide-toggle [checked]="ave.ativo"> </mat-slide-toggle>
           </td>
         </ng-container>
 
-        <ng-container matColumnDef="acoes">
-          <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <ng-container matColumnDef="editar">
+          <th mat-header-cell *matHeaderCellDef>Editar</th>
           <td mat-cell *matCellDef="let ave">
             <button mat-button>
               <mat-icon
@@ -59,6 +56,20 @@
                 aria-label="Ícone de lápis"
                 (click)="editarAve(ave)"
                 >edit
+              </mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="transferir">
+          <th mat-header-cell *matHeaderCellDef>Transferir</th>
+          <td mat-cell *matCellDef="let ave">
+            <button mat-button>
+              <mat-icon
+                aria-hidden="false"
+                aria-label="Ícone de lápis"
+                (click)="editarAve(ave)"
+                >sync_alt
               </mat-icon>
             </button>
           </td>
