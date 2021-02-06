@@ -2,31 +2,31 @@
     <div class="box">
         <form #form="ngForm">
             <div class="form-row">
+                <form [formGroup]="formControl" (ngSubmit)="onSubmit()">
+                    <img src="../../assets/login/logologinmarrom.png" alt="Pardal Torneios">
 
-                <img src="../../assets/login/logologinmarrom.png" alt="Pardal Torneios">
+                    <p>
+                        <mat-form-field appearance="outline">
+                            <mat-label>E-mail</mat-label>
+                            <input matInput placeholder="" formControlName="emailFormControl">
+                            <mat-hint>Insira o CPF sem a pontuação</mat-hint>
+                        </mat-form-field>
+                    </p>
 
-                <p>
-                    <mat-form-field appearance="outline">
-                        <mat-label>CPF</mat-label>
-                        <input matInput placeholder="">
-                        <mat-hint>Insira o CPF sem a pontuação</mat-hint>
-                    </mat-form-field>
-                </p>
+                    <p>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Senha</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" formControlName="senhaFormControl">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </p>
 
-                <p>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Senha</mat-label>
-                        <input matInput [type]="hide ? 'password' : 'text'">
-                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                            [attr.aria-pressed]="hide">
-                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                        </button>
-                    </mat-form-field>
-                </p>
-
-                <button mat-raised-button color="accent">Entrar</button>
-                <button mat-button>Esqueci a senha</button>
-
+                    <button mat-raised-button color="accent">Entrar</button>
+                    <button mat-button>Esqueci a senha</button>
+                </form>
             </div>
         </form>
     </div>
