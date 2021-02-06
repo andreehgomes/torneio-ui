@@ -62,13 +62,25 @@ table {
 
 td,
 th {
-  width: 25%;
+  width: max-content;
 }
 
 th.mat-header-cell {
-  &:nth-child(n + 6) {
-    text-align: center;
+    &:nth-child(n + 6) {
+      text-align: center;
+      width: 10%;
+    }
   }
+  
+  td.mat-cell {
+    &:nth-child(n + 6) {
+      text-align: center;
+      width: 10%;
+    }
+  }
+  
+th.mat-header-cell:last-child {
+  text-align: center;
 }
 
 mat-icon {

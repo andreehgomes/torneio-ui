@@ -25,7 +25,15 @@ export class ListarAvesComponent implements OnInit {
     { id: 8, nome: "Castanha", especie: { id: 3, nome: "Azulão", nomeCientifico: null }, medidaAnilha: "1,5", numeroAnilha: "1234", ativo: true, dataCadastro: "2021-01-21T15:04:48.687+00:00" }
   ]
 
-  displayedColumns: string[] = ['nome', 'especie', 'anilha', 'medida', 'ativo', 'acoes'];
+  displayedColumns: string[] = [
+    'nome',
+    'especie',
+    'anilha',
+    'medida',
+    'ativo',
+    'editar',
+    'transferir',
+  ];
   dataSource: MatTableDataSource<Ave>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
