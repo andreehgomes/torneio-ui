@@ -43,6 +43,7 @@ import { ComprovanteCadastroEspecieComponent } from './paginas/comprovante-cadas
 import { ListarAvesComponent } from './paginas/listar-aves/listar-aves.component';
 import { CadastrarAveComponent } from './paginas/cadastrar-ave/cadastrar-ave.component';
 import { ComprovanteCadastroAveComponent } from './paginas/comprovante-cadastro-ave/comprovante-cadastro-ave.component';
+import { ListarCriadorComponent } from './paginas/listar-criador/listar-criador.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { ComprovanteCadastroAveComponent } from './paginas/comprovante-cadastro-
     ComprovanteCadastroEspecieComponent,
     ListarAvesComponent,
     CadastrarAveComponent,
-    ComprovanteCadastroAveComponent
+    ComprovanteCadastroAveComponent,
+    ListarCriadorComponent
     
   ],
   imports: [

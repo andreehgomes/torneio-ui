@@ -17,7 +17,7 @@ export class CriadorService {
     return this.http.post<any>('http://localhost:8080/api/criador', criador);
   }
 
-  listarCriador(): Observable<any>{
+  listarCriador(): Observable<Criador[]>{
     return this.http.get<Criador[]>('http://localhost:8080/api/criador');
   }
 

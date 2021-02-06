@@ -15,7 +15,7 @@ export class ListarCriadorComponent implements OnInit {
 
   criador: Array<Criador> = [];
   displayedColumns: string[] = ['nome', 'telefone', 'cpf', 'rg', 'ctf', 'ativoassociacao','detalhes'];
-  dataSource: MatTableDataSource<Criador[]>;
+  dataSource: MatTableDataSource<Criador>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
