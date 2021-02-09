@@ -23,7 +23,7 @@ export class AssociacaoService {
   }
 
   getAssociacaoPorCnpj(cnpj: string): Observable<any> {
-    return this.httpClient.get<any>('http://localhost:8080/api/associacao/cnpj/' + cnpj);
+    return this.httpClient.get<any>('http://localhost:8080/api/associacao/busca/' + cnpj);
   }
 
   listarAssociacao(): Observable<any>{

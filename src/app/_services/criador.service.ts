@@ -21,6 +21,10 @@ export class CriadorService {
     return this.http.get<Criador[]>('http://localhost:8080/api/criador');
   }
 
+  getCriadorPorCpf(cpf: string): Observable<Criador>{
+    return this.http.get<Criador>('http://localhost:8080/api/criador/busca/' + cpf)
+  }
+
   zerarCriador(){
     this.criador = new Criador();
   }
