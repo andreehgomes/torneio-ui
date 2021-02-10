@@ -7,6 +7,7 @@ import { Associacao } from './../../_models/associacao';
 import { UsuarioService } from '../../_services/usuario.service';
 import { CriadorService } from 'src/app/_services/criador.service';
 import { AssociacaoService } from 'src/app/_services/associacao.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
     private router: Router, 
     private usuarioService: UsuarioService,
     private criadorService: CriadorService,
-    private associacaoService: AssociacaoService) { }
+    private associacaoService: AssociacaoService,
+    private location: Location) { }
 
   formControlCriador = new FormGroup({
     cpfFormControl: new FormControl(),
@@ -48,9 +50,10 @@ export class LoginComponent implements OnInit {
 
     this.criadorService.getCriadorPorCpf(cpfFormControl.value).subscribe((res) => {
       this.criador = res;
-      console.log(this.criador);
+      window.sessionStorage.setItem('criador', JSON.stringify(this.criador));  
+      this.criadorService.reload = true;   
+      this.goToPage('');      
     })
-
   }
 
   onSubmitAssociacao() {
@@ -61,15 +64,15 @@ export class LoginComponent implements OnInit {
 
     this.associacaoService.getAssociacaoPorCnpj(cnpjFormControl.value).subscribe((res) => {
       this.associacao = res;
-      console.log(this.associacao);
+      window.sessionStorage.setItem('associacao', JSON.stringify(this.associacao));
+      this.associacaoService.reload = true;
+      this.goToPage('');
     })
 
   }
 
-  login(email: string) {
-    this.usuarioService.getUsuarioPorEmail(email).subscribe((res) => {
-      console.log(res);
-    })
+  goToPage(pageName: string) {
+    this.router.navigate([`${pageName}`]);
   }
 
 }

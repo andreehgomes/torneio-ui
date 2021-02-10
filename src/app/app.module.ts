@@ -44,6 +44,8 @@ import { ListarAvesComponent } from './paginas/listar-aves/listar-aves.component
 import { CadastrarAveComponent } from './paginas/cadastrar-ave/cadastrar-ave.component';
 import { ComprovanteCadastroAveComponent } from './paginas/comprovante-cadastro-ave/comprovante-cadastro-ave.component';
 import { ListarCriadorComponent } from './paginas/listar-criador/listar-criador.component';
+import { ToolbarCriadorComponent } from './componentes/toolbar-criador/toolbar-criador.component';
+import { ToolbarAssociacaoComponent } from './componentes/toolbar-associacao/toolbar-associacao.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { ListarCriadorComponent } from './paginas/listar-criador/listar-criador.
     ListarAvesComponent,
     CadastrarAveComponent,
     ComprovanteCadastroAveComponent,
-    ListarCriadorComponent
+    ListarCriadorComponent,
+    ToolbarCriadorComponent,
+    ToolbarAssociacaoComponent
     
   ],
   imports: [

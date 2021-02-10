@@ -9,6 +9,8 @@ import { Observable, throwError } from 'rxjs';
 })
 export class AssociacaoService {
 
+  reload = false;
+
   associacao: Associacao = new Associacao();
   associacoes: Array<Associacao> = []
 
