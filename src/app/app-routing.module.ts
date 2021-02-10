@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AppComponent } from './app.component'
 import { LoginComponent } from './paginas/login/login.component';
 import { HomeComponent } from './paginas/home/home.component';
 import { CadastrarCriadorComponent } from './paginas/cadastrar-criador/cadastrar-criador.component';
@@ -16,7 +17,7 @@ import { CadastrarAveComponent } from './paginas/cadastrar-ave/cadastrar-ave.com
 import { ComprovanteCadastroAveComponent } from './paginas/comprovante-cadastro-ave/comprovante-cadastro-ave.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: AppComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'criador/cadastrar', component: CadastrarCriadorComponent },

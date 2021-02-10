@@ -1,0 +1,34 @@
+@import "../../_shared/styles/colors";
+.container {
+  width: 100%;
+  height: max-content;
+  background: $c-white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2px;
+}
+
+div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.div-container {
+  width: 100%;
+}
+
+p {
+  margin: 0 auto;
+  width: 100%;
+}
+
+mat-toolbar {
+    width: 100%;
+  height: max-content;
+//   height: 13vh;
+//   background-color: $c-primary;
+  // background-color: #AED581;
+}

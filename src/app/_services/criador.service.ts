@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class CriadorService {
 
   criador: Criador = new Criador();
+  reload = false;
 
   constructor(private http: HttpClient) { }
 
