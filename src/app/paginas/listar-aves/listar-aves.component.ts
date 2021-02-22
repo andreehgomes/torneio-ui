@@ -85,4 +85,9 @@ export class ListarAvesComponent implements OnInit {
     this.aveService.ave = ave;
     this.goToPage('ave/cadastrar');
   }
+
+  transferirAve(ave: Ave) {
+    this.aveService.ave = ave;
+    this.goToPage('ave/transferir');
+  }
 }

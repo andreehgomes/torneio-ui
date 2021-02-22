@@ -1,142 +1,78 @@
 <div class="container c-background">
-  <div class="box">
-    <div class="box2">
-      <h1>Cadastro de Aves</h1>
+    <div class="box">
+        <div class="box2">
+            <h1>Cadastro de Aves</h1>
 
-      <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
-        <div class="box3">
-          <div class="box4">
-            <label>Nome</label>
-            <p>
-              <mat-form-field appearance="outline">
-                <mat-label>Nome</mat-label>
-                <input
-                  matInput
-                  formControlName="nomeFormControl"
-                  minlength="2"
-                  required
-                />
-                <mat-error
-                  *ngIf="
-                    formCadastro.controls.nomeFormControl.errors?.minlength
-                  "
-                  >Tem que ter no mínimo 2 caracteres</mat-error
-                >
-                <mat-error
-                  *ngIf="formCadastro.controls.nomeFormControl.errors?.required"
-                  >Campo obrigatório</mat-error
-                >
-              </mat-form-field>
-            </p>
-          </div>
-          <div class="box4">
-            <label>Espécie</label>
-            <p>
-              <mat-form-field appearance="outline">
-                <mat-label>Espécie</mat-label>
-                <input
-                  matInput
-                  formControlName="especieFormControl"
-                  minlength="2"
-                  required
-                />
-                <mat-error
-                  *ngIf="
-                    formCadastro.controls.especieFormControl.errors?.minlength
-                  "
-                  >Tem que ter no mínimo 2 caracteres</mat-error
-                >
-                <mat-error
-                  *ngIf="
-                    formCadastro.controls.especieFormControl.errors?.required
-                  "
-                  >Campo obrigatório</mat-error
-                >
-              </mat-form-field>
-            </p>
-          </div>
-        </div>
-        <div class="box3">
-          <div class="box4">
-            <label>Nº da Anilha</label>
-            <p>
-              <mat-form-field appearance="outline">
-                <mat-label>Nº da Anilha</mat-label>
-                <input
-                  matInput
-                  formControlName="numeroAnilhaFormControl"
-                  minlength="2"
-                  required
-                />
-                <mat-error
-                  *ngIf="
-                    formCadastro.controls.numeroAnilhaFormControl.errors
-                      ?.minlength
-                  "
-                  >Tem que ter no mínimo 2 caracteres</mat-error
-                >
-                <mat-error
-                  *ngIf="
-                    formCadastro.controls.numeroAnilhaFormControl.errors
-                      ?.required
-                  "
-                  >Campo obrigatório</mat-error
-                >
-              </mat-form-field>
-            </p>
-          </div>
-          <div class="box4">
-            <label>Medida da Anilha</label>
-            <p>
-              <mat-form-field appearance="outline">
-                <mat-label>Medida da Anilha</mat-label>
-                <input
-                  matInput
-                  formControlName="medidaAnilhaFormControl"
-                  minlength="2"
-                  required
-                />
-                <mat-error
-                  *ngIf="
-                    formCadastro.controls.medidaAnilhaFormControl.errors
-                      ?.minlength
-                  "
-                  >Tem que ter no mínimo 2 caracteres</mat-error
-                >
-                <mat-error
-                  *ngIf="
-                    formCadastro.controls.medidaAnilhaFormControl.errors
-                      ?.required
-                  "
-                  >Campo obrigatório</mat-error
-                >
-              </mat-form-field>
-            </p>
-          </div>
-        </div>
+            <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
 
-        <mat-divider></mat-divider>
+                <div class="box3">
+                    <div class="box4">
+                        <label>Nome</label>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nome</mat-label>
+                                <input matInput formControlName="nomeFormControl" minlength="2" required>
+                                <mat-error *ngIf="formCadastro.controls.nomeFormControl.errors?.minlength">Tem que
+                                    ter no mínimo 2 caracteres</mat-error>
+                                <mat-error *ngIf="formCadastro.controls.nomeFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
+                            </mat-form-field>
+                        </p>
+                    </div>
+                    <div class="box4">
+                        <label>Espécie</label>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Espécie</mat-label>
+                                <input matInput formControlName="especieFormControl" minlength="2" required>
+                                <mat-error *ngIf="formCadastro.controls.especieFormControl.errors?.minlength">Tem que
+                                    ter no mínimo 2 caracteres</mat-error>
+                                <mat-error *ngIf="formCadastro.controls.especieFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
+                            </mat-form-field>
+                        </p>
+                    </div>
+                </div>
+                <div class="box3">
+                    <div class="box4">
+                        <label>Nº da Anilha</label>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nº da Anilha</mat-label>
+                                <input matInput formControlName="numeroAnilhaFormControl" minlength="2" required>
+                                <mat-error *ngIf="formCadastro.controls.numeroAnilhaFormControl.errors?.minlength">Tem
+                                    que
+                                    ter no mínimo 2 caracteres</mat-error>
+                                <mat-error *ngIf="formCadastro.controls.numeroAnilhaFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
+                            </mat-form-field>
+                        </p>
+                    </div>
+                    <div class="box4">
+                        <label>Medida da Anilha</label>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Medida da Anilha</mat-label>
+                                <input matInput formControlName="medidaAnilhaFormControl" minlength="2" required>
+                                <mat-error *ngIf="formCadastro.controls.medidaAnilhaFormControl.errors?.minlength">Tem
+                                    que
+                                    ter no mínimo 2 caracteres</mat-error>
+                                <mat-error *ngIf="formCadastro.controls.medidaAnilhaFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
+                            </mat-form-field>
+                        </p>
+                    </div>
+                </div>
 
-        <div class="box5">
-          <button
-            mat-raised-button
-            color="accent"
-            class="botaoFormulario"
-            type="submit"
-            [disabled]="formCadastro.invalid"
-          >
-            Concluir cadastro
-          </button>
-          <button
-            mat-raised-button
-            color="accent"
-            class="botaoFormulario"
-            (click)="goToPage('ave/listar')"
-          >
-            Cancelar
-          </button>
+                <mat-divider></mat-divider>
+
+                <div class="box5">
+                    <button mat-raised-button color="accent" class="botaoFormulario" type="submit"
+                        [disabled]="formCadastro.invalid">Concluir
+                        cadastro</button>
+                    <button mat-raised-button color="accent" class="botaoFormulario" (click)="goToPage('ave/listar')">Cancelar</button>
+                </div>
+            </form>
         </div>
-      </form>
     </div>
-  </div>
 </div>

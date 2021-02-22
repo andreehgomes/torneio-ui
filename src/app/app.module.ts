@@ -20,8 +20,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatRippleModule } from '@angular/material/core';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatStepperModule } from '@angular/material/stepper';
 
-import { NgxMaskModule } from 'ngx-mask'
+import { NgxMaskModule } from 'ngx-mask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,6 +44,7 @@ import { ComprovanteCadastroEspecieComponent } from './paginas/comprovante-cadas
 import { ListarAvesComponent } from './paginas/listar-aves/listar-aves.component';
 import { CadastrarAveComponent } from './paginas/cadastrar-ave/cadastrar-ave.component';
 import { ComprovanteCadastroAveComponent } from './paginas/comprovante-cadastro-ave/comprovante-cadastro-ave.component';
+import { TransferirAveComponent } from './paginas/transferir-ave/transferir-ave.component';
 
 @NgModule({
   declarations: [
@@ -63,8 +65,8 @@ import { ComprovanteCadastroAveComponent } from './paginas/comprovante-cadastro-
     ComprovanteCadastroEspecieComponent,
     ListarAvesComponent,
     CadastrarAveComponent,
-    ComprovanteCadastroAveComponent
-    
+    ComprovanteCadastroAveComponent,
+    TransferirAveComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,9 +91,10 @@ import { ComprovanteCadastroAveComponent } from './paginas/comprovante-cadastro-
     MatPaginatorModule,
     MatSlideToggleModule,
     MatRippleModule,
-    MatMenuModule
+    MatMenuModule,
+    MatStepperModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

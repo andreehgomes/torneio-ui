@@ -1,18 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 
-import { Criador } from './../_models/criador'
+import { Criador } from './../_models/criador';
+import { Observable } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CriadorService {
+  public criador: Criador = new Criador();
 
-  criador: Criador = new Criador();
+  public constructor(private _http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  public getCriadorPorId(id: string): Observable<Criador> {
+    return this._http.get<Criador>(`http://localhost:8080/api/criador/${id}`);
+  }
 
-  postCriador(criador: Criador){
-    return this.http.post<any>('http://localhost:8080/api/criador', criador);
+  public postCriador(criador: Criador): Observable<Criador> {
+    return this._http.post<Criador>(
+      'http://localhost:8080/api/criador',
+      criador
+    );
   }
 }

@@ -1,20 +1,45 @@
 <div class="container">
-    <div class="box">
-        <div class="box2">
-            <h3>Cadastro efetuado com sucesso!!!</h3>
+  <div class="box">
+    <div class="box2">
+      <h3>Cadastro efetuado com sucesso!!!</h3>
 
-            <p>ID: <strong>{{this.ave.id}}</strong></p>
-            <p>Nome: <strong>{{this.ave.nome}}</strong></p>
-            <p>Espécie: <strong>{{this.ave.especie}}</strong></p>
-            <p>Nº da Anilha: <strong>{{this.ave.numeroAnilha}}</strong></p>
-            <p>Medida da Anilha: <strong>{{this.ave.medidaAnilha}}</strong></p>
-            <p>Status: <strong>{{this.ave.ativo}}</strong></p>
-            
+      <p>
+        ID: <strong>{{ this.ave.id }}</strong>
+      </p>
+      <p>
+        Nome: <strong>{{ this.ave.nome }}</strong>
+      </p>
+      <p>
+        Espécie: <strong>{{ this.ave.especie }}</strong>
+      </p>
+      <p>
+        Nº da Anilha: <strong>{{ this.ave.numeroAnilha }}</strong>
+      </p>
+      <p>
+        Medida da Anilha: <strong>{{ this.ave.medidaAnilha }}</strong>
+      </p>
+      <p>
+        Status: <strong>{{ this.ave.ativo }}</strong>
+      </p>
 
-            <div class="box3">
-                <button mat-raised-button color="accent" (click)="goToPage('home')" class="botaoFormulario" color="accent">Página Inicial</button>
-                <button mat-raised-button color="accent" (click)="goToPage('ave/listar')" class="botaoFormulario" color="accent">Listar Aves</button>
-            </div>
-        </div>
+      <div class="box3">
+        <button
+          mat-raised-button
+          (click)="goToPage('home')"
+          class="botaoFormulario"
+          color="accent"
+        >
+          Página Inicial
+        </button>
+        <button
+          mat-raised-button
+          (click)="goToPage('ave/listar')"
+          class="botaoFormulario"
+          color="accent"
+        >
+          Listar Aves
+        </button>
+      </div>
     </div>
+  </div>
 </div>
