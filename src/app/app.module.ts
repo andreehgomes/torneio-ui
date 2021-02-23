@@ -21,6 +21,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatRippleModule } from '@angular/material/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { NgxMaskModule } from 'ngx-mask';
 
@@ -66,7 +67,7 @@ import { TransferirAveComponent } from './paginas/transferir-ave/transferir-ave.
     ListarAvesComponent,
     CadastrarAveComponent,
     ComprovanteCadastroAveComponent,
-    TransferirAveComponent,
+    TransferirAveComponent
   ],
   imports: [
     BrowserModule,
@@ -93,8 +94,9 @@ import { TransferirAveComponent } from './paginas/transferir-ave/transferir-ave.
     MatRippleModule,
     MatMenuModule,
     MatStepperModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

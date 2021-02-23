@@ -2,9 +2,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { of, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-
+import { throwError } from 'rxjs';
+import { catchError, delay } from 'rxjs/operators';
 import { Ave } from 'src/app/_models/ave';
 import { Criador } from 'src/app/_models/criador';
 import { AveService } from 'src/app/_services/ave.service';
@@ -16,39 +15,48 @@ import { CriadorService } from 'src/app/_services/criador.service';
   styleUrls: ['./transferir-ave.component.scss']
 })
 export class TransferirAveComponent implements OnInit {
-  public ave: Ave;
-  public criador: Criador = null;
-  public idCriadorFormControl = new FormControl('', [Validators.min(1)]);
+  ave: Ave;
+  criador: Criador = null;
+  idCriadorFormControl = new FormControl('', [Validators.min(1)]);
 
-  public httpError: HttpErrorResponse = null;
+  httpError: HttpErrorResponse = null;
+  isLoading: boolean = false;
 
-  public constructor(
+  constructor(
     private _router: Router,
     private _service: AveService,
     private _criadorService: CriadorService
   ) {}
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.ave = this._service.ave;
   }
 
-  public onSubmit(): void {
+  onSubmit(): void {
+    this.httpError = null;
+    this.isLoading = true;
+
     this._criadorService
       .getCriadorPorId(this.idCriadorFormControl.value)
       .pipe(catchError((error: HttpErrorResponse) => throwError(error)))
       .subscribe(
-        response => {
-          this.httpError = null;
-          this.criador = response;
+        data => {
+          this.criador = data;
+          this._criadorService.criador = data;
+
+          this.isLoading = false;
         },
         (error: HttpErrorResponse) => {
           this.httpError = error;
+
           this.criador = null;
+          this._criadorService.criador = null;
+          this.isLoading = false;
         }
       );
   }
 
-  public goToPage(pageName: string): void {
+  goToPage(pageName: string): void {
     this._router.navigate([`${pageName}`]);
   }
 }
