@@ -1,17 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Ave } from '../_models/ave';
+import { Criador } from '../_models/criador';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AveService {
-
   ave: Ave = new Ave();
 
-  constructor(private router: Router) { }
+  constructor(private _http: HttpClient) {}
 
-  zerarAve(){
+  zerarAve() {
     this.ave = new Ave();
+  }
+
+  updateCriador(criador: Criador): Observable<Ave> {
+    return this._http.put<Ave>(
+      `http://localhost:8080/api/ave/${criador.codigo}`,
+      criador
+    );
   }
 }

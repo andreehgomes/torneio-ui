@@ -24,12 +24,12 @@ export class TransferirAveComponent implements OnInit {
 
   constructor(
     private _router: Router,
-    private _service: AveService,
+    private _aveService: AveService,
     private _criadorService: CriadorService
   ) {}
 
   ngOnInit(): void {
-    this.ave = this._service.ave;
+    this.ave = this._aveService.ave;
   }
 
   onSubmit(): void {
@@ -58,5 +58,9 @@ export class TransferirAveComponent implements OnInit {
 
   goToPage(pageName: string): void {
     this._router.navigate([`${pageName}`]);
+  }
+
+  updateCriador(): void {
+    this._aveService.updateCriador(this.criador).subscribe();
   }
 }

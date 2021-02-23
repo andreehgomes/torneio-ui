@@ -5,31 +5,22 @@
     </div>
     <div class="box2">
       <mat-horizontal-stepper linear #stepper>
-        <mat-step [editable]="true">
-          <ng-template matStepLabel>Dados da ave</ng-template>
+        <mat-step [completed]="true" [editable]="true" label="Dados da ave">
           <p>
             Nome:
-            <strong>{{
-              this.ave?.nome || 'Selecionar ave na listagem'
-            }}</strong>
+            <strong>{{ this.ave?.nome }}</strong>
           </p>
           <p>
             Espécie:
-            <strong>{{
-              this.ave?.especie?.nome || 'Selecionar ave na listagem'
-            }}</strong>
+            <strong>{{ this.ave?.especie?.nome }}</strong>
           </p>
           <p>
             Nº da Anilha:
-            <strong>{{
-              this.ave.numeroAnilha || 'Selecionar ave na listagem'
-            }}</strong>
+            <strong>{{ this.ave.numeroAnilha }}</strong>
           </p>
           <p>
             Medida da Anilha:
-            <strong>{{
-              this.ave.medidaAnilha || 'Selecionar ave na listagem'
-            }}</strong>
+            <strong>{{ this.ave.medidaAnilha }}</strong>
           </p>
           <div>
             <button
@@ -43,9 +34,8 @@
           </div>
         </mat-step>
 
-        <mat-step [editable]="true">
+        <mat-step [editable]="true" label="Escolha o Criador">
           <form (ngSubmit)="onSubmit()">
-            <ng-template matStepLabel>Escolha o Criador</ng-template>
             <mat-form-field appearance="outline">
               <mat-label>ID</mat-label>
               <input
@@ -79,9 +69,9 @@
 
             <h2 *ngIf="criador">
               Criador encontrado:
-              <span class="criador__nome"
-                >{{ criador.nome }} {{ criador.sobrenome }}</span
-              >
+              <span class="criador__nome">
+                {{ criador.nome }} {{ criador.sobrenome }}
+              </span>
             </h2>
           </div>
           <div>
@@ -97,14 +87,21 @@
           </div>
         </mat-step>
 
-        <!-- <mat-step>
-          <ng-template matStepLabel>Done</ng-template>
-          <p>You are now done.</p>
+        <mat-step [editable]="true" label="Revisão e confirmação">
+          <p *ngIf="criador">
+            Confirma a transferência para o seguinte criador:
+          </p>
+          <h2 *ngIf="criador">
+            <span class="criador__nome">
+              {{ criador.nome }} {{ criador.sobrenome }}
+            </span>
+          </h2>
+
           <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
+            <button mat-button matStepperPrevious>Voltar</button>
+            <button color="accent" mat-raised-button (click)="updateCriador()">Sim</button>
           </div>
-        </mat-step> -->
+        </mat-step>
       </mat-horizontal-stepper>
     </div>
 
