@@ -13,45 +13,61 @@ import { AveService } from '../../_services/ave.service'
 })
 export class CadastrarAveComponent implements OnInit {
 
+  especies: Array<Especie> = []
+
   constructor(
     private router: Router,
     private aveService: AveService,
-    private especieService: EspecieService) { }
+    private especieService: EspecieService) {
 
-    ave: Ave = new Ave();
-    especie: Especie = new Especie();
-
-    formCadastro = new FormGroup({
-      idFormControl: new FormControl(),
-      nomeFormControl: new FormControl(),
-      especieFormControl: new FormControl(),
-      numeroAnilhaFormControl: new FormControl(),
-      medidaAnilhaFormControl: new FormControl(),
-      ativoFormControl: new FormControl(this.aveService.ave.ativo ? this.aveService.ave.ativo : true),
+    this.especieService.listarEspecies().subscribe((res) => {
+      this.especie = res;
     })
+
+  }
+
+  ave: Ave = new Ave();
+  especie: Especie = new Especie();
+
+  formCadastro = new FormGroup({
+    idFormControl: new FormControl(),
+    nomeFormControl: new FormControl(),
+    especieFormControl: new FormControl(),
+    numeroAnilhaFormControl: new FormControl(),
+    medidaAnilhaFormControl: new FormControl(),
+    ativoFormControl: new FormControl(this.aveService.ave.ativo ? this.aveService.ave.ativo : true),
+  })
 
   ngOnInit(): void {
   }
 
-  onSubmit(){
-    const { 
+  onSubmit() {
+    const {
       idFormControl,
       nomeFormControl,
       especieFormControl,
       numeroAnilhaFormControl,
       medidaAnilhaFormControl,
       ativoFormControl,
-     } = this.formCadastro.controls;
+    } = this.formCadastro.controls;
 
-     this.ave.id = idFormControl.value;
-     this.ave.nome = nomeFormControl.value;
-     this.ave.especie = especieFormControl.value;
-     this.ave.numeroAnilha = numeroAnilhaFormControl.value;
-     this.ave.medidaAnilha = medidaAnilhaFormControl.value;
-     this.ave.ativo = ativoFormControl.value;
+    this.ave.id = idFormControl.value;
+    this.ave.nome = nomeFormControl.value;
+    this.ave.especieHttp = especieFormControl.value;
+    this.ave.numeroAnilha = numeroAnilhaFormControl.value;
+    this.ave.medidaAnilha = medidaAnilhaFormControl.value;
+    this.ave.ativo = ativoFormControl.value;
 
-     this.aveService.ave = this.ave;
-     this.goToPage('ave/comprovante-cadastro');
+    this.ave.criadorHttp = JSON.parse(window.sessionStorage.getItem('criador'));
+    this.ave.ativo = true;
+
+    console.log(this.ave);
+
+    this.aveService.incluirAve(this.ave).subscribe((res) => {
+      console.log('RES: ', res);
+      this.aveService.ave = res;
+      this.goToPage('ave/comprovante-cadastro');
+    })
   }
 
   goToPage(pageName: string) {

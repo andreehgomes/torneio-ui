@@ -4,10 +4,10 @@ import { Especie } from './especie';
 export class Ave{
     id?: number;
     nome: string;
-    especie?: Especie;
+    especieHttp?: Especie = new Especie();
     medidaAnilha: string;
     numeroAnilha: string;
-    criador?: Criador;
+    criadorHttp?: Criador = new Criador();
     ativo: boolean;
-    dataCadastro: string;
+    dataCadastro?: string;
 }

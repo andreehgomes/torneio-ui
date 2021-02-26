@@ -24,7 +24,11 @@
                         <p>
                             <mat-form-field appearance="outline">
                                 <mat-label>Espécie</mat-label>
-                                <input matInput formControlName="especieFormControl" minlength="2" required>
+                                <!-- <input matInput formControlName="especieFormControl" minlength="2" required> -->
+                                <mat-select formControlName="especieFormControl">
+                                    <mat-option *ngFor="let especie of especie" [value]="especie">{{especie.nome}}
+                                    </mat-option>
+                                </mat-select>
                                 <mat-error *ngIf="formCadastro.controls.especieFormControl.errors?.minlength">Tem que
                                     ter no mínimo 2 caracteres</mat-error>
                                 <mat-error *ngIf="formCadastro.controls.especieFormControl.errors?.required">Campo
