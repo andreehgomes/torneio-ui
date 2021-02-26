@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { CriadorService } from '../../_services/criador.service';
 import { Router } from '@angular/router';
+import { Associacao } from 'src/app/_models/associacao';
 
 @Component({
   selector: 'app-listar-criador',
@@ -13,8 +14,9 @@ import { Router } from '@angular/router';
 })
 export class ListarCriadorComponent implements OnInit {
 
+  associacao: Associacao;
   criador: Array<Criador> = [];
-  displayedColumns: string[] = ['nome', 'telefone', 'cpf', 'rg', 'ctf', 'ativoassociacao','detalhes'];
+  displayedColumns: string[] = ['nome', 'telefone', 'cpf', 'rg', 'ctf', 'ativoassociacao', 'detalhes'];
   dataSource: MatTableDataSource<Criador>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -24,10 +26,11 @@ export class ListarCriadorComponent implements OnInit {
     private criadorService: CriadorService,
     private router: Router) {
     this.loadData();
-   }
+  }
 
-   private loadData(): void {
-    this.criadorService.listarCriador().subscribe((res) => {
+  private loadData(): void {
+    this.associacao = JSON.parse(window.sessionStorage.getItem('associacao'));
+    this.criadorService.getCriadorPorAssociacao(this.associacao).subscribe((res) => {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
     });
@@ -50,8 +53,8 @@ export class ListarCriadorComponent implements OnInit {
     this.router.navigate([`${pageName}`]);
   }
 
-  editarCriador(criador: Criador){
-    this.criadorService.criador = criador;  
+  editarCriador(criador: Criador) {
+    this.criadorService.criador = criador;
     this.goToPage('criador/cadastrar');
   }
 

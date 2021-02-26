@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 import { Criador } from './../_models/criador'
+import { Associacao } from './../_models/associacao'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -24,6 +25,14 @@ export class CriadorService {
 
   getCriadorPorCpf(cpf: string): Observable<Criador>{
     return this.http.get<Criador>('http://localhost:8080/api/criador/busca/' + cpf)
+  }
+
+  setAssociacaoHeader(associacao: Associacao){
+    return {headers: new HttpHeaders({"associacao": JSON.stringify(associacao)})}
+  }
+
+  getCriadorPorAssociacao(associacao: Associacao): Observable<any>{
+    return this.http.get<Criador[]>('http://localhost:8080/api/criador/associacao', this.setAssociacaoHeader(associacao));
   }
 
   zerarCriador(){

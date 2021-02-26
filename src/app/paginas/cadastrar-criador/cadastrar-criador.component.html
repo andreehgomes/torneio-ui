@@ -126,7 +126,7 @@
                             <mat-form-field appearance="outline">
                                 <mat-label>Selecione o estado</mat-label>
                                 <mat-select formControlName="ufClubeFormControl"
-                                    (selectionChange)="buscaAssociacaoPorUf($event)" required>
+                                    (selectionChange)="buscaAssociacaoPorUf($event)">
                                     <mat-option value="PR">PR</mat-option>
                                     <mat-option value="SP">SP</mat-option>
                                     <mat-option value="RJ">RJ</mat-option>
@@ -142,7 +142,7 @@
                 <p>
                     <mat-form-field appearance="outline">
                         <mat-label>Selecione o estado do seu clube</mat-label>
-                        <mat-select formControlName="clubeFormControl" required>
+                        <mat-select formControlName="clubeFormControl">
                             <mat-option *ngFor="let associacao of associacao" [value]="associacao">{{associacao.sigla}}
                                 -
                                 {{associacao.nome}}
