@@ -27,20 +27,13 @@
 
         <ng-container matColumnDef="especie">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Espécie</th>
-          <td mat-cell *matCellDef="let ave">{{ ave.especie.nome }}</td>
-        </ng-container>
-
-        <<<<<<< HEAD
-        <ng-container matColumnDef="especie">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Espécie</th>
           <td mat-cell *matCellDef="let ave">{{ ave.especieHttp.nome }}</td>
         </ng-container>
-        =======
+
         <ng-container matColumnDef="anilha">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Nº Anilha</th>
           <td mat-cell *matCellDef="let ave">{{ ave.numeroAnilha }}</td>
         </ng-container>
-        >>>>>>> feat/0010
 
         <ng-container matColumnDef="medida">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Medida</th>
