@@ -30,11 +30,11 @@ export class CadastrarAveComponent implements OnInit {
   especie: Especie = new Especie();
 
   formCadastro = new FormGroup({
-    idFormControl: new FormControl(),
-    nomeFormControl: new FormControl(),
-    especieFormControl: new FormControl(),
-    numeroAnilhaFormControl: new FormControl(),
-    medidaAnilhaFormControl: new FormControl(),
+    idFormControl: new FormControl(this.aveService.ave.id ? this.aveService.ave.id : ''),
+    nomeFormControl: new FormControl(this.aveService.ave.nome ? this.aveService.ave.nome : ''),
+    especieFormControl: new FormControl(this.aveService.ave.especieHttp ? this.aveService.ave.especieHttp : ''),
+    numeroAnilhaFormControl: new FormControl(this.aveService.ave.numeroAnilha ? this.aveService.ave.numeroAnilha : ''),
+    medidaAnilhaFormControl: new FormControl(this.aveService.ave.medidaAnilha ? this.aveService.ave.medidaAnilha : ''),
     ativoFormControl: new FormControl(this.aveService.ave.ativo ? this.aveService.ave.ativo : true),
   })
 

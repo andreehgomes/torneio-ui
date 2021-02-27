@@ -19,6 +19,7 @@ export class ListarAvesComponent implements OnInit {
 
   especie: Especie = new Especie();
   ave: Ave = new Ave();
+  criador: Criador = new Criador();
 
   aveDataSource = [
     { id: 7, nome: "Fileh", especie: { id: 3, nome: "Azulão", nomeCientifico: null }, medidaAnilha: "1,5", numeroAnilha: "1234", ativo: false, dataCadastro: "2021-01-21T15:04:48.687+00:00" },
@@ -47,10 +48,15 @@ export class ListarAvesComponent implements OnInit {
   }
 
   loadData(): void {
-    this.dataSource = new MatTableDataSource(this.aveDataSource);
+    this.criador = JSON.parse(window.sessionStorage.getItem('criador'));
+    this.aveService.getAvePorCriador(this.criador).subscribe((res) => {
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource.paginator = this.paginator;
+    })   
   }
 
   ngOnInit(): void {
+    this.aveService.zerarAve();
   }
 
   applyFilter(event: Event) {
