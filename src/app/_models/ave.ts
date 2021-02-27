@@ -2,7 +2,7 @@ import { Criador } from './criador';
 import { Especie } from './especie';
 
 export class Ave{
-    id?: number;
+    codigo?: number;
     nome: string;
     especieHttp?: Especie = new Especie();
     medidaAnilha: string;

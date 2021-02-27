@@ -43,7 +43,7 @@ export class TransferirAveComponent implements OnInit {
         data => {
           this.criador = data;
           this._criadorService.criador = data;
-
+          this._aveService.ave.criadorHttp = this._criadorService.criador;
           this.isLoading = false;
         },
         (error: HttpErrorResponse) => {
@@ -61,6 +61,6 @@ export class TransferirAveComponent implements OnInit {
   }
 
   updateCriador(): void {
-    this._aveService.updateCriador(this.criador).subscribe();
+    this._aveService.updateCriador(this.ave).subscribe();
   }
 }

@@ -31,10 +31,10 @@ export class AveService {
     );
   }
 
-  updateCriador(criador: Criador): Observable<Ave> {
+  updateCriador(ave: Ave): Observable<Ave> {
     return this._http.put<Ave>(
-      `http://localhost:8080/api/ave/${criador.codigo}`,
-      criador
+      `http://localhost:8080/api/ave/${ave.codigo}`,
+      ave
     );
   }
 }
