@@ -20,8 +20,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatRippleModule } from '@angular/material/core';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { NgxMaskModule } from 'ngx-mask'
+import { NgxMaskModule } from 'ngx-mask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,6 +48,7 @@ import { ComprovanteCadastroAveComponent } from './paginas/comprovante-cadastro-
 import { ListarCriadorComponent } from './paginas/listar-criador/listar-criador.component';
 import { ToolbarCriadorComponent } from './componentes/toolbar-criador/toolbar-criador.component';
 import { ToolbarAssociacaoComponent } from './componentes/toolbar-associacao/toolbar-associacao.component';
+import { TransferirAveComponent } from './paginas/transferir-ave/transferir-ave.component';
 
 @NgModule({
   declarations: [
@@ -69,8 +72,8 @@ import { ToolbarAssociacaoComponent } from './componentes/toolbar-associacao/too
     ComprovanteCadastroAveComponent,
     ListarCriadorComponent,
     ToolbarCriadorComponent,
-    ToolbarAssociacaoComponent
-    
+    ToolbarAssociacaoComponent,
+    TransferirAveComponent
   ],
   imports: [
     BrowserModule,
@@ -95,9 +98,11 @@ import { ToolbarAssociacaoComponent } from './componentes/toolbar-associacao/too
     MatPaginatorModule,
     MatSlideToggleModule,
     MatRippleModule,
-    MatMenuModule
+    MatMenuModule,
+    MatStepperModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,68 @@
+@import '../../_shared/styles/colors';
+
+.container {
+  width: 100%;
+  min-height: 75vh;
+  height: max-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: $c-background;
+}
+
+.box {
+  width: 95%;
+  height: 90%;
+  min-height: 70vh;
+  background: $c-white;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.box2 {
+  width: 95%;
+  height: 90%;
+  background: $c-white;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.box3 {
+  width: 95%;
+  height: 90%;
+  background: $c-white;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+h1 {
+  color: $c-primary;
+  font-size: 36px;
+  align-self: flex-start;
+}
+
+p {
+  color: #795548;
+  font-size: 16px;
+}
+
+.criador__nome {
+  color: $c-secondary;
+}
+
+.criador__nome--nao-encontrado {
+  color: $c-red;
+}
+
+.message__error {
+  color: $c-red;
+}
+
+.mat-stepper-horizontal {
+  width: 100%;
+}

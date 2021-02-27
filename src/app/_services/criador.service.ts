@@ -1,41 +1,54 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Criador } from './../_models/criador'
-import { Associacao } from './../_models/associacao'
+import { Criador } from './../_models/criador';
+import { Associacao } from './../_models/associacao';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CriadorService {
-
   criador: Criador = new Criador();
   reload = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) {}
 
-  postCriador(criador: Criador){
-    return this.http.post<any>('http://localhost:8080/api/criador', criador);
+  getCriadorPorId(id: string): Observable<Criador> {
+    return this._http.get<Criador>(`http://localhost:8080/api/criador/${id}`);
   }
 
-  listarCriador(): Observable<Criador[]>{
-    return this.http.get<Criador[]>('http://localhost:8080/api/criador');
+  postCriador(criador: Criador): Observable<Criador> {
+    return this._http.post<Criador>(
+      'http://localhost:8080/api/criador',
+      criador
+    );
   }
 
-  getCriadorPorCpf(cpf: string): Observable<Criador>{
-    return this.http.get<Criador>('http://localhost:8080/api/criador/busca/' + cpf)
+  listarCriador(): Observable<Criador[]> {
+    return this._http.get<Criador[]>('http://localhost:8080/api/criador');
   }
 
-  setAssociacaoHeader(associacao: Associacao){
-    return {headers: new HttpHeaders({"associacao": JSON.stringify(associacao)})}
+  getCriadorPorCpf(cpf: string): Observable<Criador> {
+    return this._http.get<Criador>(
+      'http://localhost:8080/api/criador/busca/' + cpf
+    );
   }
 
-  getCriadorPorAssociacao(associacao: Associacao): Observable<any>{
-    return this.http.get<Criador[]>('http://localhost:8080/api/criador/associacao', this.setAssociacaoHeader(associacao));
+  setAssociacaoHeader(associacao: Associacao) {
+    return {
+      headers: new HttpHeaders({ associacao: JSON.stringify(associacao) })
+    };
   }
 
-  zerarCriador(){
+  getCriadorPorAssociacao(associacao: Associacao): Observable<any> {
+    return this._http.get<Criador[]>(
+      'http://localhost:8080/api/criador/associacao',
+      this.setAssociacaoHeader(associacao)
+    );
+  }
+
+  zerarCriador() {
     this.criador = new Criador();
   }
 }

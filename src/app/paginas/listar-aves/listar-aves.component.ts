@@ -1,14 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { Ave } from '../../_models/ave'
-import { Especie } from '../../_models/especie';
-import { Criador } from '../../_models/criador';
-import { AveService } from '../../_services/ave.service';
-import { CriadorService } from '../../_services/criador.service';
-import { EspecieService } from '../../_services/especie.service'
-import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { Criador } from 'src/app/_models/criador';
+import { Ave } from '../../_models/ave';
+import { Especie } from '../../_models/especie';
+import { AveService } from '../../_services/ave.service';
 
 @Component({
   selector: 'app-listar-aves',
@@ -16,15 +14,30 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./listar-aves.component.scss']
 })
 export class ListarAvesComponent implements OnInit {
-
   especie: Especie = new Especie();
   ave: Ave = new Ave();
   criador: Criador = new Criador();
 
   aveDataSource = [
-    { id: 7, nome: "Fileh", especie: { id: 3, nome: "Azulão", nomeCientifico: null }, medidaAnilha: "1,5", numeroAnilha: "1234", ativo: false, dataCadastro: "2021-01-21T15:04:48.687+00:00" },
-    { id: 8, nome: "Castanha", especie: { id: 3, nome: "Azulão", nomeCientifico: null }, medidaAnilha: "1,5", numeroAnilha: "1234", ativo: true, dataCadastro: "2021-01-21T15:04:48.687+00:00" }
-  ]
+    {
+      id: 7,
+      nome: 'Fileh',
+      especie: { id: 3, nome: 'Azulão', nomeCientifico: null },
+      medidaAnilha: '1,5',
+      numeroAnilha: '1234',
+      ativo: false,
+      dataCadastro: '2021-01-21T15:04:48.687+00:00'
+    },
+    {
+      id: 8,
+      nome: 'Castanha',
+      especie: { id: 3, nome: 'Azulão', nomeCientifico: null },
+      medidaAnilha: '1,5',
+      numeroAnilha: '1234',
+      ativo: true,
+      dataCadastro: '2021-01-21T15:04:48.687+00:00'
+    }
+  ];
 
   displayedColumns: string[] = [
     'nome',
@@ -33,26 +46,23 @@ export class ListarAvesComponent implements OnInit {
     'medida',
     'ativo',
     'editar',
-    'transferir',
+    'transferir'
   ];
   dataSource: MatTableDataSource<Ave>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(
-    private router: Router,
-    private criadorService: CriadorService,
-    private aveService: AveService) {
+  constructor(private router: Router, private aveService: AveService) {
     this.loadData();
   }
 
   loadData(): void {
     this.criador = JSON.parse(window.sessionStorage.getItem('criador'));
-    this.aveService.getAvePorCriador(this.criador).subscribe((res) => {
+    this.aveService.getAvePorCriador(this.criador).subscribe(res => {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
-    })   
+    });
   }
 
   ngOnInit(): void {
@@ -77,4 +87,8 @@ export class ListarAvesComponent implements OnInit {
     this.goToPage('ave/cadastrar');
   }
 
+  transferirAve(ave: Ave) {
+    this.aveService.ave = ave;
+    this.goToPage('ave/transferir');
+  }
 }
