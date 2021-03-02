@@ -4,7 +4,7 @@
             <h1>Criadores</h1>
         </div>
         <div class="box2">
-            <button mat-flat-button (click)="goToPage('criador/cadastrar')">Novo 
+            <button mat-flat-button (click)="goToPage('criador/cadastrar')">Novo
                 Criador</button>
             <mat-form-field>
                 <mat-label>Fitro</mat-label>
@@ -67,7 +67,7 @@
                 <ng-container matColumnDef="detalhes">
                     <th mat-header-cell *matHeaderCellDef>Detalhes</th>
                     <td mat-cell *matCellDef="let criador">
-                        <button mat-button>
+                        <button mat-button (click)="openDialog(criador)">
                             <mat-icon aria-hidden="false" aria-label="Ícone detalhes"
                                 >more_horiz</mat-icon>
                         </button>
@@ -82,8 +82,8 @@
                     <td class="mat-cell" colspan="4">Nenhum criador cadastrado com a informação filtrada "{{input.value}}"</td>
                 </tr>
             </table>
-            <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>            
-        </div> 
-        <mat-divider></mat-divider>       
+            <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+        </div>
+        <mat-divider></mat-divider>
     </div>
 </div>

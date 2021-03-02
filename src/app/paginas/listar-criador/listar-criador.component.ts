@@ -6,6 +6,8 @@ import { MatSort } from '@angular/material/sort';
 import { CriadorService } from '../../_services/criador.service';
 import { Router } from '@angular/router';
 import { Associacao } from 'src/app/_models/associacao';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DetalhaCriadorComponent } from '../../modals/detalha-criador/detalha-criador.component'
 
 @Component({
   selector: 'app-listar-criador',
@@ -23,6 +25,7 @@ export class ListarCriadorComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
+    private dialog: MatDialog,
     private criadorService: CriadorService,
     private router: Router) {
     this.loadData();
@@ -56,6 +59,17 @@ export class ListarCriadorComponent implements OnInit {
   editarCriador(criador: Criador) {
     this.criadorService.criador = criador;
     this.goToPage('criador/cadastrar');
+  }
+
+  openDialog(criador: Criador) {
+    const dialogRef =  this.dialog.open(DetalhaCriadorComponent, {
+      width: '750px',
+      data: criador
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 }

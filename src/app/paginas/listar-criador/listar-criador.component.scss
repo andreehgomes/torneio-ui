@@ -1,6 +1,7 @@
 @import "../../_shared/styles/colors";
 
 .container {
+  min-height: 75vw;
   width: 100%;
   min-height: 75vh;
   height: max-content;
@@ -71,14 +72,14 @@ th.mat-header-cell {
       width: 10%;
     }
   }
-  
+
   td.mat-cell {
     &:nth-child(n + 6) {
       text-align: center;
       width: 10%;
     }
   }
-  
+
 th.mat-header-cell:last-child {
   text-align: center;
 }

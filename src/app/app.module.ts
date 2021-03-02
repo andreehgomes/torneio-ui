@@ -49,6 +49,7 @@ import { ListarCriadorComponent } from './paginas/listar-criador/listar-criador.
 import { ToolbarCriadorComponent } from './componentes/toolbar-criador/toolbar-criador.component';
 import { ToolbarAssociacaoComponent } from './componentes/toolbar-associacao/toolbar-associacao.component';
 import { TransferirAveComponent } from './paginas/transferir-ave/transferir-ave.component';
+import { DetalhaCriadorComponent } from './modals/detalha-criador/detalha-criador.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { TransferirAveComponent } from './paginas/transferir-ave/transferir-ave.
     ListarCriadorComponent,
     ToolbarCriadorComponent,
     ToolbarAssociacaoComponent,
-    TransferirAveComponent
+    TransferirAveComponent,
+    DetalhaCriadorComponent
   ],
   imports: [
     BrowserModule,
