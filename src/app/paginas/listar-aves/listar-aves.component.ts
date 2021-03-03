@@ -7,6 +7,8 @@ import { Criador } from 'src/app/_models/criador';
 import { Ave } from '../../_models/ave';
 import { Especie } from '../../_models/especie';
 import { AveService } from '../../_services/ave.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-listar-aves',
@@ -17,27 +19,11 @@ export class ListarAvesComponent implements OnInit {
   especie: Especie = new Especie();
   ave: Ave = new Ave();
   criador: Criador = new Criador();
+  statusFormControl = new FormControl();
 
-  aveDataSource = [
-    {
-      id: 7,
-      nome: 'Fileh',
-      especie: { id: 3, nome: 'Azulão', nomeCientifico: null },
-      medidaAnilha: '1,5',
-      numeroAnilha: '1234',
-      ativo: false,
-      dataCadastro: '2021-01-21T15:04:48.687+00:00'
-    },
-    {
-      id: 8,
-      nome: 'Castanha',
-      especie: { id: 3, nome: 'Azulão', nomeCientifico: null },
-      medidaAnilha: '1,5',
-      numeroAnilha: '1234',
-      ativo: true,
-      dataCadastro: '2021-01-21T15:04:48.687+00:00'
-    }
-  ];
+  formListaAves = new FormGroup({
+    statusFormControl: new FormControl(this.ave.ativo)
+  })
 
   displayedColumns: string[] = [
     'nome',
@@ -85,6 +71,15 @@ export class ListarAvesComponent implements OnInit {
   editarAve(ave: Ave) {
     this.aveService.ave = ave;
     this.goToPage('ave/cadastrar');
+  }
+
+  atualizarStatusAve(ave: Ave, status: MatSlideToggleChange) {
+    let aveAlterada = ave;
+    aveAlterada.ativo = status.checked;
+
+    this.aveService.updateAve(aveAlterada).subscribe((ave) => {
+      console.log(ave);
+    });
   }
 
   transferirAve(ave: Ave) {

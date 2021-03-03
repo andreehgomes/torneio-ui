@@ -37,4 +37,12 @@ export class AveService {
       ave
     );
   }
+
+
+  updateAve(ave: Ave): Observable<Ave> {
+    return this._http.put<Ave>(
+      `http://localhost:8080/api/ave/${ave.codigo}`,
+      ave
+    );
+  }
 }
