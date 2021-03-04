@@ -48,7 +48,7 @@
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Ativo </th>
                     <td mat-cell *matCellDef="let criador">
                         <section class="example-section">
-                            <mat-slide-toggle class="example-margin" [checked]="criador.ativo">
+                            <mat-slide-toggle class="example-margin" (change)="atualizarStatusCriador(criador, $event)" [checked]="criador.ativo">
                             </mat-slide-toggle>
                         </section>
                     </td>

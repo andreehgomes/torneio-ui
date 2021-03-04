@@ -48,6 +48,12 @@ export class CriadorService {
     );
   }
 
+  putCriador(criador: Criador): Observable<Criador> {
+    return this._http.put<Criador>(
+      `http://localhost:8080/api/criador/${criador.codigo}`,
+      criador);
+  }
+
   zerarCriador() {
     this.criador = new Criador();
   }
