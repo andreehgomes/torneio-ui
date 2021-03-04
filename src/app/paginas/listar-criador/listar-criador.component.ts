@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { Associacao } from 'src/app/_models/associacao';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DetalhaCriadorComponent } from '../../modals/detalha-criador/detalha-criador.component'
+import { ListaAvesComponent } from '../../modals/lista-aves/lista-aves.component'
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
@@ -19,7 +20,7 @@ export class ListarCriadorComponent implements OnInit {
 
   associacao: Associacao;
   criador: Array<Criador> = [];
-  displayedColumns: string[] = ['nome', 'telefone', 'cpf', 'rg', 'ctf', 'ativoassociacao', 'detalhes'];
+  displayedColumns: string[] = ['nome', 'telefone', 'cpf', 'rg', 'ctf', 'ativoassociacao', 'detalhes', 'aves'];
   dataSource: MatTableDataSource<Criador>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -62,15 +63,28 @@ export class ListarCriadorComponent implements OnInit {
     this.goToPage('criador/cadastrar');
   }
 
-  openDialog(criador: Criador) {
-    const dialogRef =  this.dialog.open(DetalhaCriadorComponent, {
-      width: '750px',
-      data: criador
-    });
+  openDialog(criador: Criador, id: string) {
+    if(id === 'detalhes'){
+      const dialogRef =  this.dialog.open(DetalhaCriadorComponent, {
+        width: '750px',
+        data: criador
+      });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('Modal detalha criador fechada');
+      });
+    }
+
+    if(id === 'aves'){
+      const dialogRef =  this.dialog.open(ListaAvesComponent, {
+        width: '750px',
+        data: criador
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('Modal lista aves fechada');
+      });
+    }
   }
 
   atualizarStatusCriador(criador: Criador, status: MatSlideToggleChange) {

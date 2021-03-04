@@ -67,9 +67,19 @@
                 <ng-container matColumnDef="detalhes">
                     <th mat-header-cell *matHeaderCellDef>Detalhes</th>
                     <td mat-cell *matCellDef="let criador">
-                        <button mat-button (click)="openDialog(criador)">
-                            <mat-icon aria-hidden="false" aria-label="Ícone detalhes"
+                        <button mat-button (click)="openDialog(criador, 'detalhes')">
+                            <mat-icon aria-hidden="false" aria-label="Ícone detalhes criador"
                                 >more_horiz</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="aves">
+                    <th mat-header-cell *matHeaderCellDef>Aves</th>
+                    <td mat-cell *matCellDef="let criador">
+                        <button mat-button (click)="openDialog(criador, 'aves')">
+                            <mat-icon aria-hidden="false" aria-label="Ícone detalhes aves"
+                                >more_vert</mat-icon>
                         </button>
                     </td>
                 </ng-container>
