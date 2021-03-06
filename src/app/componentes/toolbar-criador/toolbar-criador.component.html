@@ -1,10 +1,22 @@
 <div class="container">
+  <div class="box">
     <p>
-        <mat-toolbar color="primary">
-            <div class="div-container">
-                <button mat-button (click)="goToPage('ave/listar')">Minhas Aves</button>
-                <button mat-button >Torneios</button>
-            </div>
-        </mat-toolbar>
+      <mat-toolbar color="primary">
+        <div class="div-container">
+          <button mat-button (click)="goToPage('ave/listar')">Minhas Aves</button>
+          <button mat-button>Torneios</button>
+        </div>
+      </mat-toolbar>
     </p>
+  </div>
+  <div class="box2" *ngIf="this.status === false">
+    <mat-card>
+      <p>
+        <strong>Atenção! </strong>Você possui pendências com a sua associação. Regularize-as para poder se insecrever nos torneios.
+      </p>
+      <button mat-button>
+        <mat-icon aria-hidden="false" aria-label="Ícone de lápis" (click)="close()">close</mat-icon>
+      </button>
+    </mat-card>
+  </div>
 </div>

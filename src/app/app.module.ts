@@ -77,7 +77,7 @@ import { ListaAvesComponent } from './modals/lista-aves/lista-aves.component';
     ToolbarAssociacaoComponent,
     TransferirAveComponent,
     DetalhaCriadorComponent,
-    ListaAvesComponent
+    ListaAvesComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,7 +104,7 @@ import { ListaAvesComponent } from './modals/lista-aves/lista-aves.component';
     MatRippleModule,
     MatMenuModule,
     MatStepperModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
