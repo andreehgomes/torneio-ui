@@ -2,7 +2,7 @@
 .container {
   width: 100%;
   height: max-content;
-  background: $c-background;
+  background: $c-white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,7 +24,7 @@
 .box2 {
   width: 95%;
   height: max-content;
-  background: $c-background;
+  background: $c-white;
   display: flex;
   flex-direction: row;
   justify-content: center;
