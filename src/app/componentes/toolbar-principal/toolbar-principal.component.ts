@@ -4,6 +4,8 @@ import { Criador } from '../../_models/criador';
 import { Associacao } from '../../_models/associacao';
 import { CriadorService } from '../../_services/criador.service';
 import { AssociacaoService } from '../../_services/associacao.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DetalhaCriadorLogadoComponent } from '../../modals/detalha-criador-logado/detalha-criador-logado.component';
 
 @Component({
   selector: 'app-toolbar-principal',
@@ -16,6 +18,7 @@ export class ToolbarPrincipalComponent implements OnInit {
   associacao: Associacao = new Associacao();
 
   constructor(
+    private dialog: MatDialog,
     private router: Router,
     private criadorService: CriadorService,
     private associacaoService: AssociacaoService) {
@@ -30,11 +33,34 @@ export class ToolbarPrincipalComponent implements OnInit {
     this.router.navigate([`${pageName}`]);
   }
 
-  sair(){
+  sair() {
     window.sessionStorage.removeItem('criador');
     window.sessionStorage.removeItem('associacao');
     this.criadorService.reload = true;
     this.associacaoService.reload = true;
     this.goToPage('/');
+  }
+
+  consultarDadosLogado() {
+    if (this.criador) {
+      this.criadorService.criador = this.criador;
+      this.openDialog(this.criador);
+    } else if (this.associacao) {
+      this.associacaoService.associacao = this.associacao;
+      console.log(this.associacao);
+    }
+  }
+
+  openDialog(criador?: Criador, associacao?: Associacao) {
+    if (criador) {
+      const dialogRef = this.dialog.open(DetalhaCriadorLogadoComponent, {
+        width: '750px',
+        data: criador
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('Modal detalha criador fechada');
+      });
+    }
   }
 }

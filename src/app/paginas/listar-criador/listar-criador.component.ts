@@ -7,8 +7,8 @@ import { CriadorService } from '../../_services/criador.service';
 import { Router } from '@angular/router';
 import { Associacao } from 'src/app/_models/associacao';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DetalhaCriadorComponent } from '../../modals/detalha-criador/detalha-criador.component'
-import { ListaAvesComponent } from '../../modals/lista-aves/lista-aves.component'
+import { DetalhaCriadorComponent } from '../../modals/detalha-criador/detalha-criador.component';
+import { ListaAvesComponent } from '../../modals/lista-aves/lista-aves.component';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({

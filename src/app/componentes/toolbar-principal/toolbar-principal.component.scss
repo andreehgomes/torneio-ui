@@ -63,17 +63,16 @@ mat-toolbar div {
 }
 
 .nav-toolbar-menu {
-  padding: 15px;
   font-size: 16px;
-  height: 13vh;
+  height: max-content;
   background-color: $c-white;
   color: $c-primary;
   width: 100%;
   &:hover {
-    border-bottom: 20px;
-    background-color: $c-primary;
-    color: $c-white;
-    height: 14vh;
+    // border-bottom: 20px;
+    background-color: $c-background;
+    color: $c-primary;
+    height: max-content;
   }
 }
 
