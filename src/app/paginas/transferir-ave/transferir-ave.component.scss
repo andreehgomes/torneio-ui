@@ -13,11 +13,13 @@
 .box {
   width: 95%;
   height: 90%;
-  min-height: 70vh;
+  min-height: max-content;
   background: $c-white;
   flex-direction: column;
   display: flex;
   align-items: center;
+  margin-bottom: 40px;
+  justify-content: space-between;
 }
 
 .box2 {
@@ -26,7 +28,6 @@
   background: $c-white;
   flex-direction: row;
   display: flex;
-  align-items: center;
   margin-top: 15px;
 }
 
@@ -36,7 +37,7 @@
   background: $c-white;
   flex-direction: column;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 15px;
 }
 
@@ -44,6 +45,13 @@ h1 {
   color: $c-primary;
   font-size: 36px;
   align-self: flex-start;
+}
+
+h3 {
+  color: #8bc34a;
+  font-size: 30px;
+  margin: 20px 0 10px;
+  font-weight: 400;
 }
 
 p {
