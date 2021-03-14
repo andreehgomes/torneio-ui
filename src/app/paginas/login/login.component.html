@@ -23,6 +23,7 @@
                                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </button>
+                                <mat-hint class="hint-erro" *ngIf="erroCriador">CPF ou senha inválidos</mat-hint>
                             </mat-form-field>
                         </p>
 
@@ -51,6 +52,7 @@
                                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </button>
+                                <mat-hint class="hint-erro" *ngIf="erroAssociacao">CNPJ ou senha inválidos</mat-hint>
                             </mat-form-field>
                         </p>
 

@@ -61,6 +61,9 @@ export class TransferirAveComponent implements OnInit {
   }
 
   updateCriador(): void {
-    this._aveService.updateCriador(this.ave).subscribe();
+    this._aveService.updateCriador(this.ave).subscribe((res) => {
+      console.log(res);
+      this.goToPage('ave/comprovante-transferencia-ave');
+    });
   }
 }

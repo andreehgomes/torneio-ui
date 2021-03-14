@@ -16,6 +16,7 @@ import { ListarCriadorComponent } from './paginas/listar-criador/listar-criador.
 import { CadastrarAveComponent } from './paginas/cadastrar-ave/cadastrar-ave.component';
 import { ComprovanteCadastroAveComponent } from './paginas/comprovante-cadastro-ave/comprovante-cadastro-ave.component';
 import { TransferirAveComponent } from './paginas/transferir-ave/transferir-ave.component';
+import { ComprovanteTransferenciaAveComponent } from './paginas/comprovante-transferencia-ave/comprovante-transferencia-ave.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'ave/comprovante-cadastro',
     component: ComprovanteCadastroAveComponent,
+  },
+  {
+    path: 'ave/comprovante-transferencia-ave',
+    component: ComprovanteTransferenciaAveComponent,
   },
 ];
 

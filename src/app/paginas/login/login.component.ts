@@ -17,13 +17,15 @@ import { Location } from '@angular/common';
 
 @Injectable()
 export class LoginComponent implements OnInit {
+  erroCriador = false;
+  erroAssociacao = false;
   hide = true;
   usuario: Usuario = new Usuario();
   criador: Criador = new Criador();
   associacao: Associacao = new Associacao();
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private usuarioService: UsuarioService,
     private criadorService: CriadorService,
     private associacaoService: AssociacaoService,
@@ -50,9 +52,12 @@ export class LoginComponent implements OnInit {
 
     this.criadorService.getCriadorPorCpf(cpfFormControl.value).subscribe((res) => {
       this.criador = res;
-      window.sessionStorage.setItem('criador', JSON.stringify(this.criador));  
-      this.criadorService.reload = true;   
-      this.goToPage('');      
+      window.sessionStorage.setItem('criador', JSON.stringify(this.criador));
+      this.criadorService.reload = true;
+      this.goToPage('');
+    },
+    (error) => {
+      this.erroCriador = true;
     })
   }
 
@@ -67,6 +72,9 @@ export class LoginComponent implements OnInit {
       window.sessionStorage.setItem('associacao', JSON.stringify(this.associacao));
       this.associacaoService.reload = true;
       this.goToPage('');
+    },
+    (error) => {
+      this.erroAssociacao = true;
     })
 
   }

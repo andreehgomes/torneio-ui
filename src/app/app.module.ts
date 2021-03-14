@@ -52,6 +52,7 @@ import { TransferirAveComponent } from './paginas/transferir-ave/transferir-ave.
 import { DetalhaCriadorComponent } from './modals/detalha-criador/detalha-criador.component';
 import { ListaAvesComponent } from './modals/lista-aves/lista-aves.component';
 import { DetalhaCriadorLogadoComponent } from './modals/detalha-criador-logado/detalha-criador-logado.component';
+import { ComprovanteTransferenciaAveComponent } from './paginas/comprovante-transferencia-ave/comprovante-transferencia-ave.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { DetalhaCriadorLogadoComponent } from './modals/detalha-criador-logado/d
     DetalhaCriadorComponent,
     ListaAvesComponent,
     DetalhaCriadorLogadoComponent,
+    ComprovanteTransferenciaAveComponent,
   ],
   imports: [
     BrowserModule,
