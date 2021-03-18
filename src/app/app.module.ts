@@ -53,6 +53,7 @@ import { DetalhaCriadorComponent } from './modals/detalha-criador/detalha-criado
 import { ListaAvesComponent } from './modals/lista-aves/lista-aves.component';
 import { DetalhaCriadorLogadoComponent } from './modals/detalha-criador-logado/detalha-criador-logado.component';
 import { ComprovanteTransferenciaAveComponent } from './paginas/comprovante-transferencia-ave/comprovante-transferencia-ave.component';
+import { ErroComponent } from './paginas/erro/erro.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { ComprovanteTransferenciaAveComponent } from './paginas/comprovante-tran
     ListaAvesComponent,
     DetalhaCriadorLogadoComponent,
     ComprovanteTransferenciaAveComponent,
+    ErroComponent,
   ],
   imports: [
     BrowserModule,

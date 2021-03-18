@@ -1,0 +1,25 @@
+<div class="container">
+  <div *ngIf="!erro" class="box3">
+      <h1 tabindex="0">Ops...</h1>
+      <p>Algo deu errado!! Tente novamente em instantes.</p>
+  </div>
+  <div *ngIf="erro" class="box3">
+      <h1>Ops...</h1>
+      <p>Código do erro: {{this.codigoErro}}</p>
+      <p>Mensagem de erro: {{this.mensagemErro}}</p>
+  </div>
+  <div class="box2">
+    <button color="accent" mat-raised-button (click)="goToPage('home')">Página inicial</button>
+  </div>
+</div>
+<!-- <div class="container">
+  <div class="box3">
+    <div class="box2">
+      <h1>Ops...</h1>
+      <p>Algo deu errado!! Tente novamente em instantes.</p>
+    </div>
+    <div class="box2">
+      <button color="accent" mat-raised-button (click)="goToPage('home')">Página inicial</button>
+    </div>
+  </div>
+</div> -->

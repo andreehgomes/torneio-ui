@@ -17,9 +17,11 @@ import { CadastrarAveComponent } from './paginas/cadastrar-ave/cadastrar-ave.com
 import { ComprovanteCadastroAveComponent } from './paginas/comprovante-cadastro-ave/comprovante-cadastro-ave.component';
 import { TransferirAveComponent } from './paginas/transferir-ave/transferir-ave.component';
 import { ComprovanteTransferenciaAveComponent } from './paginas/comprovante-transferencia-ave/comprovante-transferencia-ave.component';
+import { ErroComponent } from './paginas/erro/erro.component'
 
 const routes: Routes = [
   { path: '', component: AppComponent },
+  { path: 'erro', component: ErroComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'criador/cadastrar', component: CadastrarCriadorComponent },

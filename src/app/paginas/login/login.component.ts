@@ -8,6 +8,7 @@ import { UsuarioService } from '../../_services/usuario.service';
 import { CriadorService } from 'src/app/_services/criador.service';
 import { AssociacaoService } from 'src/app/_services/associacao.service';
 import { Location } from '@angular/common';
+import { ErroService } from '../../_services/erro.service';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,8 @@ export class LoginComponent implements OnInit {
     private usuarioService: UsuarioService,
     private criadorService: CriadorService,
     private associacaoService: AssociacaoService,
-    private location: Location) { }
+    private location: Location,
+    private _erroService: ErroService) { }
 
   formControlCriador = new FormGroup({
     cpfFormControl: new FormControl(),
@@ -56,9 +58,9 @@ export class LoginComponent implements OnInit {
       this.criadorService.reload = true;
       this.goToPage('');
     },
-    (error) => {
-      this.erroCriador = true;
-    })
+      (error) => {
+        this.error(error, 'criador');
+      })
   }
 
   onSubmitAssociacao() {
@@ -73,10 +75,25 @@ export class LoginComponent implements OnInit {
       this.associacaoService.reload = true;
       this.goToPage('');
     },
-    (error) => {
-      this.erroAssociacao = true;
-    })
+      (error) => {
+        this.error(error, 'associacao');
+      })
 
+  }
+
+  error(error: any, login: string) {
+    if (error.status === 404) {
+      if (login === 'criador') {
+        this.erroCriador = true;
+      } else if (login === 'associacao') {
+        this.erroAssociacao = true;
+      }
+    } else {
+      this._erroService.erro.erro = true;
+      this._erroService.erro.codigo = '500';
+      this._erroService.erro.mensagem = 'Erro inesperado do servidor';
+      this.goToPage('erro');
+    }
   }
 
   goToPage(pageName: string) {

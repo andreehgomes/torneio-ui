@@ -11,7 +11,7 @@ import { EnderecoService } from './../../_services/endereco.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TermoDeResponsabilidadeComponent } from 'src/app/modals/termo-de-responsabilidade/termo-de-responsabilidade.component';
 import { Usuario } from 'src/app/_models/usuario';
-
+import { ErroService } from '../../_services/erro.service';
 
 @Component({
   selector: 'app-cadastrar-criador',
@@ -31,7 +31,8 @@ export class CadastrarCriadorComponent implements OnInit {
     private enderecoService: EnderecoService,
     private router: Router,
     private _snackBar: MatSnackBar,
-    public dialog: MatDialog) {
+    public dialog: MatDialog,
+    private _erroService: ErroService) {
   }
 
 
@@ -55,7 +56,7 @@ export class CadastrarCriadorComponent implements OnInit {
   // };
 
   // forbiddenNameValidator(nameRe: string): ValidatorFn {
-  //   return (control: AbstractControl): {[key: string]: any} | null => {  
+  //   return (control: AbstractControl): {[key: string]: any} | null => {
   //     const forbidden = nameRe;
   //     return forbidden !== control.value ? {forbiddenName: {value: control.value}} : null;
   //   };
@@ -144,6 +145,11 @@ export class CadastrarCriadorComponent implements OnInit {
     this.criadorService.postCriador(this.criador).subscribe((res) => {
       this.criadorService.criador = res;
       this.goToPage('criador/comprovante-cadastro');
+    }, (erro) => {
+      this._erroService.erro.erro = true;
+      this._erroService.erro.codigo = erro.status;
+      this._erroService.erro.mensagem = erro.error.Mensagem;
+      this.goToPage('erro');
     });
   }
 

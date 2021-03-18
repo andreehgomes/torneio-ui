@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AssociacaoService } from '../../_services/associacao.service';
 import { Associacao } from '../../_models/associacao';
-
+import { ErroService } from '../../_services/erro.service';
 
 
 @Component({
@@ -16,7 +16,11 @@ export class CadastrarAssociacaoComponent implements OnInit {
 
 
 
-  constructor(private router: Router, private associacaoService: AssociacaoService, private _snackBar: MatSnackBar,) { }
+  constructor(
+    private router: Router,
+    private associacaoService: AssociacaoService,
+    private _snackBar: MatSnackBar,
+    private _erroService: ErroService) { }
   hide = true;
   associacao: Associacao = new Associacao();
   consultaCnpj: string = '';
@@ -98,12 +102,22 @@ export class CadastrarAssociacaoComponent implements OnInit {
       this.associacaoService.postAssociacao(this.associacao).subscribe((res) => {
         this.associacaoService.associacao = res;
         this.goToPage('associacao/comprovante-cadastro');
+      },(erro) => {
+        this._erroService.erro.erro = true;
+        this._erroService.erro.codigo = erro.status;
+        this._erroService.erro.mensagem = erro.error.Mensagem;
+        this.goToPage('erro');
       })
     } else {
       console.log(this.associacao)
       this.associacaoService.putAssociacao(this.associacao).subscribe((res) => {
         this.associacaoService.associacao = res;
         this.goToPage('associacao/comprovante-cadastro');
+      },(erro) => {
+        this._erroService.erro.erro = true;
+        this._erroService.erro.codigo = erro.status;
+        this._erroService.erro.mensagem = erro.error.Mensagem;
+        this.goToPage('erro');
       })
     }
   }
