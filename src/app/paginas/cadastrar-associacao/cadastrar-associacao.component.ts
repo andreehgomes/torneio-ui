@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AssociacaoService } from '../../_services/associacao.service';
 import { Associacao } from '../../_models/associacao';
 import { ErroService } from '../../_services/erro.service';
+import { CepConsultaService } from '../../_services/cep-consulta.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class CadastrarAssociacaoComponent implements OnInit {
     private router: Router,
     private associacaoService: AssociacaoService,
     private _snackBar: MatSnackBar,
-    private _erroService: ErroService) { }
+    private _erroService: ErroService,
+    private _cepConsultaService: CepConsultaService) { }
   hide = true;
   associacao: Associacao = new Associacao();
   consultaCnpj: string = '';
@@ -57,7 +59,6 @@ export class CadastrarAssociacaoComponent implements OnInit {
   }, { validators: this.identityRevealedValidator });
 
   ngOnInit(): void {
-
   }
 
   onSubmit() {
@@ -102,7 +103,7 @@ export class CadastrarAssociacaoComponent implements OnInit {
       this.associacaoService.postAssociacao(this.associacao).subscribe((res) => {
         this.associacaoService.associacao = res;
         this.goToPage('associacao/comprovante-cadastro');
-      },(erro) => {
+      }, (erro) => {
         this._erroService.erro.erro = true;
         this._erroService.erro.codigo = erro.status;
         this._erroService.erro.mensagem = erro.error.Mensagem;
@@ -113,7 +114,7 @@ export class CadastrarAssociacaoComponent implements OnInit {
       this.associacaoService.putAssociacao(this.associacao).subscribe((res) => {
         this.associacaoService.associacao = res;
         this.goToPage('associacao/comprovante-cadastro');
-      },(erro) => {
+      }, (erro) => {
         this._erroService.erro.erro = true;
         this._erroService.erro.codigo = erro.status;
         this._erroService.erro.mensagem = erro.error.Mensagem;
@@ -140,6 +141,23 @@ export class CadastrarAssociacaoComponent implements OnInit {
     this._snackBar.open(message, action, {
       duration: 8000,
     });
+  }
+
+  getCep(cep: string) {
+    this._cepConsultaService.getCep(cep).subscribe((res) => {
+      console.log(res);
+      if (res.erro) {
+        this.formCadastro.controls['cepFormControl'].setErrors({invalid: true})
+      } else {
+        res.localidade !== "" ? this.formCadastro.controls['cidadeFormControl'].setValue(res.localidade) : this.formCadastro.controls['cidadeFormControl'].setValue(null);
+        res.uf !== "" ? this.formCadastro.controls['ufEnderecoFormControl'].setValue(res.uf) : this.formCadastro.controls['ufFormControl'].setValue(null);
+        res.logradouro !== "" ? this.formCadastro.controls['ruaFormControl'].setValue(res.logradouro) : this.formCadastro.controls['ruaFormControl'].setValue(null);
+        res.logradouro !== "" ? this.formCadastro.controls['numeroFormControl'].setValue('0') : this.formCadastro.controls['numeroFormControl'].setValue(null);
+        res.bairro !== "" ? this.formCadastro.controls['bairroFormControl'].setValue(res.bairro) : this.formCadastro.controls['bairroFormControl'].setValue(null);
+        res.complemento !== "" ? this.formCadastro.controls['complementoFormControl'].setValue(res.complemento) :
+          res.bairro !== "" ? this.formCadastro.controls['complementoFormControl'].setValue(res.bairro) : this.formCadastro.controls['complementoFormControl'].setValue(null);
+      }
+    })
   }
 
 }

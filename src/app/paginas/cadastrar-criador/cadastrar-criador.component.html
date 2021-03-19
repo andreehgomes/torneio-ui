@@ -1,318 +1,317 @@
 <div class="container c-background">
-    <div class="box">
-        <div class="box2">
-            <h1>Crie sua conta</h1>
-            <p>Preencha o cadastro completo para que você possa se inscrever nos torneios.</p>
+  <div class="box">
+    <div class="box2">
+      <h1>Crie sua conta</h1>
+      <p>Preencha o cadastro completo para que você possa se inscrever nos torneios.</p>
 
-            <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+      <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
 
-                <h3>Contato</h3>
-                <div class="box3">
-                    <div class="box4">
-                        <label>Nome</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Nome</mat-label>
-                                <input matInput placeholder="" formControlName="nomeFormControl" minlength="2" required>
-                                <mat-error *ngIf="formCadastro.controls.nomeFormControl.errors?.minlength">Tem que
-                                    ter no mínimo 2 caracteres</mat-error>
-                                <mat-error *ngIf="formCadastro.controls.nomeFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                    <div class="box4">
-                        <label>Sobrenome</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Sobrenome</mat-label>
-                                <input matInput placeholder="" formControlName="sobrenomeFormControl" minlength="2"
-                                    required>
-                                <mat-error *ngIf="formCadastro.controls.sobrenomeFormControl.errors?.minlength">Tem que
-                                    ter no mínimo 2 caracteres</mat-error>
-                                <mat-error *ngIf="formCadastro.controls.sobrenomeFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                </div>
-                <div class="box3">
-                    <div class="box4">
-                        <label>Celular</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Celular</mat-label>
-                                <input matInput placeholder="Ex: (00) 00000-0000" formControlName="celularFormControl"
-                                    maxlength="15" minlength="11" pattern="[0-9]{2}[0-9]{5}[0-9]{4}"
-                                    mask="(00) 00000-0000" required>
-                                <mat-hint>Preencher sem caracteres especiais</mat-hint>
-                                <mat-error *ngIf="formCadastro.controls.celularFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                                <mat-error *ngIf="formCadastro.controls.celularFormControl.errors?.minlength">Tem que
-                                    ter no mínimo 11 caracteres</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                    <div class="box4">
-                        <label>E-mail</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>E-mail</mat-label>
-                                <input matInput placeholder="exemplo@exemplo.com" formControlName="emailFormControl"
-                                    required>
-                                <mat-error *ngIf="formCadastro.controls.emailFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                                <mat-error *ngIf="formCadastro.controls.emailFormControl.errors?.email">Este e-mail não
-                                    é válido</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                </div>
-
-                <mat-divider></mat-divider>
-
-                <h3>Documentos e Entidade</h3>
-                <div class="box3">
-                    <div class="box4">
-                        <label>CPF</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>CPF</mat-label>
-                                <input matInput placeholder="Ex: 000.000.000-00" formControlName="cpfFormControl"
-                                    maxlength="15" minlength="11" pattern="[0-9]{3}[0-9]{3}[0-9]{3}[0-9]{2}"
-                                    mask="000.000.000-00" required>
-                                <mat-hint>Preencher sem pontuação</mat-hint>
-                                <mat-error *ngIf="formCadastro.controls.cpfFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                                <mat-error *ngIf="formCadastro.controls.cpfFormControl.errors?.minlength">Tem que
-                                    ter no mínimo 11 caracteres</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                    <div class="box4">
-                        <label>RG</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>RG</mat-label>
-                                <input matInput placeholder="" formControlName="rgFormControl" minlength="9"
-                                    maxlength="9" required>
-                                <mat-hint>Preencher sem pontuação</mat-hint>
-                                <mat-error *ngIf="formCadastro.controls.rgFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                                <mat-error *ngIf="formCadastro.controls.rgFormControl.errors?.minlength">Tem que
-                                    ter no mínimo 9 caracteres</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                </div>
-                <div class="box3">
-                    <div class="box4">
-                        <label>CTF</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>CTF</mat-label>
-                                <input matInput placeholder="" formControlName="ctfFormControl" minlength="10"
-                                    maxlength="10" pattern="[0-9]{10}" required>
-                                <mat-error *ngIf="formCadastro.controls.cpfFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                                <mat-error *ngIf="formCadastro.controls.cpfFormControl.errors?.minlength">Tem que
-                                    ter no mínimo 10 caracteres</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                    <div class="box4">
-                        <label>Selecione o estado do seu clube</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Selecione o estado</mat-label>
-                                <mat-select formControlName="ufClubeFormControl"
-                                    (selectionChange)="buscaAssociacaoPorUf($event)">
-                                    <mat-option value="PR">PR</mat-option>
-                                    <mat-option value="SP">SP</mat-option>
-                                    <mat-option value="RJ">RJ</mat-option>
-                                </mat-select>
-                                <mat-error *ngIf="formCadastro.controls.ufClubeFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                </div>
-
-                <label>Clube</label>
-                <p>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Selecione o estado do seu clube</mat-label>
-                        <mat-select formControlName="clubeFormControl">
-                            <mat-option *ngFor="let associacao of associacao" [value]="associacao">{{associacao.sigla}}
-                                -
-                                {{associacao.nome}}
-                            </mat-option>
-                        </mat-select>
-                        <mat-error *ngIf="formCadastro.controls.clubeFormControl.errors?.required">Campo
-                            obrigatório</mat-error>
-                    </mat-form-field>
-                </p>
-
-                <mat-divider></mat-divider>
-
-                <h3>Endereço</h3>
-                <div class="box3">
-                    <div class="box4">
-                        <label>Rua</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Rua</mat-label>
-                                <input matInput placeholder="" formControlName="ruaFormControl" required>
-                                <mat-error *ngIf="formCadastro.controls.ruaFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                    <div class="box4">
-                        <label>Número</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Número</mat-label>
-                                <input matInput placeholder="" formControlName="numeroFormControl" required>
-                                <mat-error *ngIf="formCadastro.controls.numeroFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                </div>
-                <div class="box3">
-                    <div class="box4">
-                        <label>Bairro</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Bairro</mat-label>
-                                <input matInput placeholder="" formControlName="bairroFormControl" required>
-                                <mat-error *ngIf="formCadastro.controls.bairroFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                    <div class="box4">
-                        <label>CEP</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>CEP</mat-label>
-                                <input matInput placeholder="" formControlName="cepFormControl" required>
-                                <mat-error *ngIf="formCadastro.controls.cepFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                </div>
-                <div class="box3">
-                    <div class="box4">
-                        <label>Cidade</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Cidade</mat-label>
-                                <input matInput placeholder="" formControlName="cidadeFormControl" required>
-                                <mat-error *ngIf="formCadastro.controls.cidadeFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                    <div class="box4">
-                        <label>Estado</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Estado</mat-label>
-                                <mat-select formControlName="ufEnderecoFormControl" required>
-                                    <mat-option value="PR">PR</mat-option>
-                                    <mat-option value="SP">SP</mat-option>
-                                    <mat-option value="RJ">RJ</mat-option>
-                                </mat-select>
-                                <mat-error *ngIf="formCadastro.controls.ufEnderecoFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                </div>
-                <div class="box3">
-                    <div class="box4">
-                        <label>Complemento</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Complemento</mat-label>
-                                <input matInput placeholder="" formControlName="complementoFormControl" required>
-                                <mat-error *ngIf="formCadastro.controls.complementoFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                    <div class="box4">                        
-                    </div>
-                </div>
-
-                <mat-divider></mat-divider>
-
-                <h3>Senhas</h3>
-                <div class="box3">
-                    <div class="box4">
-                        <label>Senha</label>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Senha</mat-label>
-                                <input matInput [type]="hide ? 'password' : 'text'" formControlName="senhaFormControl"
-                                    required>
-                                <mat-error></mat-error>
-                                <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
-                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                </button>
-                                <mat-error *ngIf="formCadastro.controls.senhaFormControl.errors?.required">Campo
-                                    obrigatório</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                    <div class="box4">
-                        <div class="box3">
-                            <label>Confirmar senha</label>
-                        </div>
-                        <p>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Confirnar senha</mat-label>
-                                <input matInput [type]="hide ? 'password' : 'text'"
-                                    formControlName="confirmarSenhaFormControl" required>
-                                <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
-                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                </button>
-                                <mat-error *ngIf="formCadastro.controls.confirmarSenhaFormControl.errors?.required">
-                                    Campo
-                                    obrigatório</mat-error>
-                                <mat-error
-                                    *ngIf="formCadastro.controls.confirmarSenhaFormControl.errors?.identityRevealed">
-                                    As senhas informadas devem ser iguais</mat-error>
-                            </mat-form-field>
-                        </p>
-                    </div>
-                </div>
-
-                <mat-divider></mat-divider>
-
-                <div class="box2">
-                    <a (click)="openDialog()"><strong>Ler termo</strong></a>
-                    <section>
-                        <mat-checkbox class="example-margin" formControlName="aceiteTermosFormControl" required>Li e
-                            concordo com
-                            a Termo
-                            de
-                            Responsabilidade.
-                        </mat-checkbox>
-                        <mat-error *ngIf="formCadastro.controls.aceiteTermosFormControl.errors?.required">
-                            É necessário aceitar os termos para concluir o cadastro</mat-error>
-                    </section>
-                    <button mat-raised-button color="accent" class="botaoFormulario" type="submit"
-                        [disabled]="formCadastro.invalid">Concluir
-                        cadastro</button>
-                </div>
-            </form>
-
+        <h3>Contato</h3>
+        <div class="box3">
+          <div class="box4">
+            <label>Nome</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="" formControlName="nomeFormControl" minlength="2" required>
+                <mat-error *ngIf="formCadastro.controls.nomeFormControl.errors?.minlength">Tem que
+                  ter no mínimo 2 caracteres</mat-error>
+                <mat-error *ngIf="formCadastro.controls.nomeFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="box4">
+            <label>Sobrenome</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Sobrenome</mat-label>
+                <input matInput placeholder="" formControlName="sobrenomeFormControl" minlength="2" required>
+                <mat-error *ngIf="formCadastro.controls.sobrenomeFormControl.errors?.minlength">Tem que
+                  ter no mínimo 2 caracteres</mat-error>
+                <mat-error *ngIf="formCadastro.controls.sobrenomeFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
         </div>
+        <div class="box3">
+          <div class="box4">
+            <label>Celular</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Celular</mat-label>
+                <input matInput placeholder="Ex: (00) 00000-0000" formControlName="celularFormControl" maxlength="15"
+                  minlength="11" pattern="[0-9]{2}[0-9]{5}[0-9]{4}" mask="(00) 00000-0000" required>
+                <mat-hint>Preencher sem caracteres especiais</mat-hint>
+                <mat-error *ngIf="formCadastro.controls.celularFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+                <mat-error *ngIf="formCadastro.controls.celularFormControl.errors?.minlength">Tem que
+                  ter no mínimo 11 caracteres</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="box4">
+            <label>E-mail</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="exemplo@exemplo.com" formControlName="emailFormControl" required>
+                <mat-error *ngIf="formCadastro.controls.emailFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+                <mat-error *ngIf="formCadastro.controls.emailFormControl.errors?.email">Este e-mail não
+                  é válido</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <h3>Documentos e Entidade</h3>
+        <div class="box3">
+          <div class="box4">
+            <label>CPF</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>CPF</mat-label>
+                <input matInput placeholder="Ex: 000.000.000-00" formControlName="cpfFormControl" maxlength="15"
+                  minlength="11" pattern="[0-9]{3}[0-9]{3}[0-9]{3}[0-9]{2}" mask="000.000.000-00" required>
+                <mat-hint>Preencher sem pontuação</mat-hint>
+                <mat-error *ngIf="formCadastro.controls.cpfFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+                <mat-error *ngIf="formCadastro.controls.cpfFormControl.errors?.minlength">Tem que
+                  ter no mínimo 11 caracteres</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="box4">
+            <label>RG</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>RG</mat-label>
+                <input matInput placeholder="" formControlName="rgFormControl" minlength="9" maxlength="9" required>
+                <mat-hint>Preencher sem pontuação</mat-hint>
+                <mat-error *ngIf="formCadastro.controls.rgFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+                <mat-error *ngIf="formCadastro.controls.rgFormControl.errors?.minlength">Tem que
+                  ter no mínimo 9 caracteres</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+        <div class="box3">
+          <div class="box4">
+            <label>CTF</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>CTF</mat-label>
+                <input matInput placeholder="" formControlName="ctfFormControl" minlength="10" maxlength="10"
+                  pattern="[0-9]{10}" required>
+                <mat-error *ngIf="formCadastro.controls.cpfFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+                <mat-error *ngIf="formCadastro.controls.cpfFormControl.errors?.minlength">Tem que
+                  ter no mínimo 10 caracteres</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="box4">
+            <label>Selecione o estado do seu clube</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Selecione o estado</mat-label>
+                <mat-select formControlName="ufClubeFormControl" (selectionChange)="buscaAssociacaoPorUf($event)">
+                  <mat-option value="PR">PR</mat-option>
+                  <mat-option value="SP">SP</mat-option>
+                  <mat-option value="RJ">RJ</mat-option>
+                </mat-select>
+                <mat-error *ngIf="formCadastro.controls.ufClubeFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+
+        <label>Clube</label>
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Selecione o estado do seu clube</mat-label>
+            <mat-select formControlName="clubeFormControl">
+              <mat-option *ngFor="let associacao of associacao" [value]="associacao">{{associacao.sigla}}
+                -
+                {{associacao.nome}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formCadastro.controls.clubeFormControl.errors?.required">Campo
+              obrigatório</mat-error>
+          </mat-form-field>
+        </p>
+
+        <mat-divider></mat-divider>
+
+        <h3>Endereço</h3>
+        <div class="box3">
+          <div class="box4">
+            <label>CEP</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>CEP</mat-label>
+                <input matInput formControlName="cepFormControl" minlength="8" maxlength="8" required>
+                <mat-error *ngIf="formCadastro.controls.cepFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+                <mat-error *ngIf="formCadastro.controls.cepFormControl.errors?.minlength">Tem que
+                  ter no mínimo 8 caracteres</mat-error>
+                <mat-error *ngIf="formCadastro.controls.cepFormControl.errors?.invalid">CEP inexistente</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="box4">
+            <button type="button" mat-raised-button color="accent" class="botaoFormulario"
+              [disabled]="formCadastro.controls.cepFormControl.errors?.minlength || formCadastro.controls.cepFormControl.errors?.maxlength || formCadastro.controls.cepFormControl.value === ''"
+              (click)="getCep(formCadastro.controls.cepFormControl.value)">Buscar CEP</button>
+          </div>
+        </div>
+        <div class="box3">
+          <div class="box4">
+            <label>Rua</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Rua</mat-label>
+                <input matInput placeholder="" formControlName="ruaFormControl" required>
+                <mat-error *ngIf="formCadastro.controls.ruaFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="box4">
+            <label>Número</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Número</mat-label>
+                <input matInput placeholder="" formControlName="numeroFormControl" required>
+                <mat-error *ngIf="formCadastro.controls.numeroFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+        <div class="box3">
+          <div class="box4">
+            <label>Bairro</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Bairro</mat-label>
+                <input matInput placeholder="" formControlName="bairroFormControl" required>
+                <mat-error *ngIf="formCadastro.controls.bairroFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="box4">
+            <label>Complemento</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Complemento</mat-label>
+                <input matInput placeholder="" formControlName="complementoFormControl" required>
+                <mat-error *ngIf="formCadastro.controls.complementoFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+        <div class="box3">
+          <div class="box4">
+            <label>Cidade</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Cidade</mat-label>
+                <input matInput placeholder="" formControlName="cidadeFormControl" required>
+                <mat-error *ngIf="formCadastro.controls.cidadeFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="box4">
+            <label>Estado</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Estado</mat-label>
+                <mat-select formControlName="ufEnderecoFormControl" required>
+                  <mat-option value="PR">PR</mat-option>
+                  <mat-option value="SP">SP</mat-option>
+                  <mat-option value="RJ">RJ</mat-option>
+                </mat-select>
+                <mat-error *ngIf="formCadastro.controls.ufEnderecoFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+
+
+        <mat-divider></mat-divider>
+
+        <h3>Senhas</h3>
+        <div class="box3">
+          <div class="box4">
+            <label>Senha</label>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Senha</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="senhaFormControl" required>
+                <mat-error></mat-error>
+                <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="formCadastro.controls.senhaFormControl.errors?.required">Campo
+                  obrigatório</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="box4">
+            <div class="box3">
+              <label>Confirmar senha</label>
+            </div>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Confirnar senha</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmarSenhaFormControl"
+                  required>
+                <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="formCadastro.controls.confirmarSenhaFormControl.errors?.required">
+                  Campo
+                  obrigatório</mat-error>
+                <mat-error *ngIf="formCadastro.controls.confirmarSenhaFormControl.errors?.identityRevealed">
+                  As senhas informadas devem ser iguais</mat-error>
+              </mat-form-field>
+            </p>
+          </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="box2">
+          <a (click)="openDialog()"><strong>Ler termo</strong></a>
+          <section>
+            <mat-checkbox class="example-margin" formControlName="aceiteTermosFormControl" required>Li e
+              concordo com
+              a Termo
+              de
+              Responsabilidade.
+            </mat-checkbox>
+            <mat-error *ngIf="formCadastro.controls.aceiteTermosFormControl.errors?.required">
+              É necessário aceitar os termos para concluir o cadastro</mat-error>
+          </section>
+          <button mat-raised-button color="accent" class="botaoFormulario" type="submit"
+            [disabled]="formCadastro.invalid">Concluir
+            cadastro</button>
+        </div>
+      </form>
+
     </div>
+  </div>
 </div>

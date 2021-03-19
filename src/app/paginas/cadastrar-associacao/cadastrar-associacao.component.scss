@@ -5,7 +5,7 @@
     flex-direction: row;
     justify-content: center;
   }
-  
+
   .box {
     width: 95%;
     height: 90%;
@@ -15,7 +15,7 @@
     align-items: center;
     margin-top: 1px;
   }
-  
+
   .box2 {
     width: 95%;
     height: 90%;
@@ -25,17 +25,17 @@
     display: flex;
     align-items: flex-start;
   }
-  
+
   .box3 {
     width: 100%;
     height: max-content;
     background: #fff;
     flex-direction: row;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
   }
-  
+
   .box4 {
       width: 49%;
   }
@@ -50,24 +50,24 @@
     align-items: flex-start;
     justify-content: flex-start;
   }
-  
+
   h1 {
     color: #795548;
     font-size: 36px;
   }
-  
+
   p {
     color: #795548;
     font-size: 16px;
   }
-  
+
   h3 {
     color: #8BC34A;
     font-size: 30px;
     margin: 20px 0 10px;
     font-weight: 400;
   }
-  
+
   label {
     display: inline-block;
     max-width: 100%;
@@ -75,32 +75,32 @@
     font-weight: 450;
     font-size: 16px;
   }
-  
+
   p {
     width: 100%;
   }
-  
+
   mat-form-field {
     width: 100%;
   }
-  
+
   mat-divider {
       width: 100%;
   }
-  
+
   section {
     margin-bottom: 5px;
   }
-  
+
   .botaoCadastrar {
     background-color: #8BC34A;
     margin-right: 15px;
   }
-  
+
   form {
     width: 100%;
   }
-  
+
   a:hover {
     cursor: pointer;
   }
@@ -108,5 +108,4 @@
   .botaoFormulario {
     margin-right: 15px;
   }
-  
-  
+

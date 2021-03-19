@@ -12,6 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TermoDeResponsabilidadeComponent } from 'src/app/modals/termo-de-responsabilidade/termo-de-responsabilidade.component';
 import { Usuario } from 'src/app/_models/usuario';
 import { ErroService } from '../../_services/erro.service';
+import { CepConsultaService } from 'src/app/_services/cep-consulta.service';
 
 @Component({
   selector: 'app-cadastrar-criador',
@@ -32,7 +33,8 @@ export class CadastrarCriadorComponent implements OnInit {
     private router: Router,
     private _snackBar: MatSnackBar,
     public dialog: MatDialog,
-    private _erroService: ErroService) {
+    private _erroService: ErroService,
+    private _cepConsultaService: CepConsultaService) {
   }
 
 
@@ -165,6 +167,23 @@ export class CadastrarCriadorComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(TermoDeResponsabilidadeComponent);
+  }
+
+  getCep(cep: string) {
+    this._cepConsultaService.getCep(cep).subscribe((res) => {
+      console.log(res);
+      if (res.erro) {
+        this.formCadastro.controls['cepFormControl'].setErrors({invalid: true})
+      } else {
+        res.localidade !== "" ? this.formCadastro.controls['cidadeFormControl'].setValue(res.localidade) : this.formCadastro.controls['cidadeFormControl'].setValue(null);
+        res.uf !== "" ? this.formCadastro.controls['ufEnderecoFormControl'].setValue(res.uf) : this.formCadastro.controls['ufEnderecoFormControl'].setValue(null);
+        res.logradouro !== "" ? this.formCadastro.controls['ruaFormControl'].setValue(res.logradouro) : this.formCadastro.controls['ruaFormControl'].setValue(null);
+        res.logradouro !== "" ? this.formCadastro.controls['numeroFormControl'].setValue('0') : this.formCadastro.controls['numeroFormControl'].setValue(null);
+        res.bairro !== "" ? this.formCadastro.controls['bairroFormControl'].setValue(res.bairro) : this.formCadastro.controls['bairroFormControl'].setValue(null);
+        res.complemento !== "" ? this.formCadastro.controls['complementoFormControl'].setValue(res.complemento) :
+          res.bairro !== "" ? this.formCadastro.controls['complementoFormControl'].setValue(res.bairro) : this.formCadastro.controls['complementoFormControl'].setValue(null);
+      }
+    })
   }
 
 }
