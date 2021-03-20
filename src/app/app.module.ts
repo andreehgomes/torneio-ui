@@ -54,6 +54,7 @@ import { ListaAvesComponent } from './modals/lista-aves/lista-aves.component';
 import { DetalhaCriadorLogadoComponent } from './modals/detalha-criador-logado/detalha-criador-logado.component';
 import { ComprovanteTransferenciaAveComponent } from './paginas/comprovante-transferencia-ave/comprovante-transferencia-ave.component';
 import { ErroComponent } from './paginas/erro/erro.component';
+import { DetalhaAssociacaoLogadaComponent } from './modals/detalha-associacao-logada/detalha-associacao-logada.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { ErroComponent } from './paginas/erro/erro.component';
     DetalhaCriadorLogadoComponent,
     ComprovanteTransferenciaAveComponent,
     ErroComponent,
+    DetalhaAssociacaoLogadaComponent,
   ],
   imports: [
     BrowserModule,

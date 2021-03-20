@@ -1,4 +1,5 @@
 @import "../../../styles";
+@import '../../_shared/styles/colors';
 
 .container {
   width: 100%;
@@ -20,6 +21,17 @@
   align-items: center;
 }
 
+.box2 {
+  width: 100%;
+  height: max-content;
+  background: $c-white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2px;
+}
+
 .example-card {
   max-width: 400px;
 }
@@ -27,4 +39,20 @@
 .example-header-image {
   background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
   background-size: cover;
+}
+
+.mat-card {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: $c-yellow-alert-ligth;
+  color: $c-red-alert;
+  border-color: $c-yellow-alert-border;
+}
+
+p {
+  margin: 0 auto;
+  width: 100%;
 }

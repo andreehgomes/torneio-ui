@@ -9,6 +9,9 @@ $c-red: #f44336;
 $c-red-alert: #721c24;
 $c-red-alert-light: #f8d7da;
 $c-red-alert-border: #f5c6cb;
+$c-yellow-alert-ligth: #FFECB3;
+$c-yellow-alert:#FF6F00;
+$c-yellow-alert-border: #FFC107;
 
 
 .c-primary {
@@ -33,4 +36,8 @@ $c-red-alert-border: #f5c6cb;
 
 .c-red {
   background-color: $c-red;
+}
+
+.c-yellow {
+  background-color: $c-yellow-alert-ligth;
 }

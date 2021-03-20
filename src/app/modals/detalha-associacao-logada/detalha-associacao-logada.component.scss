@@ -1,0 +1,85 @@
+@import "../../_shared/styles/colors";
+
+.container {
+  width: 100%;
+  min-height: 70vh;
+  height: max-content;
+  background: $c-white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.box {
+  width: 100%;
+  min-height: min-content;
+  background: $c-white;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  // border: solid;
+  // border-radius: 30px;
+  // border-color: $c-secondary;
+}
+
+.box2 {
+  width: 95%;
+  height: 90%;
+  margin: 15px 0 15px 0;
+  background: $c-white;
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start;
+}
+
+.box3 {
+  padding-top: 10px;
+  width: 100%;
+  height: max-content;
+  background: $c-white;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box4 {
+  width: 40%;
+  height: max-content;
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start;
+}
+
+p {
+  color: $c-primary;
+  font-size: 16px;
+}
+
+h3 {
+  color: $c-secondary;
+  font-size: 30px;
+  margin: 20px 0 10px;
+  font-weight: 400;
+}
+
+button {
+  background-color: $c-secondary;
+  width: 150px;
+}
+
+hr {
+  width: 100%;
+  border: solid 2px;
+  border-color: $c-secondary;
+  border-radius: 30px;
+}
+
+.botaoPaginaInicial {
+  margin-left: 10px;
+}
+
+.botaoFormulario {
+  margin-right: 15px;
+}
+

@@ -4,8 +4,10 @@ import { Criador } from '../../_models/criador';
 import { Associacao } from '../../_models/associacao';
 import { CriadorService } from '../../_services/criador.service';
 import { AssociacaoService } from '../../_services/associacao.service';
+import { LoginService } from '../../_services/login.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DetalhaCriadorLogadoComponent } from '../../modals/detalha-criador-logado/detalha-criador-logado.component';
+import { DetalhaAssociacaoLogadaComponent } from '../../modals/detalha-associacao-logada/detalha-associacao-logada.component'
 
 @Component({
   selector: 'app-toolbar-principal',
@@ -20,10 +22,11 @@ export class ToolbarPrincipalComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private router: Router,
-    private criadorService: CriadorService,
-    private associacaoService: AssociacaoService) {
-    this.criador = JSON.parse(window.sessionStorage.getItem('criador'));
-    this.associacao = JSON.parse(window.sessionStorage.getItem('associacao'));
+    public criadorService: CriadorService,
+    public associacaoService: AssociacaoService,
+    public _loginService: LoginService) {
+    this._loginService.criador = JSON.parse(window.sessionStorage.getItem('criador'));
+    this._loginService.associacao = JSON.parse(window.sessionStorage.getItem('associacao'));
   }
 
   ngOnInit(): void {
@@ -36,30 +39,38 @@ export class ToolbarPrincipalComponent implements OnInit {
   sair() {
     window.sessionStorage.removeItem('criador');
     window.sessionStorage.removeItem('associacao');
-    this.criadorService.reload = true;
-    this.associacaoService.reload = true;
+    this._loginService.reload = true;
+    this._loginService.reload = true;
     this.goToPage('/');
   }
 
   consultarDadosLogado() {
-    if (this.criador) {
-      this.criadorService.criador = this.criador;
-      this.openDialog(this.criador);
-    } else if (this.associacao) {
-      this.associacaoService.associacao = this.associacao;
-      console.log(this.associacao);
+    if (this._loginService.criador) {
+      this.openDialog(this._loginService.criador, 'TPUS02');
+    } else if (this._loginService.associacao) {
+      this.openDialog(this._loginService.associacao, 'TPUS01')
     }
   }
 
-  openDialog(criador?: Criador, associacao?: Associacao) {
-    if (criador) {
+  openDialog(data: any, tipoUsuario: string) {
+    if (tipoUsuario === 'TPUS02') {
       const dialogRef = this.dialog.open(DetalhaCriadorLogadoComponent, {
         width: '750px',
-        data: criador
+        data: data
       });
 
       dialogRef.afterClosed().subscribe(result => {
         console.log('Modal detalha criador fechada');
+      });
+    }
+    if (tipoUsuario === 'TPUS01') {
+      const dialogRef = this.dialog.open(DetalhaAssociacaoLogadaComponent, {
+        width: '750px',
+        data: data
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('Modal detalha associção fechada');
       });
     }
   }

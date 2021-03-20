@@ -1,12 +1,14 @@
 <div class="container c-background">
     <div class="box">
-      <mat-card>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-content>
-            <p>
-                Simple card
-            </p>
-        </mat-card-content>
-    </mat-card>
+      <div class="box2" *ngIf="status === true">
+        <mat-card class="mat-card">
+          <p>
+            {{this._erroService.erro.mensagem}}
+          </p>
+          <button mat-button>
+            <mat-icon aria-hidden="false" aria-label="Ícone de lápis" (click)="close()">close</mat-icon>
+          </button>
+        </mat-card>
+      </div>
     </div>
 </div>

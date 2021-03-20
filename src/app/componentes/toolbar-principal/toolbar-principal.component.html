@@ -13,14 +13,14 @@
                     <button class="nav-toolbar" mat-flat-button>Últimos Resultados</button>
                 </div>
                 <div>
-                    <button *ngIf="!criador && !associacao"  class="nav-toolbar" mat-flat-button [matMenuTriggerFor]="menu">Cadastre-se <mat-icon>expand_more</mat-icon></button>
+                    <button *ngIf="!_loginService.criador && !_loginService.associacao"  class="nav-toolbar" mat-flat-button [matMenuTriggerFor]="menu">Cadastre-se <mat-icon>expand_more</mat-icon></button>
                     <mat-menu #menu="matMenu">
                         <button class="nav-toolbar-menu" mat-menu-item (click)="goToPage('criador/cadastrar')"><mat-icon>person</mat-icon> Para o Criador</button>
                         <button class="nav-toolbar-menu" mat-menu-item (click)="goToPage('associacao/cadastrar')"><mat-icon>people</mat-icon> Para a Associação</button>
                       </mat-menu>
-                    <button *ngIf="!criador && !associacao"  class="nav-toolbar" mat-flat-button (click)="goToPage('login')">Entrar</button>
-                    <button *ngIf="criador"  class="nav-toolbar" mat-flat-button [matMenuTriggerFor]="menuUsuario">Olá, {{criador.nome}} <mat-icon>expand_more</mat-icon></button>
-                    <button *ngIf="associacao"  class="nav-toolbar" mat-flat-button [matMenuTriggerFor]="menuUsuario">Olá, {{associacao.nome}} <mat-icon>expand_more</mat-icon></button>
+                    <button *ngIf="!_loginService.criador && !_loginService.associacao"  class="nav-toolbar" mat-flat-button (click)="goToPage('login')">Entrar</button>
+                    <button *ngIf="_loginService.criador"  class="nav-toolbar" mat-flat-button [matMenuTriggerFor]="menuUsuario">Olá, {{_loginService.criador.nome}} <mat-icon>expand_more</mat-icon></button>
+                    <button *ngIf="_loginService.associacao"  class="nav-toolbar" mat-flat-button [matMenuTriggerFor]="menuUsuario">Olá, {{_loginService.associacao.nome}} <mat-icon>expand_more</mat-icon></button>
                     <mat-menu #menuUsuario="matMenu">
                         <button class="nav-toolbar-menu" mat-menu-item (click)="consultarDadosLogado()"><mat-icon>person</mat-icon> Meus dados</button>
                         <button class="nav-toolbar-menu" mat-menu-item (click)="sair()"><mat-icon>power_settings_new</mat-icon> Sair</button>

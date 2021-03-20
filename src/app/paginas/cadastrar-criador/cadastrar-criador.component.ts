@@ -13,6 +13,7 @@ import { TermoDeResponsabilidadeComponent } from 'src/app/modals/termo-de-respon
 import { Usuario } from 'src/app/_models/usuario';
 import { ErroService } from '../../_services/erro.service';
 import { CepConsultaService } from 'src/app/_services/cep-consulta.service';
+import { LoginService } from 'src/app/_services/login.service';
 
 @Component({
   selector: 'app-cadastrar-criador',
@@ -27,9 +28,10 @@ export class CadastrarCriadorComponent implements OnInit {
   endereco: Endereco = new Endereco();
 
   constructor(
-    private associacaoService: AssociacaoService,
-    public criadorService: CriadorService,
+    private _associacaoService: AssociacaoService,
+    public _criadorService: CriadorService,
     private enderecoService: EnderecoService,
+    public _loginService: LoginService,
     private router: Router,
     private _snackBar: MatSnackBar,
     public dialog: MatDialog,
@@ -65,25 +67,25 @@ export class CadastrarCriadorComponent implements OnInit {
   // }
 
   formCadastro = new FormGroup({
-    nomeFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.nome : ''),
-    sobrenomeFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.sobrenome : ''),
-    celularFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.telefone : ''),
-    emailFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.usuarioHttp.email : '', [Validators.email]),
-    cpfFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.cpf : ''),
-    rgFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.rg : ''),
-    ctfFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.ctf : ''),
-    ufClubeFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.associacaoHttp.enderecoHttp.estado : ''),
-    clubeFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.associacaoHttp : ''),
-    ruaFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.enderecoHttp.logradouro : ''),
-    numeroFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.enderecoHttp.numero : ''),
-    bairroFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.enderecoHttp.bairro : ''),
-    cepFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.enderecoHttp.cep : ''),
-    cidadeFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.enderecoHttp.cidade : ''),
-    ufEnderecoFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.enderecoHttp.estado : ''),
-    complementoFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.enderecoHttp.complemento : ''),
-    senhaFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.usuarioHttp.senha : ''),
-    confirmarSenhaFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.usuarioHttp.senha : ''),
-    aceiteTermosFormControl: new FormControl(this.criadorService.criador ? true : false),
+    nomeFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.nome : ''),
+    sobrenomeFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.sobrenome : ''),
+    celularFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.telefone : ''),
+    emailFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.usuarioHttp.email : '', [Validators.email]),
+    cpfFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.cpf : ''),
+    rgFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.rg : ''),
+    ctfFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.ctf : ''),
+    ufClubeFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.associacaoHttp.enderecoHttp.estado : ''),
+    clubeFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.associacaoHttp : ''),
+    ruaFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.logradouro : ''),
+    numeroFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.numero : ''),
+    bairroFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.bairro : ''),
+    cepFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.cep : ''),
+    cidadeFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.cidade : ''),
+    ufEnderecoFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.estado : ''),
+    complementoFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.complemento : ''),
+    senhaFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.usuarioHttp.senha : ''),
+    confirmarSenhaFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.usuarioHttp.senha : ''),
+    aceiteTermosFormControl: new FormControl(this._loginService.criador ? true : false),
     tipoUsuarioFormControl: new FormControl('TPUS02'),
     ativoFormControl: new FormControl(true)
   }, { validators: this.identityRevealedValidator });
@@ -95,7 +97,7 @@ export class CadastrarCriadorComponent implements OnInit {
     // this.associacaoService.getAssociacaoPorUf(event.value).subscribe((res) => {
     //   this.associacao = res;
     // })
-    this.associacaoService.listarAssociacao().subscribe((res) => {
+    this._associacaoService.listarAssociacao().subscribe((res) => {
       this.associacao = res;
     })
   }
@@ -144,13 +146,13 @@ export class CadastrarCriadorComponent implements OnInit {
     this.criador.usuarioHttp.tipo = tipoUsuarioFormControl.value;
     this.criador.associacaoHttp = clubeFormControl.value;
 
-    if (this.criadorService.criador.codigo) {
-      this.criador.codigo = this.criadorService.criador.codigo;
-      this.criador.usuarioHttp.codigo = this.criadorService.criador.usuarioHttp.codigo;
-      console.log(this.criador)
-      console.log(this.criador.codigo)
-      this.criadorService.putCriador(this.criador).subscribe((res) => {
-        this.criadorService.criador = res;
+    if (this._loginService.criador.codigo) {
+      this.criador.codigo = this._loginService.criador.codigo;
+      this.criador.usuarioHttp.codigo = this._loginService.criador.usuarioHttp.codigo;
+      this.criador.ativo = this._loginService.criador.ativo;
+      this._criadorService.putCriador(this.criador).subscribe((res) => {
+        this._loginService.criador = res;
+        this._criadorService.criador = res;
         window.sessionStorage.setItem('criador', JSON.stringify(res));
         this.goToPage('criador/comprovante-cadastro');
       }, (erro) => {
@@ -167,8 +169,8 @@ export class CadastrarCriadorComponent implements OnInit {
         }
       })
     } else {
-      this.criadorService.postCriador(this.criador).subscribe((res) => {
-        this.criadorService.criador = res;
+      this._criadorService.postCriador(this.criador).subscribe((res) => {
+        this._criadorService.criador = res;
         this.goToPage('criador/comprovante-cadastro');
       }, (erro) => {
         if (erro.status !== 400) {
