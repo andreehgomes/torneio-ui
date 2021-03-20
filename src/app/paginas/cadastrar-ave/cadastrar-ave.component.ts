@@ -12,22 +12,15 @@ import { AveService } from '../../_services/ave.service'
   styleUrls: ['./cadastrar-ave.component.scss']
 })
 export class CadastrarAveComponent implements OnInit {
+  ave: Ave = new Ave();
+  especie: Especie = new Especie();
 
   especies: Array<Especie> = []
 
   constructor(
     private router: Router,
     private aveService: AveService,
-    private especieService: EspecieService) {
-
-    this.especieService.listarEspecies().subscribe((res) => {
-      this.especie = res;
-    })
-
-  }
-
-  ave: Ave = new Ave();
-  especie: Especie = new Especie();
+    private especieService: EspecieService) {}
 
   formCadastro = new FormGroup({
     idFormControl: new FormControl(this.aveService.ave.codigo ? this.aveService.ave.codigo : ''),
@@ -39,6 +32,7 @@ export class CadastrarAveComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    this.getEspecies();
   }
 
   onSubmit() {
@@ -67,6 +61,13 @@ export class CadastrarAveComponent implements OnInit {
       console.log('RES: ', res);
       this.aveService.ave = res;
       this.goToPage('ave/comprovante-cadastro');
+    })
+  }
+
+  getEspecies(){
+    this.especieService.listarEspecies().subscribe((res) => {
+      console.log(res)
+      this.especies = res;
     })
   }
 

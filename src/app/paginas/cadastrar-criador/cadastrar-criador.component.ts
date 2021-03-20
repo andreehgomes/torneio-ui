@@ -28,7 +28,7 @@ export class CadastrarCriadorComponent implements OnInit {
 
   constructor(
     private associacaoService: AssociacaoService,
-    private criadorService: CriadorService,
+    public criadorService: CriadorService,
     private enderecoService: EnderecoService,
     private router: Router,
     private _snackBar: MatSnackBar,
@@ -65,27 +65,27 @@ export class CadastrarCriadorComponent implements OnInit {
   // }
 
   formCadastro = new FormGroup({
-    nomeFormControl: new FormControl(),
-    sobrenomeFormControl: new FormControl(),
-    celularFormControl: new FormControl(),
-    emailFormControl: new FormControl('',[Validators.email]),
-    cpfFormControl: new FormControl(),
-    rgFormControl: new FormControl(),
-    ctfFormControl: new FormControl(),
-    ufClubeFormControl: new FormControl(),
-    clubeFormControl: new FormControl(),
-    ruaFormControl: new FormControl(),
-    numeroFormControl: new FormControl(),
-    bairroFormControl: new FormControl(),
-    cepFormControl: new FormControl(),
-    cidadeFormControl: new FormControl(),
-    ufEnderecoFormControl: new FormControl(),
-    complementoFormControl: new FormControl(),
-    senhaFormControl: new FormControl(),
-    confirmarSenhaFormControl: new FormControl(),
-    aceiteTermosFormControl: new FormControl(),
+    nomeFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.nome : ''),
+    sobrenomeFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.sobrenome : ''),
+    celularFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.telefone : ''),
+    emailFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.usuarioHttp.email : '', [Validators.email]),
+    cpfFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.cpf : ''),
+    rgFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.rg : ''),
+    ctfFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.ctf : ''),
+    ufClubeFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.associacaoHttp.enderecoHttp.estado : ''),
+    clubeFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.associacaoHttp : ''),
+    ruaFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.enderecoHttp.logradouro : ''),
+    numeroFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.enderecoHttp.numero : ''),
+    bairroFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.enderecoHttp.bairro : ''),
+    cepFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.enderecoHttp.cep : ''),
+    cidadeFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.enderecoHttp.cidade : ''),
+    ufEnderecoFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.enderecoHttp.estado : ''),
+    complementoFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.enderecoHttp.complemento : ''),
+    senhaFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.usuarioHttp.senha : ''),
+    confirmarSenhaFormControl: new FormControl(this.criadorService.criador ? this.criadorService.criador.usuarioHttp.senha : ''),
+    aceiteTermosFormControl: new FormControl(this.criadorService.criador ? true : false),
     tipoUsuarioFormControl: new FormControl('TPUS02'),
-    ativoFormControl:new FormControl(true)
+    ativoFormControl: new FormControl(true)
   }, { validators: this.identityRevealedValidator });
 
   ngOnInit(): void {
@@ -144,15 +144,46 @@ export class CadastrarCriadorComponent implements OnInit {
     this.criador.usuarioHttp.tipo = tipoUsuarioFormControl.value;
     this.criador.associacaoHttp = clubeFormControl.value;
 
-    this.criadorService.postCriador(this.criador).subscribe((res) => {
-      this.criadorService.criador = res;
-      this.goToPage('criador/comprovante-cadastro');
-    }, (erro) => {
-      this._erroService.erro.erro = true;
-      this._erroService.erro.codigo = erro.status;
-      this._erroService.erro.mensagem = erro.error.Mensagem;
-      this.goToPage('erro');
-    });
+    if (this.criadorService.criador.codigo) {
+      this.criador.codigo = this.criadorService.criador.codigo;
+      this.criador.usuarioHttp.codigo = this.criadorService.criador.usuarioHttp.codigo;
+      console.log(this.criador)
+      console.log(this.criador.codigo)
+      this.criadorService.putCriador(this.criador).subscribe((res) => {
+        this.criadorService.criador = res;
+        window.sessionStorage.setItem('criador', JSON.stringify(res));
+        this.goToPage('criador/comprovante-cadastro');
+      }, (erro) => {
+        if (erro.status !== 400) {
+          this._erroService.erro.erro = true;
+          this._erroService.erro.codigo = erro.status;
+          this._erroService.erro.mensagem = erro.error.Mensagem;
+          this.goToPage('erro');
+        } else {
+          this._erroService.erro.erro = true;
+          this._erroService.erro.codigo = erro.status;
+          this._erroService.erro.mensagem = erro.message;
+          this.goToPage('erro');
+        }
+      })
+    } else {
+      this.criadorService.postCriador(this.criador).subscribe((res) => {
+        this.criadorService.criador = res;
+        this.goToPage('criador/comprovante-cadastro');
+      }, (erro) => {
+        if (erro.status !== 400) {
+          this._erroService.erro.erro = true;
+          this._erroService.erro.codigo = erro.status;
+          this._erroService.erro.mensagem = erro.error.Mensagem;
+          this.goToPage('erro');
+        } else {
+          this._erroService.erro.erro = true;
+          this._erroService.erro.codigo = erro.status;
+          this._erroService.erro.mensagem = erro.message;
+          this.goToPage('erro');
+        }
+      });
+    }
   }
 
   goToPage(pageName: string) {
@@ -173,7 +204,7 @@ export class CadastrarCriadorComponent implements OnInit {
     this._cepConsultaService.getCep(cep).subscribe((res) => {
       console.log(res);
       if (res.erro) {
-        this.formCadastro.controls['cepFormControl'].setErrors({invalid: true})
+        this.formCadastro.controls['cepFormControl'].setErrors({ invalid: true })
       } else {
         res.localidade !== "" ? this.formCadastro.controls['cidadeFormControl'].setValue(res.localidade) : this.formCadastro.controls['cidadeFormControl'].setValue(null);
         res.uf !== "" ? this.formCadastro.controls['ufEnderecoFormControl'].setValue(res.uf) : this.formCadastro.controls['ufEnderecoFormControl'].setValue(null);

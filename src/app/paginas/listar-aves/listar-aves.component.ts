@@ -9,6 +9,7 @@ import { Especie } from '../../_models/especie';
 import { AveService } from '../../_services/ave.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { ErroService } from '../../_services/erro.service';
 
 @Component({
   selector: 'app-listar-aves',
@@ -39,15 +40,21 @@ export class ListarAvesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private router: Router, private aveService: AveService) {
+  constructor(private router: Router, private aveService: AveService, private erroService: ErroService) {
     this.loadData();
   }
 
   loadData(): void {
     this.criador = JSON.parse(window.sessionStorage.getItem('criador'));
-    this.aveService.getAvePorCriador(this.criador).subscribe(res => {
+    this.aveService.getAvePorCriador(this.criador).subscribe((res) => {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
+    }, (erro) => {
+      console.log(erro)
+      this.erroService.erro.erro = true;
+      this.erroService.erro.codigo = erro.error.status;
+      this.erroService.erro.mensagem = erro.message;
+      this.goToPage('erro');
     });
   }
 
