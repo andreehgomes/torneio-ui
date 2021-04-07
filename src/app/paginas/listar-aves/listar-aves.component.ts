@@ -50,11 +50,17 @@ export class ListarAvesComponent implements OnInit {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
     }, (erro) => {
-      console.log(erro)
-      this.erroService.erro.erro = true;
-      this.erroService.erro.codigo = erro.error.status;
-      this.erroService.erro.mensagem = erro.message;
-      this.goToPage('erro');
+      if(erro.status === 404){
+        console.log(erro)
+        console.log(erro.error.Mensagem);
+      }else{
+        console.log('ELSE')
+        console.log(erro)
+        this.erroService.erro.erro = true;
+        this.erroService.erro.codigo = erro.error.status;
+        this.erroService.erro.mensagem = erro.message;
+        this.goToPage('erro');
+      }
     });
   }
 

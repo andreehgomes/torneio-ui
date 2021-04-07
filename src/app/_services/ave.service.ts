@@ -31,11 +31,55 @@ export class AveService {
     );
   }
 
+  getAveTransferencia(criador: Criador): Observable<any> {
+    return this._http.get<Ave[]>(
+      'http://localhost:8080/api/ave/criador-novo',
+      this.setCriadorHeader(criador)
+    );
+  }
+
+  getAveTransferenciaRealizadas(criador: Criador): Observable<any> {
+    return this._http.get<Ave[]>(
+      'http://localhost:8080/api/ave/criador-antigo',
+      this.setCriadorHeader(criador)
+    );
+  }
+
   updateCriador(ave: Ave): Observable<Ave> {
     return this._http.put<Ave>(
       `http://localhost:8080/api/ave/${ave.codigo}`,
       ave
     );
+  }
+
+  transferirAve(ave: Ave, criadorNovo: Criador): Observable<Ave> {
+    ave.criadorHttpAntigo = ave.criadorHttp;
+    ave.criadorHttp = null;
+    ave.criadorHttpNovo = criadorNovo;
+    return this._http.put<Ave>(
+      `http://localhost:8080/api/ave/${ave.codigo}`,
+      ave
+    );
+  }
+
+  aceitarTransferencia(ave: Ave, criadorNovo: Criador): Observable<Ave> {
+    ave.criadorHttp = criadorNovo;
+    ave.criadorHttpAntigo = null;
+    ave.criadorHttpNovo = null;
+    return this._http.put<Ave>(
+      `http://localhost:8080/api/ave/${ave.codigo}`,
+      ave
+    )
+  }
+
+  recusarTransferencia(ave: Ave): Observable<Ave> {
+    ave.criadorHttp = ave.criadorHttpAntigo;
+    ave.criadorHttpAntigo = null;
+    ave.criadorHttpNovo = null;
+    return this._http.put<Ave>(
+      `http://localhost:8080/api/ave/${ave.codigo}`,
+      ave
+    )
   }
 
 

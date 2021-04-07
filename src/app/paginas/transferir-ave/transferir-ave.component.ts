@@ -16,7 +16,7 @@ import { CriadorService } from 'src/app/_services/criador.service';
 })
 export class TransferirAveComponent implements OnInit {
   ave: Ave;
-  criador: Criador = null;
+  criadorNovo: Criador = null;
   idCriadorFormControl = new FormControl('', [Validators.min(1)]);
 
   httpError: HttpErrorResponse = null;
@@ -41,15 +41,14 @@ export class TransferirAveComponent implements OnInit {
       .pipe(catchError((error: HttpErrorResponse) => throwError(error)))
       .subscribe(
         data => {
-          this.criador = data;
+          this.criadorNovo = data;
           this._criadorService.criador = data;
-          this._aveService.ave.criadorHttp = this._criadorService.criador;
           this.isLoading = false;
         },
         (error: HttpErrorResponse) => {
           this.httpError = error;
 
-          this.criador = null;
+          this.criadorNovo = null;
           this._criadorService.criador = null;
           this.isLoading = false;
         }
@@ -62,6 +61,13 @@ export class TransferirAveComponent implements OnInit {
 
   updateCriador(): void {
     this._aveService.updateCriador(this.ave).subscribe((res) => {
+      console.log(res);
+      this.goToPage('ave/comprovante-transferencia-ave');
+    });
+  }
+
+  transferirAve(){
+    this._aveService.transferirAve(this.ave, this.criadorNovo).subscribe((res) => {
       console.log(res);
       this.goToPage('ave/comprovante-transferencia-ave');
     });

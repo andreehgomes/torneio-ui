@@ -8,6 +8,8 @@ export class Ave{
     medidaAnilha: string;
     numeroAnilha: string;
     criadorHttp?: Criador = new Criador();
+    criadorHttpAntigo?: Criador = new Criador();
+    criadorHttpNovo?: Criador = new Criador();
     ativo: boolean;
     dataCadastro?: string;
 }

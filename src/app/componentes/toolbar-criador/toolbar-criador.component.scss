@@ -65,3 +65,14 @@ mat-card {
   color: $c-red-alert;
   border-color: $c-red-alert-border;
 }
+
+.azul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: $c-blue-alert-light;
+  color: $c-blue-alert;
+  border-color: $c-blue-alert-border;
+}

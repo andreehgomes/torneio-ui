@@ -130,7 +130,7 @@ button.mat-flat-button {
   background-color: $c-white;
   color: $c-primary;
   width: 15%;
-  margin-right: 15px;
+  margin-right: 0;
   &:hover {
     background-color: $c-primary;
     color: $c-white;
@@ -138,5 +138,5 @@ button.mat-flat-button {
 }
 
 .botaoFormulario {
-  margin-right: 15px;
+  margin-right: 0;
 }

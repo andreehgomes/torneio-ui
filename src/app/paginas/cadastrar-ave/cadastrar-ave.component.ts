@@ -54,6 +54,8 @@ export class CadastrarAveComponent implements OnInit {
 
     this.ave.criadorHttp = JSON.parse(window.sessionStorage.getItem('criador'));
     this.ave.ativo = true;
+    this.ave.criadorHttpAntigo = null;
+    this.ave.criadorHttpNovo = null;
 
     console.log(this.ave);
 

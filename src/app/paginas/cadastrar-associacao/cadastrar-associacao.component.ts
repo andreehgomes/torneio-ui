@@ -42,21 +42,21 @@ export class CadastrarAssociacaoComponent implements OnInit {
   };
 
   formCadastro = new FormGroup({
-    idFormControl: new FormControl(this._loginService.associacao.codigo ? this._loginService.associacao.codigo : null),
-    cnpjFormControl: new FormControl(this._loginService.associacao.cnpj ? this._loginService.associacao.cnpj : ''),
-    siglaFormControl: new FormControl(this._loginService.associacao.sigla ? this._loginService.associacao.sigla : ''),
-    nomeFormControl: new FormControl(this._loginService.associacao.nome ? this._loginService.associacao.nome : ''),
-    cidadeFormControl: new FormControl(this._loginService.associacao.enderecoHttp.cidade ? this._loginService.associacao.enderecoHttp.cidade : ''),
-    ufFormControl: new FormControl(this._loginService.associacao.enderecoHttp.estado ? this._loginService.associacao.enderecoHttp.estado : ''),
-    logradouroFormControl: new FormControl(this._loginService.associacao.enderecoHttp.logradouro ? this._loginService.associacao.enderecoHttp.logradouro : ''),
-    numeroFormControl: new FormControl(this._loginService.associacao.enderecoHttp.numero ? this._loginService.associacao.enderecoHttp.numero : ''),
-    complementoFormControl: new FormControl(this._loginService.associacao.enderecoHttp.complemento ? this._loginService.associacao.enderecoHttp.complemento : ''),
-    bairroFormControl: new FormControl(this._loginService.associacao.enderecoHttp.bairro ? this._loginService.associacao.enderecoHttp.bairro : ''),
-    cepFormControl: new FormControl(this._loginService.associacao.enderecoHttp.cep ? this._loginService.associacao.enderecoHttp.cep : ''),
-    codigoUsuarioFormControl: new FormControl(this._loginService.associacao.usuarioHttp.codigo ? this._loginService.associacao.usuarioHttp.codigo : ''),
-    emailUsuarioFormControl: new FormControl(this._loginService.associacao.usuarioHttp.email ? this._loginService.associacao.usuarioHttp.email : '', [Validators.email]),
-    senhaUsuarioFormControl: new FormControl(this._loginService.associacao.usuarioHttp.senha ? this._loginService.associacao.usuarioHttp.senha : ''),
-    confirmarSenhaUsuarioFormControl: new FormControl(this._loginService.associacao.usuarioHttp.senha ? this._loginService.associacao.usuarioHttp.senha : ''),
+    idFormControl: new FormControl(this._loginService.associacao ? this._loginService.associacao.codigo : null),
+    cnpjFormControl: new FormControl(this._loginService.associacao ? this._loginService.associacao.cnpj : ''),
+    siglaFormControl: new FormControl(this._loginService.associacao ? this._loginService.associacao.sigla : ''),
+    nomeFormControl: new FormControl(this._loginService.associacao ? this._loginService.associacao.nome : ''),
+    cidadeFormControl: new FormControl(this._loginService.associacao ? this._loginService.associacao.enderecoHttp.cidade : ''),
+    ufFormControl: new FormControl(this._loginService.associacao ? this._loginService.associacao.enderecoHttp.estado : ''),
+    logradouroFormControl: new FormControl(this._loginService.associacao ? this._loginService.associacao.enderecoHttp.logradouro : ''),
+    numeroFormControl: new FormControl(this._loginService.associacao ? this._loginService.associacao.enderecoHttp.numero : ''),
+    complementoFormControl: new FormControl(this._loginService.associacao ? this._loginService.associacao.enderecoHttp.complemento : ''),
+    bairroFormControl: new FormControl(this._loginService.associacao ? this._loginService.associacao.enderecoHttp.bairro : ''),
+    cepFormControl: new FormControl(this._loginService.associacao ? this._loginService.associacao.enderecoHttp.cep : ''),
+    codigoUsuarioFormControl: new FormControl(this._loginService.associacao ? this._loginService.associacao.usuarioHttp.codigo : ''),
+    emailUsuarioFormControl: new FormControl(this._loginService.associacao ? this._loginService.associacao.usuarioHttp.email : '', [Validators.email]),
+    senhaUsuarioFormControl: new FormControl(this._loginService.associacao ? this._loginService.associacao.usuarioHttp.senha : ''),
+    confirmarSenhaUsuarioFormControl: new FormControl(this._loginService.associacao ? this._loginService.associacao.usuarioHttp.senha : ''),
     tipoUsuarioFormControl: new FormControl('TPUS01')
   }, { validators: this.identityRevealedValidator });
 

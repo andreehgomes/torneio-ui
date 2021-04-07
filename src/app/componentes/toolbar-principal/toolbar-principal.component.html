@@ -1,33 +1,47 @@
 <div class="container">
-    <p>
-        <mat-toolbar>
-            <div class="div-container">
-                <div>
-                    <img src="../../assets/toolbar/logotoolbarescritamarrom.png" alt="Pardal Torneios" class="logoescrita"
-                        (click)="goToPage('home')" title="Página inicial">
-                    <img src="../../assets/toolbar/logotoolbarpardalmarrom.png" alt="Pardal Torneios" class="logopardal"
-                        (click)="goToPage('home')" title="Página inicial">
-                    <!-- <button class="nav-toolbar" mat-flat-button>Torneios</button> -->
-                    <button class="nav-toolbar" mat-flat-button (click)="goToPage('especie/listar')">Espécies</button>
-                    <button class="nav-toolbar" mat-flat-button>Etapas</button>
-                    <button class="nav-toolbar" mat-flat-button>Últimos Resultados</button>
-                </div>
-                <div>
-                    <button *ngIf="!_loginService.criador && !_loginService.associacao"  class="nav-toolbar" mat-flat-button [matMenuTriggerFor]="menu">Cadastre-se <mat-icon>expand_more</mat-icon></button>
-                    <mat-menu #menu="matMenu">
-                        <button class="nav-toolbar-menu" mat-menu-item (click)="goToPage('criador/cadastrar')"><mat-icon>person</mat-icon> Para o Criador</button>
-                        <button class="nav-toolbar-menu" mat-menu-item (click)="goToPage('associacao/cadastrar')"><mat-icon>people</mat-icon> Para a Associação</button>
-                      </mat-menu>
-                    <button *ngIf="!_loginService.criador && !_loginService.associacao"  class="nav-toolbar" mat-flat-button (click)="goToPage('login')">Entrar</button>
-                    <button *ngIf="_loginService.criador"  class="nav-toolbar" mat-flat-button [matMenuTriggerFor]="menuUsuario">Olá, {{_loginService.criador.nome}} <mat-icon>expand_more</mat-icon></button>
-                    <button *ngIf="_loginService.associacao"  class="nav-toolbar" mat-flat-button [matMenuTriggerFor]="menuUsuario">Olá, {{_loginService.associacao.nome}} <mat-icon>expand_more</mat-icon></button>
-                    <mat-menu #menuUsuario="matMenu">
-                        <button class="nav-toolbar-menu" mat-menu-item (click)="consultarDadosLogado()"><mat-icon>person</mat-icon> Meus dados</button>
-                        <button class="nav-toolbar-menu" mat-menu-item (click)="sair()"><mat-icon>power_settings_new</mat-icon> Sair</button>
-                    </mat-menu>
-                </div>
-            </div>
-        </mat-toolbar>
-    </p>
+  <p>
+    <mat-toolbar>
+      <div class="div-container">
+        <div>
+          <img src="../../assets/toolbar/logotoolbarescritamarrom.png" alt="Pardal Torneios" class="logoescrita"
+            (click)="goToPage('home')" title="Página inicial">
+          <img src="../../assets/toolbar/logotoolbarpardalmarrom.png" alt="Pardal Torneios" class="logopardal"
+            (click)="goToPage('home')" title="Página inicial">
+          <!-- <button class="nav-toolbar" mat-flat-button>Torneios</button> -->
+          <button class="nav-toolbar" mat-flat-button (click)="goToPage('especie/listar')">Espécies</button>
+          <button class="nav-toolbar" mat-flat-button>Etapas</button>
+          <button class="nav-toolbar" mat-flat-button>Últimos Resultados</button>
+        </div>
+        <div>
+          <button *ngIf="!_loginService.criador && !_loginService.associacao" class="nav-toolbar" mat-flat-button
+            [matMenuTriggerFor]="menu">Cadastre-se <mat-icon>expand_more</mat-icon></button>
+          <mat-menu #menu="matMenu">
+            <button class="nav-toolbar-menu" mat-menu-item (click)="goToPage('criador/cadastrar')">
+              <mat-icon>person</mat-icon> Para o Criador
+            </button>
+            <button class="nav-toolbar-menu" mat-menu-item (click)="goToPage('associacao/cadastrar')">
+              <mat-icon>people</mat-icon> Para a Associação
+            </button>
+          </mat-menu>
+          <button *ngIf="!_loginService.criador && !_loginService.associacao" class="nav-toolbar" mat-flat-button
+            (click)="goToPage('login')">Entrar</button>
+          <button *ngIf="_loginService.criador" class="nav-toolbar" mat-flat-button
+            [matMenuTriggerFor]="menuUsuario">Olá, {{_loginService.criador.nome}} <mat-icon>expand_more</mat-icon>
+            </button>
+          <button *ngIf="_loginService.associacao" class="nav-toolbar" mat-flat-button
+            [matMenuTriggerFor]="menuUsuario">Olá, {{_loginService.associacao.nome}} <mat-icon>expand_more</mat-icon>
+            </button>
+          <mat-menu #menuUsuario="matMenu">
+            <button class="nav-toolbar-menu" mat-menu-item (click)="consultarDadosLogado()">
+              <mat-icon>person</mat-icon> Meus dados
+            </button>
+            <button class="nav-toolbar-menu" mat-menu-item (click)="sair()">
+              <mat-icon>power_settings_new</mat-icon> Sair
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+    </mat-toolbar>
+  </p>
 
 </div>
