@@ -146,7 +146,7 @@ export class CadastrarCriadorComponent implements OnInit {
     this.criador.usuarioHttp.tipo = tipoUsuarioFormControl.value;
     this.criador.associacaoHttp = clubeFormControl.value;
 
-    if (this._loginService.criador.codigo) {
+    if (this._loginService.criador) {
       this.criador.codigo = this._loginService.criador.codigo;
       this.criador.usuarioHttp.codigo = this._loginService.criador.usuarioHttp.codigo;
       this.criador.ativo = this._loginService.criador.ativo;
