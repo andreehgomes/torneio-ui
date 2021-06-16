@@ -99,7 +99,6 @@ export class CadastrarAssociacaoComponent implements OnInit {
     this.associacao.usuarioHttp.senha = senhaUsuarioFormControl.value;
     this.associacao.usuarioHttp.tipo = tipoUsuarioFormControl.value;
 
-    //teste
     if(this._loginService.associacao){
       this.associacao.codigo = this._loginService.associacao.codigo;
       this.associacao.usuarioHttp.codigo = this._loginService.associacao.usuarioHttp.codigo;
