@@ -14,4 +14,5 @@ export class Criador {
   associacaoHttp: Associacao = new Associacao();
   enderecoHttp: Endereco = new Endereco();
   usuarioHttp: Usuario = new Usuario();
+  aceiteAssociacao?: boolean;
 }

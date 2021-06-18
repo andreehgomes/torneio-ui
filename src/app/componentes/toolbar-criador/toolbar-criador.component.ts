@@ -20,13 +20,14 @@ export class ToolbarCriadorComponent implements OnInit {
 
   ngOnInit(): void {
     this.criador = JSON.parse(window.sessionStorage.getItem('criador'));
+    console.log('this.criador: ', this.criador)
     this.statusVermelho = this.criador.ativo;
     this._aveService.getAveTransferencia(this.criador).subscribe((res) => {
-      console.log(res);
+      console.log('RES: ',res);
       this.avesList = res;
       this.statusAzul = true;
     }, (erro) => {
-      console.log(erro);
+      console.log('ERRO: ',erro);
     });
   }
 

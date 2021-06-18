@@ -12,4 +12,5 @@ export class Ave{
     criadorHttpNovo?: Criador = new Criador();
     ativo: boolean;
     dataCadastro?: string;
+    sexo?: string;
 }

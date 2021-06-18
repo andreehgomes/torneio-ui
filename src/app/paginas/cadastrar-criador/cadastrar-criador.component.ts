@@ -67,26 +67,27 @@ export class CadastrarCriadorComponent implements OnInit {
   // }
 
   formCadastro = new FormGroup({
-    nomeFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.nome : ''),
-    sobrenomeFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.sobrenome : ''),
-    celularFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.telefone : ''),
-    emailFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.usuarioHttp.email : '', [Validators.email]),
-    cpfFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.cpf : ''),
-    rgFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.rg : ''),
-    ctfFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.ctf : ''),
+    nomeFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.nome : 'Eduardo'),
+    sobrenomeFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.sobrenome : 'Gomes'),
+    celularFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.telefone : '43999899918'),
+    emailFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.usuarioHttp.email : 'eduardo@gmail.com', [Validators.email]),
+    cpfFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.cpf : '07013395944'),
+    rgFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.rg : '103341753'),
+    ctfFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.ctf : '1234567899'),
     ufClubeFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.associacaoHttp.enderecoHttp.estado : ''),
-    clubeFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.associacaoHttp : ''),
-    ruaFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.logradouro : ''),
-    numeroFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.numero : ''),
-    bairroFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.bairro : ''),
-    cepFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.cep : ''),
-    cidadeFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.cidade : ''),
-    ufEnderecoFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.estado : ''),
-    complementoFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.complemento : ''),
-    senhaFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.usuarioHttp.senha : ''),
-    confirmarSenhaFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.usuarioHttp.senha : ''),
+    clubeFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.associacaoHttp : null),
+    ruaFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.logradouro : 'Rua'),
+    numeroFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.numero : '99'),
+    bairroFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.bairro : 'bairro'),
+    cepFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.cep : '86455000'),
+    cidadeFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.cidade : 'Joaquim Távora'),
+    ufEnderecoFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.estado : 'PR'),
+    complementoFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.enderecoHttp.complemento : 'casa'),
+    senhaFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.usuarioHttp.senha : '123456'),
+    confirmarSenhaFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.usuarioHttp.senha : '123456'),
     aceiteTermosFormControl: new FormControl(this._loginService.criador ? true : false),
     tipoUsuarioFormControl: new FormControl('TPUS02'),
+    aceiteAssociacaoFormControl: new FormControl(this._loginService.criador ? this._loginService.criador.aceiteAssociacao : false),
     ativoFormControl: new FormControl(true)
   }, { validators: this.identityRevealedValidator });
 
@@ -124,6 +125,7 @@ export class CadastrarCriadorComponent implements OnInit {
       confirmarSenhaFormControl,
       aceiteTermosFormControl,
       tipoUsuarioFormControl,
+      aceiteAssociacaoFormControl,
       ativoFormControl
 
     } = this.formCadastro.controls
@@ -145,6 +147,7 @@ export class CadastrarCriadorComponent implements OnInit {
     this.criador.usuarioHttp.senha = senhaFormControl.value;
     this.criador.usuarioHttp.tipo = tipoUsuarioFormControl.value;
     this.criador.associacaoHttp = clubeFormControl.value;
+    this.criador.aceiteAssociacao = aceiteAssociacaoFormControl.value;
 
     if (this._loginService.criador) {
       this.criador.codigo = this._loginService.criador.codigo;
@@ -169,6 +172,7 @@ export class CadastrarCriadorComponent implements OnInit {
         }
       })
     } else {
+      console.log('this.criador: ', this.criador);
       this._criadorService.postCriador(this.criador).subscribe((res) => {
         this._criadorService.criador = res;
         this.goToPage('criador/comprovante-cadastro');
@@ -179,6 +183,7 @@ export class CadastrarCriadorComponent implements OnInit {
           this._erroService.erro.mensagem = erro.error.Mensagem;
           this.goToPage('erro');
         } else {
+          console.log('erro: ', erro)
           this._erroService.erro.erro = true;
           this._erroService.erro.codigo = erro.status;
           this._erroService.erro.mensagem = erro.message;

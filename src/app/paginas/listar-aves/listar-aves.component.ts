@@ -30,7 +30,7 @@ export class ListarAvesComponent implements OnInit {
     'nome',
     'especie',
     'anilha',
-    'medida',
+    'sexo',
     'ativo',
     'editar',
     'transferir'

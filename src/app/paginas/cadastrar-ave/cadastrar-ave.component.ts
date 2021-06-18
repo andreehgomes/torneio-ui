@@ -5,7 +5,7 @@ import { Ave } from '../../_models/ave';
 import { Especie } from '../../_models/especie';
 import { EspecieService } from '../../_services/especie.service'
 import { AveService } from '../../_services/ave.service'
-
+import { modeloAnilha } from '../../_models/modeloAnilha';
 @Component({
   selector: 'app-cadastrar-ave',
   templateUrl: './cadastrar-ave.component.html',
@@ -16,7 +16,13 @@ export class CadastrarAveComponent implements OnInit {
   especie: Especie = new Especie();
 
   especies: Array<Especie> = []
-
+  modelos: modeloAnilha[] = [
+    {descricao: 'SISPASS ', modelo: 'CAPRI (SISPASS)'},
+    {descricao: '', modelo: 'Comercial'},
+    {descricao: 'IBAMA ', modelo: 'IBAMA com data'},
+    {descricao: 'IBAMA ', modelo: 'IBAMA com data e estado'},
+    {descricao: 'IBAMA-OA ', modelo: 'IBAMA sem data'}
+  ]
   constructor(
     private router: Router,
     private aveService: AveService,
@@ -27,9 +33,11 @@ export class CadastrarAveComponent implements OnInit {
     nomeFormControl: new FormControl(this.aveService.ave.nome ? this.aveService.ave.nome : ''),
     especieFormControl: new FormControl(this.aveService.ave.especieHttp ? this.aveService.ave.especieHttp : ''),
     numeroAnilhaFormControl: new FormControl(this.aveService.ave.numeroAnilha ? this.aveService.ave.numeroAnilha : ''),
-    medidaAnilhaFormControl: new FormControl(this.aveService.ave.medidaAnilha ? this.aveService.ave.medidaAnilha : ''),
+    sexoFormControl: new FormControl(this.aveService.ave.sexo ? this.aveService.ave.sexo : ''),
     ativoFormControl: new FormControl(this.aveService.ave.ativo ? this.aveService.ave.ativo : true),
   })
+
+  modeloControl = new FormControl('');
 
   ngOnInit(): void {
     this.getEspecies();
@@ -41,7 +49,7 @@ export class CadastrarAveComponent implements OnInit {
       nomeFormControl,
       especieFormControl,
       numeroAnilhaFormControl,
-      medidaAnilhaFormControl,
+      sexoFormControl,
       ativoFormControl,
     } = this.formCadastro.controls;
 
@@ -49,7 +57,7 @@ export class CadastrarAveComponent implements OnInit {
     this.ave.nome = nomeFormControl.value;
     this.ave.especieHttp = especieFormControl.value;
     this.ave.numeroAnilha = numeroAnilhaFormControl.value;
-    this.ave.medidaAnilha = medidaAnilhaFormControl.value;
+    this.ave.sexo = sexoFormControl.value;
     this.ave.ativo = ativoFormControl.value;
 
     this.ave.criadorHttp = JSON.parse(window.sessionStorage.getItem('criador'));
