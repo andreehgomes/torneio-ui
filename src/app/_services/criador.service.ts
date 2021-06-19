@@ -35,16 +35,19 @@ export class CriadorService {
     );
   }
 
-  setAssociacaoHeader(associacao: Associacao) {
+  setAssociacaoHeader(associacao: Associacao, aceiteAssociacao: boolean) {
     return {
-      headers: new HttpHeaders({ associacao: JSON.stringify(associacao) })
+      headers: new HttpHeaders({ 
+        associacao: JSON.stringify(associacao),
+        aceiteAssociacao: JSON.stringify(aceiteAssociacao)
+      })
     };
   }
 
-  getCriadorPorAssociacao(associacao: Associacao): Observable<any> {
+  getCriadorPorAssociacao(associacao: Associacao, aceiteAssociacao: boolean): Observable<any> {
     return this._http.get<Criador[]>(
       'http://localhost:8080/api/criador/associacao',
-      this.setAssociacaoHeader(associacao)
+      this.setAssociacaoHeader(associacao, aceiteAssociacao)
     );
   }
 
