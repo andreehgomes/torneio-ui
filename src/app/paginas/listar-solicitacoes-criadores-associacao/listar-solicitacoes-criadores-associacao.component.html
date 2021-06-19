@@ -10,25 +10,38 @@
 
       <div class="box2" *ngFor="let criadorList of criadorList" [value]="criadorList">
         <mat-card>
-          <div class="box2">
-            <p>Código: <strong>{{criadorList.codigo}}</strong></p>
-            <p>Nome: <strong>{{criadorList.nome}} {{criadorList.sobrenome}}</strong></p>
-            <p>Telefone: <strong>{{criadorList.telefone}}</strong></p>
-            <p>E-mail: <strong>{{criadorList.usuarioHttp.email}}</strong></p>
-          </div>
-
-          <div class="box2">
+          <div class="box2" style="margin-top: 0;">
+            <div class="box4">
+              <p>Código: <strong>{{criadorList.codigo}}</strong></p>
+              <p>Nome: <strong>{{criadorList.nome}} {{criadorList.sobrenome}}</strong></p>
+              <p>Telefone: <strong>{{criadorList.telefone}}</strong></p>
+              <p>E-mail: <strong>{{criadorList.usuarioHttp.email}}</strong></p>
+            </div>
             <div class="div-button">
               <div class="subdiv-button">
-                <button mat-button class="buttonAceitar" (click)="aceitarTransferencia(aveList)">
+                <button mat-button class="buttonAceitar" (click)="aceitarCriador(criadorList)">
                   Aceitar
                 </button>
-                <button mat-button class="buttonCancelar" (click)="recusarTransferencia(aveList)">
+                <button mat-button class="buttonCancelar" (click)="recusarCriador(criadorList)">
                   Recusar
                 </button>
               </div>
             </div>
+
           </div>
+
+          <!-- <div class="box2">
+            <div class="div-button">
+              <div class="subdiv-button">
+                <button mat-button class="buttonAceitar" (click)="aceitarCriador(criadorList)">
+                  Aceitar
+                </button>
+                <button mat-button class="buttonCancelar" (click)="recusarCriador(criadorList)">
+                  Recusar
+                </button>
+              </div>
+            </div>
+          </div> -->
         </mat-card>
       </div>
     </div>

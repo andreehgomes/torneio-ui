@@ -41,8 +41,22 @@ export class ListarSolicitacoesCriadoresAssociacaoComponent implements OnInit {
     console.log('Solicitações pendentes',this.criador);
   }
 
-  aceitarCriador(){}
+  aceitarCriador(criador: Criador){
+    console.log('aceitar: ', criador);
+    this.criador = criador;
+    this.criador.aceiteAssociacao = true;
+    this._criadorService.putCriador(this.criador).subscribe((res) => {
+      this.criadorList.splice(this.criadorList.indexOf(criador), 1);
+    });
+  }
 
-  recusarCriador(){}
+  recusarCriador(criador: Criador){    
+    console.log('recusar: ', criador);
+    this.criador = criador;
+    this.criador.associacaoHttp = null;
+    this._criadorService.putCriador(this.criador).subscribe((res) => {
+      this.criadorList.splice(this.criadorList.indexOf(criador), 1);
+    });
+  }
 
 }

@@ -43,13 +43,12 @@
 }
 
 .box4 {
-  width: 35%;
+  width: 70%;
   height: 90%;
   background: $c-white;
-  flex-direction: column;
+  flex-direction: row;
   display: flex;
   align-items: flex-start;
-  margin-top: 15px;
   justify-content: space-between;
   align-self: flex-start;
 }
@@ -150,7 +149,7 @@ mat-card:hover {
 .div-button {
   display: flex;
   justify-content: flex-end;
-  width: 100%;
+  width: 25%;
 }
 
 .subdiv-button {
