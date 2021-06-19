@@ -4,6 +4,28 @@
   height: max-content;
   background: $c-white;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2px;
+}
+
+.box {
+  width: 100%;
+  height: max-content;
+  background: $c-white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2px;
+}
+
+.box2 {
+  width: 95%;
+  height: max-content;
+  background: $c-white;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -28,7 +50,26 @@ p {
 mat-toolbar {
     width: 100%;
   height: max-content;
-//   height: 13vh;
-//   background-color: $c-primary;
-  // background-color: #AED581;
+}
+
+mat-card {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: $c-red-alert-light;
+  color: $c-red-alert;
+  border-color: $c-red-alert-border;
+}
+
+.verde {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: $c-green-alert-light;
+  color: $c-green-alert;
+  border-color: $c-green-alert-border;
 }
