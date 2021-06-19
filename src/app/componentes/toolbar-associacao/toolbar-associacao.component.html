@@ -1,11 +1,27 @@
 <div class="container">
-    <p>
-        <mat-toolbar color="primary">
-            <div class="div-container">
-                <button mat-button (click)="goToPage('criador/listar')">Criadores</button>
-                <button mat-button >Torneios</button>
-                <button mat-button (click)="goToPage('ave/listar-solicitacoes-criadores')">Solicitações</button>
-            </div>
-        </mat-toolbar>
-    </p>
+    <div class="box">
+        <p>
+            <mat-toolbar color="primary">
+                <div class="div-container">
+                    <button mat-button (click)="goToPage('criador/listar')">Criadores</button>
+                    <button mat-button >Torneios</button>
+                    <button mat-button (click)="goToPage('ave/listar-solicitacoes-criadores')">Solicitações</button>
+                </div>
+            </mat-toolbar>
+        </p>
+    </div>    
+    <div class="box2" *ngIf="statusVerde">
+        <mat-card class="verde">
+          <p>
+            Solicitações de novos criadores pendentes de aceite/recusa.
+          </p>
+          <button mat-button (click)="abrirListaDeSolicitacoes()">
+              Ver
+            <!-- <mat-icon aria-hidden="false" aria-label="Ícone de lápis" (click)="close('statusVerde')">search</mat-icon> -->
+          </button>
+          <button mat-button>
+            <mat-icon aria-hidden="false" aria-label="Ícone de lápis" (click)="close('statusVerde')">close</mat-icon>
+          </button>
+        </mat-card>
+      </div>
 </div>

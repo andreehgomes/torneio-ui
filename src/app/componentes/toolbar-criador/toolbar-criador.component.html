@@ -9,7 +9,7 @@
             <button class="nav-toolbar-menu" mat-menu-item (click)="abrirListadeTransferencias()">
               <mat-icon> call_received</mat-icon> Aceitar transferências
             </button>
-            <button class="nav-toolbar-menu" mat-menu-item (click)="goToPage('ave/listar-transferencias-realizadas')" >
+            <button class="nav-toolbar-menu" mat-menu-item (click)="goToPage('ave/listar-transferencias-realizadas')">
               <mat-icon> call_made</mat-icon> Aves transferidas pendentes
             </button>
           </mat-menu>
@@ -20,7 +20,8 @@
   <div class="box2" *ngIf="this.statusVermelho === false">
     <mat-card>
       <p>
-        <strong>Atenção! </strong>Você possui pendências com a sua associação. Regularize-as para poder se insecrever nos torneios.
+        <strong>Atenção! </strong>Você possui pendências com a sua associação. Regularize-as para poder se insecrever
+        nos torneios.
       </p>
       <button mat-button>
         <mat-icon aria-hidden="false" aria-label="Ícone de lápis" (click)="close('statusVermelho')">close</mat-icon>
