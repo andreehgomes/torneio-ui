@@ -37,7 +37,7 @@
 }
 
 .box4 {
-    width: 49%;
+    width: 49%;    
 }
 
 .box5 {
@@ -107,5 +107,12 @@ a:hover {
 
 .botaoFormulario {
   margin-right: 15px;
+}
+
+.inputAssociacao {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 

@@ -116,18 +116,23 @@
             </p>
           </div>
           <div class="box4">
-            <label>Clube</label>
-            <p>
-              <mat-form-field appearance="outline">
-                <mat-label>Selecione o clube</mat-label>
-                <mat-select formControlName="clubeFormControl">
-                  <mat-option *ngFor="let associacao of associacao" [value]="associacao">{{associacao.sigla}}
-                    -
-                    {{associacao.nome}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </p>
+            <div class="inputAssociacao">
+              <div style="width: 60%;">
+                <label>Clube</label>
+                <p>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Selecione o clube</mat-label>
+                    <input matInput (click)="openListaAssociacao()" [value]="associacao.nome? associacao.nome : ''">
+                  </mat-form-field>
+                </p>
+              </div>
+              <div>
+                <button type="button" mat-raised-button color="accent" class="botaoFormulario"
+                  (click)="openListaAssociacao()">Buscar clube</button>
+                <button type="button" mat-raised-button color="accent" class="botaoFormulario"
+                  (click)="limparAssociacao()">Limpar</button>
+              </div>
+            </div>            
           </div>
         </div>
 

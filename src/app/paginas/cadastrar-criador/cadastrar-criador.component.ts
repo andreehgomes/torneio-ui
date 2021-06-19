@@ -14,6 +14,7 @@ import { Usuario } from 'src/app/_models/usuario';
 import { ErroService } from '../../_services/erro.service';
 import { CepConsultaService } from 'src/app/_services/cep-consulta.service';
 import { LoginService } from 'src/app/_services/login.service';
+import { ListaAssociacaoComponent } from 'src/app/modals/lista-associacao/lista-associacao.component';
 
 @Component({
   selector: 'app-cadastrar-criador',
@@ -23,7 +24,7 @@ import { LoginService } from 'src/app/_services/login.service';
 export class CadastrarCriadorComponent implements OnInit {
   hide = true;
   aceiteTermos = false;
-  associacao: Array<Associacao> = [];
+  associacao: Associacao = new Associacao();
   criador: Criador = new Criador();
   endereco: Endereco = new Endereco();
 
@@ -207,6 +208,24 @@ export class CadastrarCriadorComponent implements OnInit {
     this.dialog.open(TermoDeResponsabilidadeComponent);
   }
 
+  openListaAssociacao() {
+    const dialogRef = this.dialog.open(ListaAssociacaoComponent, {
+      width: '750px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Resultado: ', result);
+      if (result.nome) {
+        console.log('ASS, ', result)
+        this.associacao = result;
+        this.formCadastro.controls['clubeFormControl'].setValue(result);
+      } else {
+        console.log('sem ASS, ', result)
+      }
+
+    });
+  }
+
   getCep(cep: string) {
     this._cepConsultaService.getCep(cep).subscribe((res) => {
       console.log(res);
@@ -222,6 +241,11 @@ export class CadastrarCriadorComponent implements OnInit {
           res.bairro !== "" ? this.formCadastro.controls['complementoFormControl'].setValue(res.bairro) : this.formCadastro.controls['complementoFormControl'].setValue(null);
       }
     })
+  }
+
+  limparAssociacao(){
+    this.associacao = new Associacao();
+    this.formCadastro.controls['clubeFormControl'].setValue(null);
   }
 
 }

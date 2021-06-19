@@ -15,6 +15,7 @@ export class ComprovanteCadastroCriadorComponent implements OnInit {
   constructor(private router: Router, private criadorService: CriadorService) { }
 
   ngOnInit(): void {
+    console.log('COMPROVANTE: ', this.criadorService.criador);
     this.criador = this.criadorService.criador;
   }
 

@@ -58,6 +58,7 @@ import { ErroComponent } from './paginas/erro/erro.component';
 import { DetalhaAssociacaoLogadaComponent } from './modals/detalha-associacao-logada/detalha-associacao-logada.component';
 import { ListarTransferenciasComponent } from './paginas/listar-transferencias/listar-transferencias.component';
 import { ListarTransferenciasRealizadasComponent } from './paginas/listar-transferencias-realizadas/listar-transferencias-realizadas.component';
+import { ListaAssociacaoComponent } from './modals/lista-associacao/lista-associacao.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import { ListarTransferenciasRealizadasComponent } from './paginas/listar-transf
     DetalhaAssociacaoLogadaComponent,
     ListarTransferenciasComponent,
     ListarTransferenciasRealizadasComponent,
+    ListaAssociacaoComponent,
   ],
   imports: [
     BrowserModule,

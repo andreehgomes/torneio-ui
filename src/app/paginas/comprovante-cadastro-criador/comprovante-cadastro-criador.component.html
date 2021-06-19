@@ -12,7 +12,7 @@
             <p>CTF: <strong>{{this.criador.ctf}}</strong></p>
             <p>RG: <strong>{{this.criador.rg}}</strong></p>
             <p>E-mail: <strong>{{this.criador.usuarioHttp.email}}</strong></p>
-            <p>Associação: <strong>{{this.criador.associacaoHttp.sigla}} - {{this.criador.associacaoHttp.nome}}</strong>
+            <p *ngIf="criador.associacaoHttp != null">Associação: <strong>{{this.criador.associacaoHttp.sigla}} - {{this.criador.associacaoHttp.nome}}</strong>
             </p>
             <p>Logradouro: <strong>{{this.criador.enderecoHttp.logradouro}}</strong></p>
             <p>Nº: <strong>{{this.criador.enderecoHttp.numero}}</strong></p>

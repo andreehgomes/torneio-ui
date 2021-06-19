@@ -20,6 +20,7 @@ export class DetalhaCriadorLogadoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log('COMPROVANTE: ', this.data);
   }
 
   goToPage(pageName: string) {

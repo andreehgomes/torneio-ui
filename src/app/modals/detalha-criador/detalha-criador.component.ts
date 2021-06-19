@@ -15,6 +15,7 @@ export class DetalhaCriadorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log('COMPROVANTE: ', this.data);
   }
 
 }
