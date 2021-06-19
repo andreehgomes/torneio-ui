@@ -1,0 +1,67 @@
+<div class="contaiener">
+  <div class="box">
+    <div class="box3" *ngIf="isLoading">
+      <mat-spinner *ngIf="isLoading" [diameter]="50"></mat-spinner>
+    </div>
+    <div class="box3" *ngIf="flagLista && !isLoading">
+      <div class="box2">
+        <h1>Solicitações pendentes</h1>
+      </div>
+
+      <div class="box2" *ngFor="let criadorList of criadorList" [value]="criadorList">
+        <mat-card>
+          <div class="box2">
+            <p>Código: <strong>{{criadorList.codigo}}</strong></p>
+            <p>Nome: <strong>{{criadorList.nome}} {{criadorList.sobrenome}}</strong></p>
+            <p>Telefone: <strong>{{criadorList.telefone}}</strong></p>
+            <p>E-mail: <strong>{{criadorList.usuarioHttp.email}}</strong></p>
+          </div>
+
+          <div class="box2">
+            <div class="div-button">
+              <div class="subdiv-button">
+                <button mat-button class="buttonAceitar" (click)="aceitarTransferencia(aveList)">
+                  Aceitar
+                </button>
+                <button mat-button class="buttonCancelar" (click)="recusarTransferencia(aveList)">
+                  Recusar
+                </button>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="box3" *ngIf="!flagLista && !isLoading">
+      <div class="box2">
+        <h1>Você não possui transferências pendentes</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="box2" *ngFor="let aveList of aveList" [value]="aveList">
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <p><strong>{{aveList.nome}}</strong></p>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+  
+              <div class="iv-content-expansion-panel-header">
+                <strong>Espécie: </strong>{{aveList.especieHttp.nome}}
+              </div>
+  
+              <mat-action-row>
+                <div class="div-button-expansion-panel-header">
+                  <button mat-button class="buttonAceitar">
+                    Aceitar
+                  </button>
+                  <button mat-button class="buttonCancelar">
+                    Recusar
+                  </button>
+                </div>
+              </mat-action-row>
+  
+          </mat-expansion-panel>
+        </div> -->

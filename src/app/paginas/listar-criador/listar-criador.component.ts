@@ -10,6 +10,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { DetalhaCriadorComponent } from '../../modals/detalha-criador/detalha-criador.component';
 import { ListaAvesComponent } from '../../modals/lista-aves/lista-aves.component';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { environment } from '../../../environments/environment'
 
 @Component({
   selector: 'app-listar-criador',
@@ -35,7 +36,7 @@ export class ListarCriadorComponent implements OnInit {
 
   private loadData(): void {
     this.associacao = JSON.parse(window.sessionStorage.getItem('associacao'));
-    this.criadorService.getCriadorPorAssociacao(this.associacao).subscribe((res) => {
+    this.criadorService.getCriadorPorAssociacao(this.associacao, environment.solicitacoesCriadoresAceitas).subscribe((res) => {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
     });
