@@ -40,6 +40,28 @@
   margin-top: 15px;
 }
 
+.box4 {
+  width: 100%;
+  height: max-content;
+  // background: #fff;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box5 {
+    width: 49%;    
+}
+.box5Buttons {
+    background: transparent;
+    width: 49%;    
+    flex-direction: row;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
 h1 {
   color: $c-primary;
   font-size: 36px;
@@ -63,6 +85,7 @@ table {
 td,
 th {
   width: 25%;
+  padding: 0;
 }
 
 th.mat-header-cell {
@@ -73,4 +96,12 @@ th.mat-header-cell {
 
 mat-icon {
   color: $c-secondary;
+}
+
+th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+  padding-right: 0%;
+}
+
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+  padding-left: 0%;
 }
