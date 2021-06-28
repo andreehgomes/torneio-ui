@@ -10,6 +10,7 @@ import { AveService } from '../../_services/ave.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { ErroService } from '../../_services/erro.service';
+import { MatAccordion } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-listar-aves',
@@ -35,6 +36,8 @@ export class ListarAvesComponent implements OnInit {
     'editar',
     'transferir'
   ];
+  displayedColumnsNew: string[] = ['Minhas aves']
+  panelOpenState = false;
   dataSource: MatTableDataSource<Ave>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
