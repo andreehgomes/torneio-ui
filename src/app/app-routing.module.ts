@@ -21,6 +21,7 @@ import { ErroComponent } from './paginas/erro/erro.component';
 import { ListarTransferenciasComponent } from './paginas/listar-transferencias/listar-transferencias.component';
 import { ListarTransferenciasRealizadasComponent } from './paginas/listar-transferencias-realizadas/listar-transferencias-realizadas.component';
 import { ListarSolicitacoesCriadoresAssociacaoComponent } from './paginas/listar-solicitacoes-criadores-associacao/listar-solicitacoes-criadores-associacao.component';
+import { ListarCampeonatosComponent } from './paginas/listar-campeonatos/listar-campeonatos.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'ave/comprovante-cadastro', component: ComprovanteCadastroAveComponent },
   { path: 'ave/comprovante-transferencia-ave', component: ComprovanteTransferenciaAveComponent },
   { path: 'ave/listar-solicitacoes-criadores', component: ListarSolicitacoesCriadoresAssociacaoComponent },
+  { path: 'campeonato/listar', component: ListarCampeonatosComponent },
 ];
 
 @NgModule({
