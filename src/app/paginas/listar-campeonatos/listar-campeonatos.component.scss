@@ -1,0 +1,82 @@
+@import "../../_shared/styles/colors";
+
+.container {
+  width: 100%;
+  min-height: 75vh;
+  height: max-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: $c-white;
+}
+
+.box {
+  width: 95%;
+  height: 90%;
+  min-height: 70vh;
+  background: $c-white;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.box2 {
+  width: 95%;
+  height: 90%;
+  background: $c-white;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.box3 {
+  width: 95%;
+  height: 90%;
+  background: $c-white;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+h1 {
+  color: $c-primary;
+  font-size: 36px;
+  align-self: flex-start;
+}
+
+table {
+  width: 90%;
+  margin: 0 auto;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-elevation-z8 {
+  width: 95%;
+  margin-bottom: 25px;
+}
+
+th.mat-header-cell:first-child {
+    width: 10%;
+}
+td.mat-header-cell:first-child {
+    width: 10%;
+}
+
+th.mat-header-cell:last-child {
+width: 85%;
+  text-align: start;
+}
+
+td.mat-cell:last-child {
+width: 85%;
+  text-align: start;
+}
+
+mat-icon {
+  color: $c-secondary;
+}
