@@ -22,6 +22,7 @@ import { ListarTransferenciasComponent } from './paginas/listar-transferencias/l
 import { ListarTransferenciasRealizadasComponent } from './paginas/listar-transferencias-realizadas/listar-transferencias-realizadas.component';
 import { ListarSolicitacoesCriadoresAssociacaoComponent } from './paginas/listar-solicitacoes-criadores-associacao/listar-solicitacoes-criadores-associacao.component';
 import { ListarCampeonatosComponent } from './paginas/listar-campeonatos/listar-campeonatos.component';
+import { CadastrarCampeonatoComponent } from './paginas/cadastrar-campeonato/cadastrar-campeonato.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'ave/comprovante-transferencia-ave', component: ComprovanteTransferenciaAveComponent },
   { path: 'ave/listar-solicitacoes-criadores', component: ListarSolicitacoesCriadoresAssociacaoComponent },
   { path: 'campeonato/listar', component: ListarCampeonatosComponent },
+  { path: 'campeonato/cadastrar', component: CadastrarCampeonatoComponent },
 ];
 
 @NgModule({

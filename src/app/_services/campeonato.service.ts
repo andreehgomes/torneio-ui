@@ -9,7 +9,7 @@ import { Associacao } from '../_models/associacao';
 })
 export class CampeonatoService {
 
-  campeanato: Campeonato = new Campeonato();
+  campeonato: Campeonato = new Campeonato();
 
   constructor(private _http: HttpClient) { }
 
@@ -19,5 +19,13 @@ export class CampeonatoService {
 
   getCampeaonatoPorAssociacao(associacao: Associacao): Observable<any> {
     return this._http.get<Associacao[]>('http://localhost:8080/api/campeonato/associacao', this.setAssociacaoHeader(associacao));
+  }
+
+  postCampeonato(campeonato: Campeonato): Observable<any> {
+    return this._http.post<Campeonato>('http://localhost:8080/api/campeonato', campeonato);
+  }
+
+  putCampeonato(campeonato: Campeonato): Observable<any> {
+    return this._http.put<Campeonato>('http://localhost:8080/api/campeonato', campeonato);
   }
 }
