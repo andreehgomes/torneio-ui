@@ -46,12 +46,12 @@ export class CadastrarCampeonatoComponent implements OnInit {
     if (this.campeonato.codigo !== null) {
       this._campeonatoService.putCampeonato(this.campeonato).subscribe((res) => {
         this._campeonatoService.campeonato = res;
-        this.goToPage('');
+        this.goToPage('campeonato/comprovante-cadastro');
       })
     } else {
       this._campeonatoService.postCampeonato(this.campeonato).subscribe((res) => {
         this._campeonatoService.campeonato = res;
-        this.goToPage('');
+        this.goToPage('campeonato/comprovante-cadastro');
       });
     }
   }
