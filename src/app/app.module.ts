@@ -61,6 +61,7 @@ import { ListarTransferenciasRealizadasComponent } from './paginas/listar-transf
 import { ListaAssociacaoComponent } from './modals/lista-associacao/lista-associacao.component';
 import { ListarSolicitacoesCriadoresAssociacaoComponent } from './paginas/listar-solicitacoes-criadores-associacao/listar-solicitacoes-criadores-associacao.component';
 import { ListarCampeonatosComponent } from './paginas/listar-campeonatos/listar-campeonatos.component';
+import { CadastrarCampeonatoComponent } from './paginas/cadastrar-campeonato/cadastrar-campeonato.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { ListarCampeonatosComponent } from './paginas/listar-campeonatos/listar-
     ListaAssociacaoComponent,
     ListarSolicitacoesCriadoresAssociacaoComponent,
     ListarCampeonatosComponent,
+    CadastrarCampeonatoComponent,
   ],
   imports: [
     BrowserModule,
