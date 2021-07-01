@@ -62,6 +62,7 @@ import { ListaAssociacaoComponent } from './modals/lista-associacao/lista-associ
 import { ListarSolicitacoesCriadoresAssociacaoComponent } from './paginas/listar-solicitacoes-criadores-associacao/listar-solicitacoes-criadores-associacao.component';
 import { ListarCampeonatosComponent } from './paginas/listar-campeonatos/listar-campeonatos.component';
 import { CadastrarCampeonatoComponent } from './paginas/cadastrar-campeonato/cadastrar-campeonato.component';
+import { ComprovanteCadastroCampeonatoComponent } from './paginas/comprovante-cadastro-campeonato/comprovante-cadastro-campeonato.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { CadastrarCampeonatoComponent } from './paginas/cadastrar-campeonato/cad
     ListarSolicitacoesCriadoresAssociacaoComponent,
     ListarCampeonatosComponent,
     CadastrarCampeonatoComponent,
+    ComprovanteCadastroCampeonatoComponent,
   ],
   imports: [
     BrowserModule,

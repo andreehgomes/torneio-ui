@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="box">
+        <div class="box2">
+            <h3>Cadastro efetuado com sucesso!!!</h3>
+
+            <p>ID: <strong>{{this.campeonato.codigo}}</strong></p>
+            <p>Nome: <strong>{{this.campeonato.nome}}</strong></p>
+
+            <div class="box3">
+                <button mat-raised-button (click)="goToPage('home')" color="accent" class="botaoFormulario">Página Inicial</button>
+                <button mat-raised-button (click)="goToPage('campeonato/listar')" color="accent" class="botaoFormulario">Listar Campeonatos</button>
+            </div>
+        </div>
+    </div>
+</div>
