@@ -17,7 +17,7 @@ export class ListarCampeonatosComponent implements OnInit {
 
   associacao: Associacao = new Associacao();
   listaCampeonatos: Array<Campeonato> = [];
-  displayedColumns: string[] = ['codigo', 'nome']
+  displayedColumns: string[] = ['codigo', 'nome', 'acoes']
   dataSource: MatTableDataSource<Campeonato>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
