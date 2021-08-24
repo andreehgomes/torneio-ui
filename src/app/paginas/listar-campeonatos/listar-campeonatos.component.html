@@ -28,8 +28,8 @@
 
                 <ng-container matColumnDef="acoes">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-                    <td mat-cell *matCellDef="let campeonato"> 
-                        <button mat-button>
+                    <td mat-cell *matCellDef="let campeonato">
+                        <button mat-button (click)="detalharCampeonato(campeonato)">
                             Ver
                             <!-- <mat-icon aria-hidden="false" aria-label="Ícone de lápis"
                                 (click)="editarCriador(criador)">edit</mat-icon> -->
