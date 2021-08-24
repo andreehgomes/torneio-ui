@@ -28,7 +28,7 @@ export class ListarCampeonatosComponent implements OnInit {
     private router: Router
   ) {
     this.loadData();
-   }
+  }
 
   private loadData(): void {
     this.associacao = JSON.parse(window.sessionStorage.getItem('associacao'));
@@ -39,7 +39,7 @@ export class ListarCampeonatosComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
   }
 
   applyFilter(event: Event) {
@@ -53,6 +53,11 @@ export class ListarCampeonatosComponent implements OnInit {
 
   goToPage(pageName: string) {
     this.router.navigate([`${pageName}`]);
+  }
+
+  detalharCampeonato(campeonato: Campeonato){
+    this._campeonatoService.campeonato = campeonato;
+    this.goToPage('campeonato/detalhar')
   }
 
 }

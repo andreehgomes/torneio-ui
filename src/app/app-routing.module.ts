@@ -24,6 +24,7 @@ import { ListarSolicitacoesCriadoresAssociacaoComponent } from './paginas/listar
 import { ListarCampeonatosComponent } from './paginas/listar-campeonatos/listar-campeonatos.component';
 import { CadastrarCampeonatoComponent } from './paginas/cadastrar-campeonato/cadastrar-campeonato.component';
 import { ComprovanteCadastroCampeonatoComponent } from './paginas/comprovante-cadastro-campeonato/comprovante-cadastro-campeonato.component';
+import { DetalharCampeonatoComponent } from './paginas/detalhar-campeonato/detalhar-campeonato.component';
 
 const routes: Routes = [
   { path: '', component: AppComponent },
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'campeonato/listar', component: ListarCampeonatosComponent },
   { path: 'campeonato/cadastrar', component: CadastrarCampeonatoComponent },
   { path: 'campeonato/comprovante-cadastro', component: ComprovanteCadastroCampeonatoComponent },
+  { path: 'campeonato/detalhar', component: DetalharCampeonatoComponent },
 ];
 
 @NgModule({

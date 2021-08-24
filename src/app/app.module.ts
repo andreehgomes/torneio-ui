@@ -63,6 +63,7 @@ import { ListarSolicitacoesCriadoresAssociacaoComponent } from './paginas/listar
 import { ListarCampeonatosComponent } from './paginas/listar-campeonatos/listar-campeonatos.component';
 import { CadastrarCampeonatoComponent } from './paginas/cadastrar-campeonato/cadastrar-campeonato.component';
 import { ComprovanteCadastroCampeonatoComponent } from './paginas/comprovante-cadastro-campeonato/comprovante-cadastro-campeonato.component';
+import { DetalharCampeonatoComponent } from './paginas/detalhar-campeonato/detalhar-campeonato.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { ComprovanteCadastroCampeonatoComponent } from './paginas/comprovante-ca
     ListarCampeonatosComponent,
     CadastrarCampeonatoComponent,
     ComprovanteCadastroCampeonatoComponent,
+    DetalharCampeonatoComponent,
   ],
   imports: [
     BrowserModule,
