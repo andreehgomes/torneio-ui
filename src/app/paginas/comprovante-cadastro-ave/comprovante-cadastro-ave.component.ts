@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AveService } from '../../_services/ave.service'
 import { Ave } from '../../_models/ave'
@@ -8,7 +8,7 @@ import { Ave } from '../../_models/ave'
   templateUrl: './comprovante-cadastro-ave.component.html',
   styleUrls: ['./comprovante-cadastro-ave.component.scss']
 })
-export class ComprovanteCadastroAveComponent implements OnInit {
+export class ComprovanteCadastroAveComponent implements OnInit, OnDestroy {
 
   ave: Ave = new Ave();
 
@@ -16,6 +16,10 @@ export class ComprovanteCadastroAveComponent implements OnInit {
 
   ngOnInit(): void {
     this.ave = this.aveService.ave;
+  }
+  
+  ngOnDestroy(): void {
+    this.aveService.zerarAve();
   }
 
   goToPage(pageName: string) {

@@ -17,16 +17,16 @@ export class CadastrarAveComponent implements OnInit {
 
   especies: Array<Especie> = []
   modelos: modeloAnilha[] = [
-    {descricao: 'SISPASS ', modelo: 'CAPRI (SISPASS)'},
-    {descricao: '', modelo: 'Comercial'},
-    {descricao: 'IBAMA ', modelo: 'IBAMA com data'},
-    {descricao: 'IBAMA ', modelo: 'IBAMA com data e estado'},
-    {descricao: 'IBAMA-OA ', modelo: 'IBAMA sem data'}
+    { descricao: 'SISPASS ', modelo: 'CAPRI (SISPASS)' },
+    { descricao: '', modelo: 'Comercial' },
+    { descricao: 'IBAMA ', modelo: 'IBAMA com data' },
+    { descricao: 'IBAMA ', modelo: 'IBAMA com data e estado' },
+    { descricao: 'IBAMA-OA ', modelo: 'IBAMA sem data' }
   ]
   constructor(
     private router: Router,
     private aveService: AveService,
-    private especieService: EspecieService) {}
+    private especieService: EspecieService) { }
 
   formCadastro = new FormGroup({
     idFormControl: new FormControl(this.aveService.ave.codigo ? this.aveService.ave.codigo : ''),
@@ -67,14 +67,22 @@ export class CadastrarAveComponent implements OnInit {
 
     console.log(this.ave);
 
-    this.aveService.incluirAve(this.ave).subscribe((res) => {
-      console.log('RES: ', res);
-      this.aveService.ave = res;
-      this.goToPage('ave/comprovante-cadastro');
-    })
+    if (this.aveService.ave) {
+      this.aveService.updateAve(this.ave).subscribe((res) => {
+        console.log('RES: ', res);
+        this.aveService.ave = res;
+        this.goToPage('ave/comprovante-cadastro');
+      })
+    } else {
+      this.aveService.incluirAve(this.ave).subscribe((res) => {
+        console.log('RES: ', res);
+        this.aveService.ave = res;
+        this.goToPage('ave/comprovante-cadastro');
+      })
+    }
   }
 
-  getEspecies(){
+  getEspecies() {
     this.especieService.listarEspecies().subscribe((res) => {
       console.log(res)
       this.especies = res;
