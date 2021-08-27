@@ -64,6 +64,7 @@ import { ListarCampeonatosComponent } from './paginas/listar-campeonatos/listar-
 import { CadastrarCampeonatoComponent } from './paginas/cadastrar-campeonato/cadastrar-campeonato.component';
 import { ComprovanteCadastroCampeonatoComponent } from './paginas/comprovante-cadastro-campeonato/comprovante-cadastro-campeonato.component';
 import { DetalharCampeonatoComponent } from './paginas/detalhar-campeonato/detalhar-campeonato.component';
+import { AdicionarEdicaoComponent } from './modals/adicionar-edicao/adicionar-edicao.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import { DetalharCampeonatoComponent } from './paginas/detalhar-campeonato/detal
     CadastrarCampeonatoComponent,
     ComprovanteCadastroCampeonatoComponent,
     DetalharCampeonatoComponent,
+    AdicionarEdicaoComponent,
   ],
   imports: [
     BrowserModule,

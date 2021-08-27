@@ -5,7 +5,7 @@
         </div>
         <div class="box3">
             <div class="box4">
-                <button mat-stroked-button color="primary">
+                <button mat-stroked-button color="primary" (click)="openDialogAdicionarEdicao(this.campeonato)">
                     Adicionar Edição
                 </button>
                 <button mat-stroked-button color="primary">
@@ -21,7 +21,7 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Edição</mat-label>
                     <mat-select>
-                        <mat-option *ngFor="let edicoes of edicoes" [value]="edicoes">{{edicoes.edicao}}</mat-option>
+                        <mat-option *ngFor="let edicoes of edicoes" [value]="edicoes">{{edicoes.nome}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
