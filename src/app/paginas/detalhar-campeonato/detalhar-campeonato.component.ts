@@ -15,6 +15,7 @@ export class DetalharCampeonatoComponent implements OnInit {
 
   public campeonato: Campeonato;
   public edicoes: Array<Edicao> = []
+  public isLoading: boolean = true;
 
   constructor(
     private _campeonatoService: CampeonatoService,
@@ -28,9 +29,10 @@ export class DetalharCampeonatoComponent implements OnInit {
   }
 
   buscarEdicoes(){
+    this.isLoading = true;
     this._edicaoService.getListEdicao(this.campeonato).subscribe((getListEdicao)=>{
       this.edicoes = getListEdicao;
-      console.log(this.edicoes)
+      this.isLoading = false;
     }, (error) => {
       console.log('error: ', error);
     })
