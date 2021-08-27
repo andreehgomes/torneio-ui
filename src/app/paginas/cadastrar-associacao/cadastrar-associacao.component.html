@@ -77,32 +77,27 @@
                 <mat-divider></mat-divider>
                 <h3>Endereço</h3>
                 <div class="box3">
-                  <div class="box4">
-                      <label>CEP</label>
-                      <p>
-                          <mat-form-field appearance="outline">
-                              <mat-label>CEP</mat-label>
-                              <input matInput formControlName="cepFormControl" minlength="8" maxlength="8"
-                                  required>
-                              <mat-error *ngIf="formCadastro.controls.cepFormControl.errors?.required">Campo
-                                  obrigatório</mat-error>
-                              <mat-error *ngIf="formCadastro.controls.cepFormControl.errors?.minlength">Tem que
-                                  ter no mínimo 8 caracteres</mat-error>
-                              <mat-error *ngIf="formCadastro.controls.cepFormControl.errors?.invalid">CEP inexistente</mat-error>
-                          </mat-form-field>
-                      </p>
-                  </div>
-                  <div class="box4">
-                    <button
-                    type="button"
-                    mat-raised-button
-                    color="accent"
-                    class="botaoFormulario"
-                    [disabled]="formCadastro.controls.cepFormControl.errors?.minlength || formCadastro.controls.cepFormControl.errors?.maxlength || formCadastro.controls.cepFormControl.value === ''"
-                    (click)="getCep(formCadastro.controls.cepFormControl.value)"
-                    >Buscar CEP</button>
-                  </div>
-              </div>
+                    <div class="box4">
+                        <label>CEP</label>
+                        <p>
+                            <mat-form-field appearance="outline">
+                                <mat-label>CEP</mat-label>
+                                <input matInput formControlName="cepFormControl" minlength="8" maxlength="8" required>
+                                <mat-error *ngIf="formCadastro.controls.cepFormControl.errors?.required">Campo
+                                    obrigatório</mat-error>
+                                <mat-error *ngIf="formCadastro.controls.cepFormControl.errors?.minlength">Tem que
+                                    ter no mínimo 8 caracteres</mat-error>
+                                <mat-error *ngIf="formCadastro.controls.cepFormControl.errors?.invalid">CEP inexistente
+                                </mat-error>
+                            </mat-form-field>
+                        </p>
+                    </div>
+                    <div class="box4">
+                        <button type="button" mat-raised-button color="accent" class="botaoFormulario"
+                            [disabled]="formCadastro.controls.cepFormControl.errors?.minlength || formCadastro.controls.cepFormControl.errors?.maxlength || formCadastro.controls.cepFormControl.value === ''"
+                            (click)="getCep(formCadastro.controls.cepFormControl.value)">Buscar CEP</button>
+                    </div>
+                </div>
                 <div class="box3">
                     <div class="box4">
                         <label>Cidade</label>
@@ -175,7 +170,7 @@
                                 <mat-error *ngIf="formCadastro.controls.bairroFormControl.errors?.required">Campo
                                     obrigatório</mat-error>
                                 <mat-error *ngIf="formCadastro.controls.bairroFormControl.errors?.minlength">Tem que
-                                    ter no mínimo  caracteres</mat-error>
+                                    ter no mínimo caracteres</mat-error>
                             </mat-form-field>
                         </p>
                     </div>
@@ -188,7 +183,8 @@
                                     required>
                                 <mat-error *ngIf="formCadastro.controls.complementoFormControl.errors?.required">Campo
                                     obrigatório</mat-error>
-                                <mat-error *ngIf="formCadastro.controls.complementoFormControl.errors?.minlength">Tem que
+                                <mat-error *ngIf="formCadastro.controls.complementoFormControl.errors?.minlength">Tem
+                                    que
                                     ter no mínimo 1 caracter</mat-error>
                             </mat-form-field>
                         </p>
@@ -196,8 +192,8 @@
                 </div>
 
                 <mat-divider></mat-divider>
-                <h3 *ngIf="formCadastro.controls.idFormControl.value === null" >Senhas</h3>
-                <div *ngIf="formCadastro.controls.idFormControl.value === null"  class="box3">
+                <h3 *ngIf="formCadastro.controls.idFormControl.value === null">Senhas</h3>
+                <div *ngIf="formCadastro.controls.idFormControl.value === null" class="box3">
                     <div class="box4">
                         <label>Senha</label>
                         <p>

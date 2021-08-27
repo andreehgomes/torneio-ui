@@ -49,6 +49,7 @@ export class ListarAvesComponent implements OnInit {
 
   loadData(): void {
     this.criador = JSON.parse(window.sessionStorage.getItem('criador'));
+    console.log('this.criador: ', this.criador)
     this.aveService.getAvePorCriador(this.criador).subscribe((res) => {
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;

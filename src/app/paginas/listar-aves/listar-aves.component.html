@@ -13,7 +13,7 @@
       </mat-form-field>
     </div>
 
-    <div style="width: 100%;">
+    <!-- <div style="width: 100%;">
       <table style="width: 95%;" mat-table class="mat-z8 demo-table" [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="Minhas aves">
           <th style="height: 0%;" mat-header-cell *matHeaderCellDef mat-sort-header></th>
@@ -54,7 +54,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumnsNew"></tr>
         <tr mat-row *matRowDef="let ave; columns: displayedColumnsNew"></tr>
 
-        <!-- Row shown when there is no matching data. -->
+        Row shown when there is no matching data.
         <tr class="mat-row" *matNoDataRow>
           <td class="mat-cell" colspan="4">
             Nenhuma espécie cadastrada com a informação filtrada "{{
@@ -64,9 +64,9 @@
         </tr>
       </table>
       <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
-    </div>
+    </div> -->
 
-    <!-- <div class="mat-elevation-z8">
+    <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="nome">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
@@ -128,7 +128,7 @@
         </tr>
       </table>
       <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
-    </div> -->
+    </div>
     <mat-divider></mat-divider>
   </div>
 </div>

@@ -23,6 +23,8 @@ export class ListarCampeonatosComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
+  isLoading: boolean = true;
+
   constructor(
     private _campeonatoService: CampeonatoService,
     private router: Router
@@ -36,6 +38,7 @@ export class ListarCampeonatosComponent implements OnInit {
       this.listaCampeonatos = res;
       this.dataSource = new MatTableDataSource(this.listaCampeonatos);
       this.dataSource.paginator = this.paginator;
+      this.isLoading = false;
     })
   }
 
