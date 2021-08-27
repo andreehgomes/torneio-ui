@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="box">
+        <div class="box2">
+            <h1>Excluir Edição</h1>
+        </div>
+        <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+            <div class="box3">
+                <div class="box4">
+                    <mat-form-field appearance="outline">                    
+                        <mat-label *ngIf="!isLoading">Edição</mat-label>
+                        <mat-spinner *ngIf="isLoading" [diameter]="25"></mat-spinner>                                    
+                        <mat-select *ngIf="!isLoading" formControlName="edicaoForm" required>                        
+                            <mat-option *ngFor="let edicoes of edicoes" [value]="edicoes">{{edicoes.nome}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="box4">
+                    <button type="submit" mat-raised-button color="accent"
+                        class="botaoFormulario">Excluir</button>
+                </div>
+            </div>
+        </form>        
+    </div>
+</div>
