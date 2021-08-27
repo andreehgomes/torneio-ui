@@ -65,6 +65,7 @@ import { CadastrarCampeonatoComponent } from './paginas/cadastrar-campeonato/cad
 import { ComprovanteCadastroCampeonatoComponent } from './paginas/comprovante-cadastro-campeonato/comprovante-cadastro-campeonato.component';
 import { DetalharCampeonatoComponent } from './paginas/detalhar-campeonato/detalhar-campeonato.component';
 import { AdicionarEdicaoComponent } from './modals/adicionar-edicao/adicionar-edicao.component';
+import { ExcluirEdicaoComponent } from './modals/excluir-edicao/excluir-edicao.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import { AdicionarEdicaoComponent } from './modals/adicionar-edicao/adicionar-ed
     ComprovanteCadastroCampeonatoComponent,
     DetalharCampeonatoComponent,
     AdicionarEdicaoComponent,
+    ExcluirEdicaoComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,8 @@ import { Campeonato } from '../_models/campeonato';
 })
 export class EdicaoService {
 
-  edicao: Edicao = new Edicao()
+  edicao: Edicao = new Edicao();
+  edicaoList: Array<Edicao> = [];
 
   constructor(private _http: HttpClient) { }
 
